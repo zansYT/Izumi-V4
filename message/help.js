@@ -184,6 +184,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}gimana <Query>
   ≻ ${prefix}bisakah <Query>
   ≻ ${prefix}cekme
+  ≻ ${prefix}react <Emoji>
   
   *( 🏦 )  Payment & Bank*
   ≻ ${prefix}buylimit <Jumlah>
@@ -215,5 +216,11 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}delprem
 
   *THANKS TO*
-  - Allah SWT`
+  - Allah SWT
+  - Baileys-Md (Adiwa Jshing)
+  - @yannnnn.zz_ (Riyan)
+  - @sofunsyabi.id (Arasya)
+  - M Hadi Firmansya (Hadi Api)
+  - @melcanz_ (Amel)
+  - @hardianto.xyz (Anto)`
 }
