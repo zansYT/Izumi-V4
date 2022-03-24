@@ -2080,6 +2080,12 @@ case prefix+'maker10':
 conn.sendMessage(from, {caption: `*${q}*`, image: data}, {quoted: msg})
 limitAdd(sender, limit)
 break
+case prefix+'react':
+  case prefix+'reaction':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+ conn.sendMessage(from, { react: { text: `${q}`, key: msg.key }})
+ limitAdd(sender, limit)
+ break
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]

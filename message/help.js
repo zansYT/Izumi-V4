@@ -215,11 +215,5 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}delprem
 
   *THANKS TO*
-  - Allah SWT
-  - Baileys-Md (Adiwa Jshing)
-  - @yannnnn.zz_ (Riyan)
-  - @sofunsyabi.id (Arasya)
-  - M Hadi Firmansya (Hadi Api)
-  - @melcanz_ (Amel)
-  - @hardianto.xyz (Anto)`
+  - Allah SWT`
 }
