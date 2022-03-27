@@ -214,6 +214,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}leave
   ≻ ${prefix}addprem
   ≻ ${prefix}delprem
+  ≻ ${prefix}broadcast
 
   *THANKS TO*
   - Allah SWT

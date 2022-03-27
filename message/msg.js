@@ -62,7 +62,7 @@ let glimit = JSON.parse(fs.readFileSync('./database/glimit.json'));
 
 moment.tz.setDefault("Asia/Jakarta").locale("id");
 
-module.exports = async(conn, msg, m, setting) => {
+module.exports = async(conn, msg, m, setting, store) => {
 	try {
 		let { ownerNumber, botName, gamewaktu, limitCount } = setting
 		let { allmenu } = require('./help')
@@ -473,7 +473,7 @@ break
                 mentions(txt, men, true)
                 break
 	        // Converter & Tools Menu
-			case prefix+'sticker': case prefix+'stiker': case prefix+'s':
+			case prefix+'sticker': case prefix+'stiker': case prefix+'s': case prefix+'stickergif': case prefix+'sgif': case prefix+'stikergif': case prefix+'stikgif':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (isImage || isQuotedImage) {
 		           var stream = await downloadContentFromMessage(msg.message.imageMessage || msg.message.extendedTextMessage?.contextInfo.quotedMessage.imageMessage, 'image')
@@ -718,6 +718,15 @@ case prefix+'yt2mp3':
 				var data = await conn.groupAcceptInvite(url)
 				reply(jsonformat(data))
 				break
+case prefix+'bc': case prefix+'broadcast':
+			    if (!isOwner) return reply(mess.OnlyOwner)
+		            if (args.length < 2) return reply(`Masukkan isi pesannya`)
+                            var data = await store.chats.all()
+                            for (let i data) {
+                               conn.sendMessage(i.id, { text: `*[ JOJO BROADCAST ]*\n\n${q}` })
+                               await sleep(1000)
+                            }
+                            break
 			case prefix+'setpp': case prefix+'setppbot':
 		        if (!isOwner) return reply(mess.OnlyOwner)
 		        if (isImage || isQuotedImage) {
