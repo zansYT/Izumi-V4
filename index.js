@@ -1,3 +1,10 @@
+/**
+  * Edit features in './message/msg.js'
+  * Contact me on WhatsApp wa.me/6281319944917
+  * Follow : https://github.com/rtwone
+  * Follow : https://github.com/GetSya
+*/
+
 "use strict";
 const {
 	default: makeWASocket,
@@ -5,6 +12,7 @@ const {
 	initInMemoryKeyStore,
 	DisconnectReason,
 	AnyMessageContent,
+        makeInMemoryStore,
 	useSingleFileAuthState,
 	delay
 } = require("@adiwajshing/baileys")
@@ -24,14 +32,14 @@ const { state, saveState } = useSingleFileAuthState(session)
 
 function title() {
       console.clear()
-	  console.log(chalk.bold.green(figlet.textSync('JojoBot MD', {
+	  console.log(chalk.bold.green(figlet.textSync('Jojo-Bot', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		verticalLayout: 'default',
 		width: 80,
 		whitespaceBreak: false
 	})))
-	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Created By Irfan && Arasya ]')}\n\n${chalk.red('Jojo Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Dev')} : ${chalk.white('@sofunsyabi.jpg')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 813-1994-4917')}\n${chalk.red('Donate')} : ${chalk.white('0882-1329-2687( Gopay/Ovo/Dana )')}\n`))
+	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Powered By Iyan & Arasya ]')}\n\n${chalk.red('Jojo-Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Dev')} : ${chalk.white('@sofunsyabi.jpg')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 813-1994-4917')}\n${chalk.red('Donate')} : ${chalk.white('088213292687 ( Gopay/Pulsa )')}\n`))
 }
 
 /**
@@ -65,9 +73,17 @@ const status = new Spinner(chalk.cyan(` Booting WhatsApp Bot`))
 const starting = new Spinner(chalk.cyan(` Preparing After Connect`))
 const reconnect = new Spinner(chalk.redBright(` Reconnecting WhatsApp Bot`))
 
+const store = makeInMemoryStore({ logger: logg().child({ level: 'fatal', stream: 'store' }) })
+
 const connectToWhatsApp = async () => {
-	const conn = makeWASocket({ printQRInTerminal: true, logger: logg({ level: 'fatal' }), auth: state })
+	const conn = makeWASocket({
+            printQRInTerminal: true,
+            logger: logg({ level: 'fatal' }),
+            auth: state,
+            browser: ["Jojo-Bot", "Safari", "3.0"]
+        })
 	title()
+        store.bind(conn.ev)
 	
 	/* Auto Update */
 	require('./message/help')
@@ -78,14 +94,14 @@ const connectToWhatsApp = async () => {
 	nocache('./message/msg', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	
 	conn.multi = true
-	conn.nopref = true
+	conn.nopref = false
 	conn.prefa = 'anjing'
 	conn.ev.on('messages.upsert', async m => {
 		if (!m.messages) return;
 		var msg = m.messages[0]
 		msg = serialize(conn, msg)
 		msg.isBaileys = msg.key.id.startsWith('BAE5') || msg.key.id.startsWith('3EB0')
-		require('./message/msg')(conn, msg, m, setting)
+		require('./message/msg')(conn, msg, m, setting, store)
 	})
 	conn.ev.on('connection.update', (update) => {
 		const { connection, lastDisconnect } = update
