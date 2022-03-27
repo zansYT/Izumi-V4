@@ -1509,73 +1509,85 @@ Note : Anggap "<" dan ">" Tidak Ada
  break
 //nsfw
 case prefix+'ass':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+ /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/ass?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'bdsm':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/bdsm?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'ahegao':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/ahegao?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'blowjob':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/blowjob?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'cuckold':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/cuckold?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'cum':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/cum?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'ero':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/ero?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'femdom':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/femdom?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'foot':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/foot?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'gangbang':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
 
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/gangbang?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'glasses':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
+  /*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")*/
   var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/nsfw/glasses?apikey=${jojoapi}`)
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'hentai':
+  if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
    var data = await getBuffer(`https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}`)
 				var but = [{buttonId: `/hentai`, buttonText: { displayText: "Kirim Hentai Lagi" }, type: 1 }]
@@ -2004,10 +2016,11 @@ limitAdd(sender, limit)
 break
 case prefix+'xnxx':
   case prefix+'xnxxdownload':
+    if (!isOwner)return reply(`Fitur ${command} Di Non-aktif kan Oleh Owner\nKarena sudah menjelang bulan Ramadhan:)))`)
 if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 if (!args[1].includes('xnxx')) return reply(mess.error.Iv)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
-if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+/*if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owKetik*/
 var data = await fetchJson(`https://melcanz.com/xnxxdl?url=${q}&apikey=${apikey}`)
 reply(mess.wait)
 conn.sendMessage(from, {video: {url: data.result.files.high}}, {quoted: msg})
