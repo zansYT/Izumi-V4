@@ -337,7 +337,7 @@ if (chats.startsWith("woy")){
 			// Main Menu
 			case prefix+'menu':
 			case prefix+'help':
-			  conn.sendMessage(from, { audio: fs.readFileSync('audio/WindahBengsin.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+			  conn.sendMessage(from, { audio: fs.readFileSync('audio/Assalamualaika.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    
 conn.sendMessage(from, { caption: teks, image: {url: `https://telegra.ph/file/7b927d601b6c7496d01ef.jpg`}, templateButtons: buttonsDefault, footer: '© Jojo - Bot', mentions: [sender]} )
