@@ -125,16 +125,16 @@ const connectToWhatsApp = async () => {
             for (let num of participants) {
                 // Get Profile Picture User
                 try {
-                    ppuser = await conn.profilePictureUrl(num, 'image')
+                    var ppuser = await conn.profilePictureUrl(num, 'image')
                 } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                    var ppuserlost = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 
                 // Get Profile Picture Group
                 try {
-                    ppgroup = await conn.profilePictureUrl(anu.id, 'image')
+                    var ppgroup = await conn.profilePictureUrl(anu.id, 'image')
                 } catch {
-                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                    var ppgrouplost = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 
                 if (anu.action == 'add') {
