@@ -117,37 +117,26 @@ const connectToWhatsApp = async () => {
 	})
 	conn.ev.on('creds.update', () => saveState)
 	
-	conn.ev.on('group-participants.update', async (anu) => {
-        console.log(anu)
-        try {
-            let metadata = await conn.groupMetadata(anu.id)
-            let participants = anu.participants
-            for (let num of participants) {
-                // Get Profile Picture User
-                try {
-                    var ppuser = await conn.profilePictureUrl(num, 'image')
-                } catch {
-                    var ppuserlost = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
+	conn.ev.on('group-participants.update', async (data) => {
+	try {
+	  for (let i of data.participants) {
+		try {
+		  var pp_user = await conn.profilePictureUrl(i, 'image')
+		} catch {
+		  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+		}
+		if (data.action == "add") {
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Welcome @${i.split("@")[0]}`, mentions: [i] })
+		} else if (data.action == "remove") {
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Sayonara @${i.split("@")[0]}`, mentions: [i] })
+		}
+	  }
+	} catch (e) {
+	  console.log(e)
+	}
+  }
+)
 
-                // Get Profile Picture Group
-                try {
-                    var ppgroup = await conn.profilePictureUrl(anu.id, 'image')
-                } catch {
-                    var ppgrouplost = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-
-                if (anu.action == 'add') {
-                 
-                    conn.sendMessage(anu.id, {text: `Hello 👋 Welcome To ${metadata.subject}\nDon't forget the intro 🤸‍♂️`})
-                } else if (anu.action == 'remove') {
-                    conn.sendMessage(anu.id, {text: `yahh kaka keluar dari grup ${metadata.subject}`})
-                }
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    })
 	
 	conn.reply = (from, content, msg) => conn.sendMessage(from, { text: content }, { quoted: msg })
 
