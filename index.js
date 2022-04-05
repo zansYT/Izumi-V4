@@ -138,8 +138,8 @@ const connectToWhatsApp = async () => {
                 }
 
                 if (anu.action == 'add') {
-                   conn.profilePictureUrl(anu.id, 'image').then( res => conn.sendMessage(anu.id, { image: { url: res }}))
-                    conn.sendMessage(anu.id, {text: `Hello 👋 Welcome To ${metadata.subject}`})
+                 
+                    conn.sendMessage(anu.id, {text: `Hello 👋 Welcome To ${metadata.subject}\nDon't forget the intro 🤸‍♂️`})
                 } else if (anu.action == 'remove') {
                     conn.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leaving To ${metadata.subject}` })
                 }
