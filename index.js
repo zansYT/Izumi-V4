@@ -95,7 +95,6 @@ const connectToWhatsApp = async () => {
 	
 	conn.multi = true
 	conn.nopref = false
-	const pushname = msg.pushName
 	conn.prefa = 'anjing'
 	conn.ev.on('messages.upsert', async m => {
 		if (!m.messages) return;
@@ -116,6 +115,7 @@ const connectToWhatsApp = async () => {
 			: console.log(mylog('Wa web terlogout...'))
 		}
 	})
+	const pushname = msg.pushName
 	conn.ev.on('creds.update', () => saveState)
 	
 	conn.ev.on('group-participants.update', async (data) => {
