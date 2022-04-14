@@ -277,18 +277,23 @@ module.exports = async(conn, msg, m, setting, store) => {
 		  }
 		}
 if (chats.startsWith("@6288213292687")){
+	conn.sendMessage(from, { react: { text: `😍`, key: msg.key }})
    conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 if (chats.startsWith("eh")){
+	conn.sendMessage(from, { react: { text: `🤪`, key: msg.key }})
    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 if (chats.startsWith("Eh")){
+	conn.sendMessage(from, { react: { text: `😤`, key: msg.key }})
    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 if (chats.startsWith("Jojo")){
+	conn.sendMessage(from, { react: { text: `👋`, key: msg.key }})
    conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 if (chats.startsWith("woy")){
+	conn.sendMessage(from, { react: { text: `😭`, key: msg.key }})
    conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 		if (chats.startsWith("> ") && isOwner) {
@@ -337,9 +342,10 @@ if (chats.startsWith("woy")){
 			// Main Menu
 			case prefix+'menu':
 			case prefix+'help':
-			  conn.sendMessage(from, { audio: fs.readFileSync('audio/Assalamualaika.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+			  /*conn.sendMessage(from, { audio: fs.readFileSync('audio/Assalamualaika.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    
+				conn.sendMessage(from, { react: { text: `👋`, key: msg.key }})
 conn.sendMessage(from, { caption: teks, image: {url: `https://telegra.ph/file/7b927d601b6c7496d01ef.jpg`}, templateButtons: buttonsDefault, footer: '© Jojo - Bot', mentions: [sender]} )
 				break
 case prefix+'donasiah':
