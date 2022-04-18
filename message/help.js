@@ -148,6 +148,10 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}qr <Text>
   ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022
+  ≻ ${prefix}lirik <Judul>
+  ≻ ${prefix}grupwa <Pencarian>
+  ≻ ${prefix}ytsearch <Pencarian>
+  ≻ ${prefix}pinterest <Querry>
 
   *( ☪️ )  Islamic Menu*
   ≻ ${prefix}quran <nomer>
@@ -161,11 +165,12 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}foliokanan <Text>
   ≻ ${prefix}foliokiri <Text>
   
-  *( 🔎 )  Search Menu*
-  ≻ ${prefix}lirik <Judul>
-  ≻ ${prefix}grupwa <Pencarian>
-  ≻ ${prefix}ytsearch <Pencarian>
-  ≻ ${prefix}pinterest <Querry>
+  *( 🅰️ )  Edit Vokal*
+  ≻ ${prefix}halah
+  ≻ ${prefix}hilih
+  ≻ ${prefix}heleh
+  ≻ ${prefix}huluh
+  ≻ ${prefix}holoh
   
   *( 🎮 )  Game & Fun Menu*
   ≻ ${prefix}tictactoe @tag
