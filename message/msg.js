@@ -670,7 +670,7 @@ conn.sendMessage(from, {caption: title, image: {url: data.result.thumb}}, {quote
 conn.sendMessage(from, {audio: {url: data.result.result}, mimetype: 'audio/mp4'}, {quoted: msg})
 limitAdd(sender, limit)
               break
-			/*case prefix+'getvideo': case prefix+'getvidio':
+			case prefix+'getvideo': case prefix+'getvidio':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (!isQuotedImage) return reply(`Balas hasil pencarian dari ${prefix}ytsearch dengan teks ${command} <no urutan>`)
 				if (!quotedMsg.fromMe) return reply(`Hanya bisa mengambil hasil dari pesan bot`)
