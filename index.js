@@ -28,7 +28,7 @@ const { serialize } = require("./lib/myfunc");
 const { color, mylog, infolog } = require("./lib/color");
 const time = moment(new Date()).format('HH:mm:ss DD/MM/YYYY')
 let setting = JSON.parse(fs.readFileSync('./config.json'));
-let session = `./${setting.ionName}.json`
+let session = `./${setting.sessionName}.json`
 const { state, saveState } = useSingleFileAuthState(session)
 let welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
