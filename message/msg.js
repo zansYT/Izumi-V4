@@ -39,6 +39,7 @@ const axios = require("axios");
 const hxz = require("hxz-api");
 const ra = require("ra-api");
 const kotz = require("kotz-api");
+const yts = require("yt-search");
 const speed = require("performance-now");
 const request = require("request");
 const ms = require("parse-ms");
@@ -706,7 +707,7 @@ limitAdd(sender, limit)
 			      conn.sendMessage(from, { document: { url: data.medias[7].url }, fileName: `${data.title}.mp3`, mimetype: 'audio/mp3' }, { quoted: msg })
 			      limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
-			    break*/
+			    break
 			case prefix+'igdl': case prefix+'instagram': case prefix+'ig':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (args.length < 2) return reply(`Kirim perintah ${command} link`)
@@ -960,7 +961,7 @@ reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon b
 				  }
 				})
 			    break
-			/*case prefix+'yts': case prefix+'ytsearch':
+			case prefix+'yts': case prefix+'ytsearch':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} query`)
 				reply(mess.wait)
@@ -994,7 +995,7 @@ case prefix+'report':
             conn.reply(i, `*[ PANGGILAN USER ]*\nMessage nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
-        break*/
+        break
 case prefix+'join':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} Link Grup Kamu`)
