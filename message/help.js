@@ -150,7 +150,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}hitungmundur 12 10 2022
   ≻ ${prefix}lirik <Judul>
   ≻ ${prefix}grupwa <Pencarian>
-  ≻ ${prefix}ytsearch <Pencarian>
   ≻ ${prefix}pinterest <Querry>
 
   *( ☪️ )  Islamic Menu*
