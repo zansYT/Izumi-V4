@@ -1,9 +1,8 @@
 /**
   * Edit features in './message/msg.js'
   * Contact me on WhatsApp wa.me/6281319944917
-  * Follow https://github.com/GetSya
-  * Follow https://github.com/rtwone
-  * If you want to buy an updated script that is not encrypted, please WhatsApp me
+  * Follow : https://github.com/rtwone
+  * Follow : https://github.com/GetSya
 */
 
 "use strict";
@@ -30,18 +29,17 @@ const time = moment(new Date()).format('HH:mm:ss DD/MM/YYYY')
 let setting = JSON.parse(fs.readFileSync('./config.json'));
 let session = `./${setting.sessionName}.json`
 const { state, saveState } = useSingleFileAuthState(session)
-let welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
 function title() {
       console.clear()
-	  console.log(chalk.bold.green(figlet.textSync('JOJO CHANNEL', {
+	  console.log(chalk.bold.green(figlet.textSync('Jojo-Bot', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		verticalLayout: 'default',
 		width: 80,
 		whitespaceBreak: false
 	})))
-	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Created By Irfan & Arasya]')}\n\n${chalk.red('JOJO CHANNEL')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Dev')} : ${chalk.white('@arsrfi.jpg')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 813-1994-4917')}\n${chalk.red('Donate')} : ${chalk.white('088213292687 ( Gopay/Dana/Ovo )')}\n`))
+	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Powered By Iyan & Arasya ]')}\n\n${chalk.red('Jojo-Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Dev')} : ${chalk.white('@sofunsyabi.jpg')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 813-1994-4917')}\n${chalk.red('Donate')} : ${chalk.white('088213292687 ( Gopay/Pulsa )')}\n`))
 }
 
 /**
@@ -82,7 +80,7 @@ const connectToWhatsApp = async () => {
             printQRInTerminal: true,
             logger: logg({ level: 'fatal' }),
             auth: state,
-            browser: ["JOJO-MD", "Firefox", "3.0"]
+            browser: ["Jojo-Bot", "Safari", "3.0"]
         })
 	title()
         store.bind(conn.ev)
@@ -97,13 +95,13 @@ const connectToWhatsApp = async () => {
 	
 	conn.multi = true
 	conn.nopref = false
-	conn.prefa = '#'
+	conn.prefa = 'anjing'
 	conn.ev.on('messages.upsert', async m => {
 		if (!m.messages) return;
 		var msg = m.messages[0]
 		msg = serialize(conn, msg)
 		msg.isBaileys = msg.key.id.startsWith('BAE5') || msg.key.id.startsWith('3EB0')
-		require('./message/msg')(conn, msg, m, setting, store, welcome)
+		require('./message/msg')(conn, msg, m, setting, store)
 	})
 	conn.ev.on('connection.update', (update) => {
 		const { connection, lastDisconnect } = update
@@ -119,28 +117,28 @@ const connectToWhatsApp = async () => {
 	})
 	conn.ev.on('creds.update', () => saveState)
 	
-        conn.ev.on('group-participants.update', async (data) => {
-          const isWelcome = welcome.includes(data.id) ? true : false
-          if (isWelcome) {
-            try {
-              for (let i of data.participants) {
-                try {
-                  var pp_user = await conn.profilePictureUrl(i, 'image')
-                } catch {
-                  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-                if (data.action == "add") {
-                  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Welcome @${i.split("@")[0]}`, mentions: [i] })
-                } else if (data.action == "remove") {
-                  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Sayonara @${i.split("@")[0]}`, mentions: [i] })
-                }
-              }
-            } catch (e) {
-              console.log(e)
-            }
-          }
-        })
+	conn.ev.on('group-participants.update', async (data) => {
+	try {
+	let metadata = await conn.groupMetadata(data.id)
+	  for (let i of data.participants) {
+		try {
+		  var pp_user = await conn.profilePictureUrl(i, 'image')
+		} catch {
+		  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+		}
+		if (data.action == "add") {
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Welcome @${i.split("@")[0]} To The Group ${metadata.subject}`, mentions: [i] })
+		} else if (data.action == "remove") {
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Goodbye @${i.split("@")[0]}`, mentions: [i] })
+		}
+	  }
+	} catch (e) {
+	  console.log(e)
+	}
+  }
+)
 
+	
 	conn.reply = (from, content, msg) => conn.sendMessage(from, { text: content }, { quoted: msg })
 
 	return conn
