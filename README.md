@@ -5,7 +5,8 @@ Jojo Bot Multi Device
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GetSya/JOJO-MD)
 
 ## Module Untuk Multi Device
-Module nya : https://www.mediafire.com/download/l8b3te4g1p8z354
+Download Module [CLICK HERE](https://www.mediafire.com/file/l8b3te4g1p8z354/module.zip/file) NO PASSWORD <br>
+Download File SCRIPT Via Zip [CLICK HERE](https://www.mediafire.com/file/djgc093s2l9xxmk/JOJO-MD.zip/file) NO PASSWORD
 
 ## FOR TERMUX/UBUNTU/SSH USER
 
@@ -15,7 +16,7 @@ apt install git -y
 apt install nodejs -y
 apt install ffmpeg -y
 apt install imagemagick -y
-git clone https://github.com/Nurutomo/wabot-aq
+git clone https://github.com/GetSya/JOJO-MD
 cd wabot-aq
 npm install
 npm update
