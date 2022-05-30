@@ -2176,9 +2176,10 @@ if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit
 conn.profilePictureUrl(quotedMsg.sender, 'image').then( res => conn.sendMessage(from, { image: { url: res }}), {quoted: msg}).catch(() => conn.sendMessage(from, {caption: `Yah maaf kak, dia ini gak pake foto profile, kayaknya dia depresiiiii`, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}), {quoted: msg})
 limitAdd(sender, limit)
 break
-if (!isGroup && isCmd) {
-	reply(`Maaf Command ${command} Belum Tersedia di daftar ${prefix}menu`)
-}
+default:
+			if (!isGroup && isCmd) {
+				reply(`Command ${command} Tidak Ada Di Dalam ${prefix}menu`)
+			}
 		}
 	} catch (err) {
 		console.log(color('[ERROR]', 'red'), err)
