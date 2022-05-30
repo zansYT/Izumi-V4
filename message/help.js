@@ -69,7 +69,9 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}mediafire <LinkMediaFire>
   
   *( ♻️ )  Random Menu*
-  ≻ ${prefix}quote
+  ≻ ${prefix}quotes
+  ≻ ${prefix}katagalau
+  ≻ ${prefix}dadu
   ≻ ${prefix}cecan
   ≻ ${prefix}cogan
   ≻ ${prefix}naruto
@@ -78,21 +80,14 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}husbu
   ≻ ${prefix}yaoi
   
-  *( 📛 ) Nsfw User Free*
-  ≻ ${prefix}hentai
-  
   *( ⚠️ )  Premium User*
-  ≻ ${prefix}ass
-  ≻ ${prefix}bdsm
+  ≻ ${prefix}asupan
+  ≻ ${prefix}xnxx link
   ≻ ${prefix}ahegao
-  ≻ ${prefix}cuckold
-  ≻ ${prefix}blowjob
-  ≻ ${prefix}cum
-  ≻ ${prefix}ero
-  ≻ ${prefix}femdom
-  ≻ ${prefix}foot
-  ≻ ${prefix}gangbang
-  ≻ ${prefix}xnxx <Link>
+  ≻ ${prefix}bloewjob
+  ≻ ${prefix}hentai
+  ≻ ${prefix}masturbation
+  ≻ ${prefix}pussy
   
   *( 🎨 )  Menu Maker*
   ≻ ${prefix}glitch <Text> <Text>
@@ -144,6 +139,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}grupwa <Pencarian>
   ≻ ${prefix}ytsearch <Pencarian>
   ≻ ${prefix}pinterest <Querry>
+  ≻ ${prefix}getpp
 
   *( ☪️ )  Islamic Menu*
   ≻ ${prefix}quran <nomer>
