@@ -271,7 +271,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 			{ urlButton: { displayText: `GRUP JOJO-BOT`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
 			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6281319944917?text=Hai+kak+aku+mau+beli+PREMIUM` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
-			{ quickReplyButton: { displayText: `Info Bot`, id: `${prefix}infobot` } },
+			{ quickReplyButton: { displayText: `Script`, id: `${prefix}sc` } },
 		]
 		const button5 = [
 			{ callButton: { displayText: `Number Owner`, phoneNumber: `0813-1994-4917` } },
@@ -450,7 +450,7 @@ Thanks To
 - Hardianto
 - Febri`
 
-conn.sendMessage(from, {caption: caption,image: fs.readFileSync('media/Jojo2.jpg')}, {quoted: msg})
+conn.sendMessage(from, {caption: caption, image: fs.readFileSync('media/Jojo2.jpg')}, {quoted: msg})
 break
 			/*case prefix+'donate':
 			case prefix+'donasi':
@@ -1934,8 +1934,9 @@ case prefix+'readmore':
     break
 case prefix+'jo':
   case prefix+'simi':
-  const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
-  conn.sendMessage(from, { text: cimcimi.success})
+ var text = `${q}`
+var cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${text}&lc=id`)
+  conn.sendMessage(from, { text: cimcimi.success}, {quoted: msg})
   break
 case prefix+'igstalk':
   case prefix+'stalkig':
@@ -2174,6 +2175,16 @@ case prefix+'getprofile':
 if (!isQuotedMsg) return reply(`Reply Message nya!`)
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 conn.profilePictureUrl(quotedMsg.sender, 'image').then( res => conn.sendMessage(from, { image: { url: res }}, {quoted: msg})).catch(() => conn.sendMessage(from, {caption: `Yah maaf kak, dia ini gak pake foto profile, kayaknya dia depresiiiii/Di Private...\n\nJadiii aku kasih ini ajaaa ya`, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}, {quoted: msg}))
+limitAdd(sender, limit)
+break
+case prefix+'suratto':
+  case prefix+'surat':
+    if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Suratnya\nContoh ${command} 62813199449171|Anjing\n\nAWALI DENGAN 62!`)
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var number = q.split('|')[0] ? q.split('|')[0] : q
+                var text = q.split('|')[1] ? q.split('|')[1] : ''
+                reply(`Pesan Sukses Terkirim`)
+conn.sendMessage(`${number}@s.whatsapp.net`, {text: `*[ FITUR SURAT ]*\n\n*Dari :* @${sender} (${pushname})\n*Pesan :* ${text}`, mentions: [sender]})
 limitAdd(sender, limit)
 break
 default:

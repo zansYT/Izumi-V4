@@ -71,7 +71,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   *( ♻️ )  Random Menu*
   ≻ ${prefix}quotes
   ≻ ${prefix}katagalau
-  ≻ ${prefix}dadu
   ≻ ${prefix}cecan
   ≻ ${prefix}cogan
   ≻ ${prefix}naruto
@@ -177,7 +176,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}gimana <Query>
   ≻ ${prefix}bisakah <Query>
   ≻ ${prefix}cekme
-  ≻ ${prefix}react <Emoji>
+  ≻ ${prefix}dadu
   
   *( 🏦 )  Payment & Bank*
   ≻ ${prefix}buylimit <Jumlah>
@@ -212,7 +211,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   *THANKS TO*
   - Allah SWT
   - Baileys-Md (Adiwa Jshing)
-  - @yannnnn.zz_ (Riyan)
+  - @irfann._x (Iyan)
   - @arsrfi.jpg (Arasya)
   - M Hadi Firmansya (Hadi Api)
   - @melcanz_ (Amel)
