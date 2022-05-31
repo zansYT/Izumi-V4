@@ -256,7 +256,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const buttonWithText = (from, text, footer, buttons) => {
 			return conn.sendMessage(from, { text: text, footer: footer, templateButtons: buttons })
 		}
-		const sendContact = (jid, numbers, name, quoted, mn) => {
+		const tact = (jid, numbers, name, quoted, mn) => {
 			let number = numbers.replace(/[^0-9]/g, '')
 			const vcard = 'BEGIN:VCARD\n' 
 			+ 'VERSION:3.0\n' 
@@ -311,7 +311,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		  if (chats.toLowerCase() == getJawabanGame(from, tebakgambar)) {
 		    var htgm = randomNomor(500, 550)
 			addBalance(sender, htgm, balance)
-		    var texttg = `*Selamat ${pushname} Jawaban Kamu Benar 🎉*\n\nJawaban : ${getJawabanGame(from, tebakgambar)}\nHadiah : ${htgm} balance\n\nIngin bermain lagi? Pencet Tombol Dibawah*`
+		    var texttg = `*Selamat ${pushname} Jawaban Kamu Benar 🎉*\n\nJawaban : ${getJawabanGame(from, tebakgambar)}\nHadiah : ${htgm} balance\n\nIngin bermain lagi? Pencet Tombol Dibawah`
 			var tebakgmbr = [
 			{ quickReplyButton: { displayText: `Main Lagi`, id: `${prefix}tebakgambar` } },
 		]
@@ -450,7 +450,7 @@ Thanks To
 - Hardianto
 - Febri`
 
-conn.sendMessage(from, {caption: caption, image: fs.readFileSync("media/Jojo.jpg")}, {quoted: msg})
+conn.sendMessage(from, {caption: caption,image: fs.readFileSync('media/Jojo2.jpg')}, {quoted: msg})
 break
 			/*case prefix+'donate':
 			case prefix+'donasi':
@@ -472,7 +472,7 @@ break
 			    break*/
 			case prefix+'owner':
 			    for (let x of ownerNumber) {
-			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
+			      tact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
 			    }
 			    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 			    break
@@ -680,7 +680,7 @@ case prefix+'ytmp3':
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
 				y2mateA(q).then( data => {
-					var capt = `📛 *Title :* ${data[0].judul}\n🔰 *Size Video :* ${data[0].size}\n\n_Tunggu sebentar audio akan di kirim...._`
+					var capt = `📛 *Title :* ${data[0].judul}\n🔰 *Size Audio :* ${data[0].size}\n\n_Tunggu sebentar audio akan di kirim...._`
 					conn.sendMessage(from, {caption: capt, image: {url: data[0].thumb}}, {quoted: msg}) 
 					
 					conn.sendMessage(from, { document: { url: data[0].link }, fileName: `${data[0].judul}.mp3`, mimetype: 'audio/mp3' }, { quoted: msg })
@@ -2173,7 +2173,7 @@ case prefix+'getpp':
 case prefix+'getprofile':
 if (!isQuotedMsg) return reply(`Reply Message nya!`)
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-conn.profilePictureUrl(quotedMsg.sender, 'image').then( res => conn.sendMessage(from, { image: { url: res }}), {quoted: msg}).catch(() => conn.sendMessage(from, {caption: `Yah maaf kak, dia ini gak pake foto profile, kayaknya dia depresiiiii`, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}), {quoted: msg})
+conn.profilePictureUrl(quotedMsg.sender, 'image').then( res => conn.sendMessage(from, { image: { url: res }}, {quoted: msg})).catch(() => conn.sendMessage(from, {caption: `Yah maaf kak, dia ini gak pake foto profile, kayaknya dia depresiiiii/Di Private...\n\nJadiii aku kasih ini ajaaa ya`, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}, {quoted: msg}))
 limitAdd(sender, limit)
 break
 default:
