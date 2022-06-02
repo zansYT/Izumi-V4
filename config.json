@@ -1,9 +1,9 @@
 {
-  "ownerNumber": ["6281319944917@s.whatsapp.net"],
-  "ownerName": ["Arasya"],
-  "botName": "Jojo Bot",
+  "Message" : "EDIT OWNER ADA DI message/msg.js",
+  "ownerName": "Arasya",
+  "botName": "JOJO BOT",
   "sessionName": "session",
-  "pathimg": "./media/Jojo.jpg",
+  "pathimg": "./media/Jojo2.jpg",
   "gamewaktu": 90,
   "limitCount": 30,
   "gcount": {
