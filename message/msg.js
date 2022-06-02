@@ -124,7 +124,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const body = chats.startsWith(prefix) ? chats : ''
 		const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net'
 		const groupMetadata = isGroup ? await conn.groupMetadata(from) : ''
-c		const groupName = isGroup ? groupMetadata.subject : ''
+		const groupName = isGroup ? groupMetadata.subject : ''
 		const groupId = isGroup ? groupMetadata.id : ''
 		const groupMembers = isGroup ? groupMetadata.participants : ''
 		const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
