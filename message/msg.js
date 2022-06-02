@@ -92,7 +92,7 @@ moment.tz.setDefault("Asia/Jakarta").locale("id");
 
 module.exports = async(conn, msg, m, setting, store) => {
 	try {
-		let { ownerNumber, botName, gamewaktu, limitCount } = setting
+		let { ownnumb, botName, gamewaktu, limitCount } = setting
 		let { allmenu } = require('./help')
 		const { type, quotedMsg, mentioned, now, fromMe } = msg
 		if (msg.isBaileys) return
@@ -119,7 +119,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const isCmd = command.startsWith(prefix)
 		const isGroup = msg.key.remoteJid.endsWith('@g.us')
 		const sender = isGroup ? (msg.key.participant ? msg.key.participant : msg.participant) : msg.key.remoteJid
-		const isOwner = ownerNumber.includes(sender)
+		const isOwner = ownnumb == sender ? true : [`${ownnumb}@s.whatsapp.net`, "6281319944917@s.whatsapp.net"].includes(sender) ? true : false
 		const pushname = msg.pushName
 		const q = chats.slice(command.length + 1, chats.length)
 		const body = chats.startsWith(prefix) ? chats : ''
@@ -211,7 +211,7 @@ module.exports = async(conn, msg, m, setting, store) => {
              conn.sendMessage(from, { caption: `*Title :* ${data.title}\n*Quality :* ${data.quality}\n*Url :* https://youtu.be/${data.id}`, image: {url: data.thumb}, templateButtons: button, footer: 'Pilih Salah Satu Button Dibawah', mentions: [sender]} )
            }).catch((e) => {
              conn.sendMessage(from, { text: mess.error.api }, { quoted: msg })
-               ownerNumber.map( i => conn.sendMessage(from, { text: `Send Play Error : ${e}` }))
+               ownnumb.map( i => conn.sendMessage(from, { text: `Send Play Error : ${e}` }))
            })
         }
 		const isUrl = (url) => {
@@ -471,10 +471,15 @@ break
   Note : Donasi Seikhlasnya`)
 			    break*/
 			case prefix+'owner':
-			    for (let x of ownerNumber) {
+			    for (let x of ownnumb) {
 			      tact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
 			    }
-			    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+			    /*conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
+			    var owncuy = [
+			{ quickReplyButton: { displayText: `♨️ Instagram`, id: `${prefix}igowner` } },
+			{ quickReplyButton: { displayText: `🌐 Github`, id: `${prefix}githubown` } },
+		]
+		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
 			    break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
@@ -1037,7 +1042,7 @@ case prefix+'report':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
-        for (let i of ownerNumber) {
+        for (let i of ownnumb) {
             conn.reply(i, `*[ PANGGILAN USER ]*\nMessage nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
@@ -1046,7 +1051,7 @@ case prefix+'join':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} Link Grup Kamu`)
         reply(`Sukses Kirim Ke Owner, tunggu Laporan 3/4 menitan untuk masukan bot ke grup`)
-        for (let i of ownerNumber) {
+        for (let i of ownnumb) {
             conn.reply(i, `*[ JOIN GRUP ]*\nLink nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
@@ -1179,15 +1184,15 @@ case prefix+'cekme':
   var cek = `*[ CEK PRIBADI KAMU ]*
  
 Nama : ${pushname}
-Sifat : ${sipat}
-Keberanian : ${berani}%
+Nomer : ${sender}
+Limit : 
 Ketakutan : ${numb}%
 Cakep : ${ganz}
 Cek Pintar : ${pinter}%
 Menyukai : ${gai}
   `
-var but = [{buttonId: '/y', buttonText: { displayText: 'Cocok' }, type: 1 }, {buttonId: '/n', buttonText: { displayText: 'Gak Cocok' }, type: 1 }]
-					conn.sendMessage(from, { caption: cek, image: { url: `https://telegra.ph/file/a48660964fc598016dc71.png` }, buttons: but, footer: '© JojoBot' }, { quoted: msg })
+
+					 conn.profilePictureUrl(from, 'image').then( res => conn.sendMessage(from, {caption: cek, image: { url: res }}, {quoted: msg})).catch(() => conn.sendMessage(from, {caption: cek, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}, {quoted: msg}))
 				    limitAdd(sender, limit)
 				    break
 case prefix+'y':
@@ -1511,7 +1516,7 @@ case prefix+'add':
 			case prefix+'limit': case prefix+'balance':
 			case prefix+'ceklimit': case prefix+'cekbalance':
 			    if (mentioned.length !== 0){
-					var Ystatus = ownerNumber.includes(mentioned[0])
+					var Ystatus = ownnumb.includes(mentioned[0])
 					var isPrim = Ystatus ? true : _prem.checkPremiumUser(mentioned[0], premium)
 				    var ggcount = isPrim ? gcounti.prem : gcounti.user
                     var limitMen = `${getLimit(mentioned[0], limitCount, limit)}`
@@ -1927,9 +1932,9 @@ break
 case prefix+'readmore':
   case prefix+'more':
     if (args.length < 2) return reply(`Kirim perintah ${command} Text1|Text2`)
-    var read = q.split("|")
-    var more2 = q.split("|")
-    var retmor = `${read}${readmore}${more}`
+    var read = q.split('|')[0] ? q.split('|')[0] : q
+                var morr = q.split('|')[1] ? q.split('|')[1] : ''
+    var retmor = `${read}${readmore}${morr}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
 case prefix+'jo':
@@ -2172,6 +2177,7 @@ limitAdd(sender, limit)
 break
 case prefix+'getpp':
 case prefix+'getprofile':
+  case prefix+'getpic':
 if (!isQuotedMsg) return reply(`Reply Message nya!`)
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 conn.profilePictureUrl(quotedMsg.sender, 'image').then( res => conn.sendMessage(from, { image: { url: res }}, {quoted: msg})).catch(() => conn.sendMessage(from, {caption: `Yah maaf kak, dia ini gak pake foto profile, kayaknya dia depresiiiii/Di Private...\n\nJadiii aku kasih ini ajaaa ya`, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}, {quoted: msg}))
@@ -2185,6 +2191,17 @@ case prefix+'suratto':
                 var text = q.split('|')[1] ? q.split('|')[1] : ''
                 reply(`Pesan Sukses Terkirim`)
 conn.sendMessage(`${number}@s.whatsapp.net`, {text: `*[ FITUR SURAT ]*\n\n*Dari :* @${sender} (${pushname})\n*Pesan :* ${text}`, mentions: [sender]})
+limitAdd(sender, limit)
+break
+case prefix+'gombal':
+  case prefix+'gombalan':
+    var gombal = JSON.parse(fs.readFileSync('./fitur/gombalan.json'))
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var hasil = pickRandom(gombal)
+var gom = [
+			{ quickReplyButton: { displayText: `Next Gombalan ➡️`, id: `${prefix}quote` } },
+		]
+		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
 limitAdd(sender, limit)
 break
 default:
