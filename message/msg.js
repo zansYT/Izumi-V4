@@ -60,8 +60,6 @@ const jojoapi = "Syaa"
 const ikiapi = "FuckBitch"
 
 //Setting ke 2
-
-const ownnumb = "6281319944917"
 const nobot = "6288213292687"
 
 // Setting Donasi
@@ -93,7 +91,7 @@ moment.tz.setDefault("Asia/Jakarta").locale("id");
 
 module.exports = async(conn, msg, m, setting, store) => {
 	try {
-		let { ownnumb, botName, gamewaktu, limitCount } = setting
+		let { ownerNumber, ownerName, botName, gamewaktu, limitCount } = setting
 		let { allmenu } = require('./help')
 		const { type, quotedMsg, mentioned, now, fromMe } = msg
 		if (msg.isBaileys) return
@@ -120,7 +118,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const isCmd = command.startsWith(prefix)
 		const isGroup = msg.key.remoteJid.endsWith('@g.us')
 		const sender = isGroup ? (msg.key.participant ? msg.key.participant : msg.participant) : msg.key.remoteJid
-		const isOwner = ownnumb == sender ? true : [`${ownnumb}@s.whatsapp.net`, "6281319944917@s.whatsapp.net"].includes(sender) ? true : false
+		const isOwner = ownerNumber == sender ? true : [`${ownerNumber}@s.whatsapp.net`, "6281319944917@s.whatsapp.net"].includes(sender) ? true : false
 		const pushname = msg.pushName
 		const q = chats.slice(command.length + 1, chats.length)
 		const body = chats.startsWith(prefix) ? chats : ''
@@ -212,7 +210,7 @@ module.exports = async(conn, msg, m, setting, store) => {
              conn.sendMessage(from, { caption: `*Title :* ${data.title}\n*Quality :* ${data.quality}\n*Url :* https://youtu.be/${data.id}`, image: {url: data.thumb}, templateButtons: button, footer: 'Pilih Salah Satu Button Dibawah', mentions: [sender]} )
            }).catch((e) => {
              conn.sendMessage(from, { text: mess.error.api }, { quoted: msg })
-               ownnumb.map( i => conn.sendMessage(from, { text: `Send Play Error : ${e}` }))
+               ownerNumber.map( i => conn.sendMessage(from, { text: `Send Play Error : ${e}` }))
            })
         }
 		const isUrl = (url) => {
@@ -267,7 +265,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 			+ 'END:VCARD'
 			return conn.sendMessage(from, { contacts: { displayName: name, contacts: [{ vcard }] }, mentions : mn ? mn : []},{ quoted: quoted })
 		}
-		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+${ownnumb}` } },
+		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+${ownerNumber}` } },
 		const buttonsDefault = [
 			{ urlButton: { displayText: `GRUP JOJO-BOT`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
 			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6281319944917?text=Hai+kak+aku+mau+beli+PREMIUM` } },
@@ -377,7 +375,7 @@ if (chats.startsWith("@6288213292687")){
 conn.sendMessage(from, { caption: teks, image: fs.readFileSync('media/Jojo2.jpg'), templateButtons: buttonsDefault, footer: '© Jojo - Bot', mentions: [sender]} )
 				break
 case prefix+'donasiah':
-  reply(`Jika Ingin Donasi Harap Hubungi Owner\n\nhttps://wa.me/${ownnumb}`)
+  reply(`Jika Ingin Donasi Harap Hubungi Owner\n\nhttps://wa.me/${ownerNumber}`)
   break
 case prefix+'donasi':
   case prefix+'donate':
@@ -438,7 +436,7 @@ case prefix+'infobot':
 *Nama Bot :* Jojo
 *Name Owner :* Arasya
 *Nomor Bot :* wa.me/${nobot}
-*Nomor Owner :* wa.me/${ownnumb}
+*Nomor Owner :* wa.me/${ownerNumber}
 *Engine :* NodeJs
 *Status :* Aktif
 *Aktif Selama :* ${runtime(process.uptime())}
@@ -472,7 +470,7 @@ break
   Note : Donasi Seikhlasnya`)
 			    break*/
 			case prefix+'owner':
-			    for (let x of ownnumb) {
+			    for (let x of ownerNumber) {
 			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
 			    }
 			    /*conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
@@ -1049,7 +1047,7 @@ case prefix+'report':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
-        for (let i of ownnumb) {
+        for (let i of ownerNumber) {
             conn.reply(i, `*[ PANGGILAN USER ]*\nMessage nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
@@ -1058,7 +1056,7 @@ case prefix+'join':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} Link Grup Kamu`)
         reply(`Sukses Kirim Ke Owner, tunggu Laporan 3/4 menitan untuk masukan bot ke grup`)
-        for (let i of ownnumb) {
+        for (let i of ownerNumber) {
             conn.reply(i, `*[ JOIN GRUP ]*\nLink nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
@@ -1523,7 +1521,7 @@ case prefix+'add':
 			case prefix+'limit': case prefix+'balance':
 			case prefix+'ceklimit': case prefix+'cekbalance':
 			    if (mentioned.length !== 0){
-					var Ystatus = ownnumb.includes(mentioned[0])
+					var Ystatus = ownerNumber.includes(mentioned[0])
 					var isPrim = Ystatus ? true : _prem.checkPremiumUser(mentioned[0], premium)
 				    var ggcount = isPrim ? gcounti.prem : gcounti.user
                     var limitMen = `${getLimit(mentioned[0], limitCount, limit)}`
