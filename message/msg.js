@@ -61,8 +61,8 @@ const ikiapi = "FuckBitch"
 
 //Setting ke 2
 
-var ownnumb = "6281319944917"
-var nobot = "6288213292687"
+const ownnumb = "6281319944917"
+const nobot = "6288213292687"
 
 // Setting Donasi
 const gopay = "0882-1329-2687"
@@ -438,7 +438,7 @@ case prefix+'infobot':
 *Nama Bot :* Jojo
 *Name Owner :* Arasya
 *Nomor Bot :* wa.me/${nobot}
-*Nomor Owner :* wa.me/${ownnum}
+*Nomor Owner :* wa.me/${ownnumb}
 *Engine :* NodeJs
 *Status :* Aktif
 *Aktif Selama :* ${runtime(process.uptime())}
@@ -473,7 +473,7 @@ break
 			    break*/
 			case prefix+'owner':
 			    for (let x of ownnumb) {
-			      tact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
+			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
 			    }
 			    /*conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
 			    var owncuy = [
