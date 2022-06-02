@@ -257,7 +257,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const buttonWithText = (from, text, footer, buttons) => {
 			return conn.sendMessage(from, { text: text, footer: footer, templateButtons: buttons })
 		}
-		const tact = (jid, numbers, name, quoted, mn) => {
+		const sendContact = (jid, numbers, name, quoted, mn) => {
 			let number = numbers.replace(/[^0-9]/g, '')
 			const vcard = 'BEGIN:VCARD\n' 
 			+ 'VERSION:3.0\n' 
