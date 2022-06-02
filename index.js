@@ -127,7 +127,7 @@ const connectToWhatsApp = async () => {
 		  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 		}
 		if (data.action == "add") {
-		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Welcome @${i.split("@")[0]} To The Group ${metadata.subject}`, mentions: [i] })
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Hallo @${i.split("@")[0]} Selamat Datang Di Grup ${metadata.subject}\nSilahkan Memperkenalkan Diri Anda`, mentions: [i] })
 		} else if (data.action == "remove") {
 		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Goodbye @${i.split("@")[0]}`, mentions: [i] })
 		}
