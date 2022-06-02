@@ -124,7 +124,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const body = chats.startsWith(prefix) ? chats : ''
 		const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net'
 		const groupMetadata = isGroup ? await conn.groupMetadata(from) : ''
-		const groupName = isGroup ? groupMetadata.subject : ''
+c		const groupName = isGroup ? groupMetadata.subject : ''
 		const groupId = isGroup ? groupMetadata.id : ''
 		const groupMembers = isGroup ? groupMetadata.participants : ''
 		const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
@@ -478,7 +478,7 @@ break
 			{ quickReplyButton: { displayText: `♨️ Instagram`, id: `${prefix}igowner` } },
 			{ quickReplyButton: { displayText: `🌐 Github`, id: `${prefix}githubown` } },
 		]
-		conn.sendMessage(from, {text: hasil, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
+		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
 			    break
 case prefix+'igowner':
  reply(`INSTAGRAM OWNER : @${ig}\nLINK : https://instagram.com/${ig}`)
