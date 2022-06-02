@@ -71,6 +71,7 @@ const dana = "0813-1994-4917"
 const pulsa = "0813-1994-4917"
 const pulsa2 = "0882-1329-2687"
 const ig = "arsrfi.jpg"
+const github = "GetSya"
 
 // Exif
 const Exif = require("../lib/exif")
@@ -481,6 +482,12 @@ break
 		]
 		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
 			    break
+case prefix+'igowner':
+ reply(`INSTAGRAM OWNER : @${ig}\nLINK : https://instagram.com/${ig}`)
+ break
+case prefix+'githubown':
+ reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${ig}`)
+ break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
                 if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}daftarprem* untuk membeli premium`)

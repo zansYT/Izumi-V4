@@ -70,6 +70,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   
   *( ♻️ )  Random Menu*
   ≻ ${prefix}quotes
+  ≻ ${prefix}gombalan
   ≻ ${prefix}katagalau
   ≻ ${prefix}cecan
   ≻ ${prefix}cogan
