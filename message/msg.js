@@ -480,7 +480,7 @@ break
 			{ quickReplyButton: { displayText: `♨️ Instagram`, id: `${prefix}igowner` } },
 			{ quickReplyButton: { displayText: `🌐 Github`, id: `${prefix}githubown` } },
 		]
-		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
+		conn.sendMessage(from, {text: hasil, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
 			    break
 case prefix+'igowner':
  reply(`INSTAGRAM OWNER : @${ig}\nLINK : https://instagram.com/${ig}`)
