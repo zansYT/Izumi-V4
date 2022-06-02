@@ -2206,7 +2206,7 @@ case prefix+'gombal':
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var hasil = pickRandom(gombal)
 var gom = [
-			{ quickReplyButton: { displayText: `Next Gombalan ➡️`, id: `${prefix}quote` } },
+			{ quickReplyButton: { displayText: `Next Gombalan ➡️`, id: `${command}` } },
 		]
 		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
 limitAdd(sender, limit)
