@@ -1191,8 +1191,8 @@ case prefix+'cekme':
   var cek = `*[ CEK PRIBADI KAMU ]*
  
 Nama : ${pushname}
-Nomer : ${sender}
-Limit : 
+Sifat : ${sipat}
+Keberanian : ${berani}%
 Ketakutan : ${numb}%
 Cakep : ${ganz}
 Cek Pintar : ${pinter}%
