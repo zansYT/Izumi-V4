@@ -2209,6 +2209,15 @@ var gom = [
 		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
 limitAdd(sender, limit)
 break
+case prefix+'textchat':
+  if (!isOwner) return reply(mess.OnlyOwner)
+  if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Laporan nya\nContoh ${command} 62813199449171|Anjing\n\nAWALI DENGAN 62!`)
+  var ownjings = "6281319944917"
+  var nomorcuy = q.split('|')[0] ? q.split('|')[0] : q
+                var okecuy = q.split('|')[1] ? q.split('|')[1] : ''
+                reply(`Pesan Sukses Terkirim`)
+conn.sendMessage(`${nomorcuy}@s.whatsapp.net`, {text: `*[ DARI OWNER ]*\nPesan Dari Owner : ${okecuy}\nThanks For Using JOJO-BOT! ( ${ownjings} )`, mentions: [sender]})
+break
 default:
 			if (!isGroup && isCmd) {
 				reply(`Command ${command} Tidak Ada Di Dalam ${prefix}menu`)

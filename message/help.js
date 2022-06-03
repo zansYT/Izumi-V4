@@ -204,6 +204,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   $ executor
   ≻ ${prefix}setppbot
   ≻ ${prefix}exif
+  ≻ ${prefix}textchat
   ≻ ${prefix}leave
   ≻ ${prefix}addprem
   ≻ ${prefix}delprem
