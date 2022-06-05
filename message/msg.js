@@ -70,7 +70,7 @@ const ovo = "0813-1994-4917"
 const dana = "0813-1994-4917"
 const pulsa = "0813-1994-4917"
 const pulsa2 = "0882-1329-2687"
-const ig = "arsrfi.jpg"
+const insta = "arsrfi.jpg"
 const github = "GetSya"
 
 // Exif
@@ -397,7 +397,7 @@ var teks = `  │
   ├─ ❏ PULSA2
   ├─ ❏ ${pulsa2}
   ├─ ❏ INSTAGRAM
-  └─ ❏ https://www.instagram.com/${ig}
+  └─ ❏ https://www.instagram.com/${insta}
   
   Donasi Untuk Upgrade Ke Fitur Premium
   Note : Donasi Seikhlasnya`
@@ -484,10 +484,10 @@ break
 		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
 			    break
 case prefix+'igowner':
- reply(`INSTAGRAM OWNER : @${ig}\nLINK : https://instagram.com/${ig}`)
+ reply(`INSTAGRAM OWNER : @${insta}\nLINK : https://instagram.com/${insta}`)
  break
 case prefix+'githubown':
- reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${ig}`)
+ reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${github}`)
  break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
