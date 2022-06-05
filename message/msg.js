@@ -2217,7 +2217,7 @@ case prefix+'lirik':
     conn.sendMessage(from, {text: caption}, {quoted: msg})
     reply(caption)
     limitAdd(sender, limit)
-  })catch(() => reply(`Lagu ${q} Tidak Di Temukan`))
+  }).catch(() => reply(`Lagu ${q} Tidak Di Temukan`))
   break
 default:
 			if (!isGroup && isCmd) {
