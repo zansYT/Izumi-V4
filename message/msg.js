@@ -416,7 +416,7 @@ _Yakin kamu mau daftar ke premium?_
 
 *LIST DAFTAR PREMIUM*
 - Rp.15.000 - PERMANENT`
-			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: '© Jojo - Bot', mentions: [sender] })
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/Jojo2.jpg') }, templateButtons: button5, footer: '© Jojo - Bot', mentions: [sender] })
 			    break
 			case prefix+'runtime':
 			    reply(runtime(process.uptime()))
@@ -425,9 +425,10 @@ case prefix+'groupjojo':
   reply("Group 1\n\nhttps://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C\nGroup 2\n\nhttps://chat.whatsapp.com/DqM488U5RvmGpsbTMfDbMv\nCobain Bot Telegram Jojo yuk!\nhttps://t.me/docsjojo_bot?start=help")
   break
 			case prefix+'speed':
+			  reply("Testing Speed...")
 			    let timestamp = speed();
                             let latensi = speed() - timestamp
-                            textImg(`${latensi.toFixed(4)} Second`)
+                            textImg(`*${latensi.toFixed(4)}* Second Membalas Chat Anda`)
 		            break
 case prefix+'infobot':
   case prefix+'inforobot':
@@ -2211,11 +2212,12 @@ case prefix+'textchat':
 conn.sendMessage(`${nomorcuy}@s.whatsapp.net`, {text: `*[ DARI OWNER ]*\nPesan Dari Owner : *${okecuy}*\nThanks For Using JOJO-BOT! ( ${sender} )`, mentions: [sender]})
 break
 case prefix+'lirik':
+  if (args.length < 2) return reply(`kirim Perintah ${command} Judul Lagu`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  reply(mess.wait)
   lirikLagu(q).then ( data => {
-    var caption = `*[ LIRIK LAGU ]*\n*Lirik :* ${data[0].result}`
+    var caption = `*[ > 🎵 LIRIK LAGU 🎵 < ]*\n\n*Lirik :* ${data[0].result}`
     conn.sendMessage(from, {text: caption}, {quoted: msg})
-    reply(caption)
     limitAdd(sender, limit)
   }).catch(() => reply(`Lagu ${q} Tidak Di Temukan`))
   break
