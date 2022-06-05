@@ -45,6 +45,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const xfar = require('xfarr-api');
 const axios = require("axios");
 const hxz = require("hxz-api");
+const ig = require("insta-fetcher");
 const ra = require("ra-api");
 const kotz = require("kotz-api");
 const yts = require("yt-search");
