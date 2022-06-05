@@ -25,6 +25,7 @@ const { y2mateA, y2mateV } = require('../lib/y2mate')
 const { pinterest } = require("../lib/pinterest")
 const { darkjokes } = require("../lib/darkjokes")
 const { igstalk } = require("../lib/igstalk")
+const { lirikLagu } =require("../lib/lirik.js")
 const { igstory } = require("../lib/igstory")
 const { mediafire } = require("../lib/mediafire")
 const { ephoto } = require("../lib/ephoto")
@@ -972,14 +973,6 @@ case prefix+'husbu':
 			    limitAdd(sender, limit)
  			    break
 			// Search Menu
-case prefix+'lirik':
-  if (args.length < 2) return reply(`Liriknya mana?Kirim perintah ${command} Nama lagu\nContoh ${command} Indonesia Raya`)
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon berarti liriknya gak ketemu ya:(")
-				var data = await fetchJson(`https://hardianto.xyz/api/info/lirik?query=${q}&apikey=${keyanto}`)
-			    reply(`*Nama Lagu :* ${q}\n*Lirik Lagu :* ${data.lirik}`)
-				limitAdd(sender, limit)
-				break
 			case prefix+'grupwa': case prefix+'searchgrup':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (args.length < 2) return reply(`Kirim perintah ${command} nama grup`)
@@ -2212,12 +2205,20 @@ break
 case prefix+'textchat':
   if (!isOwner) return reply(mess.OnlyOwner)
   if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Laporan nya\nContoh ${command} 62813199449171|Anjing\n\nAWALI DENGAN 62!`)
-  var ownjings = "6281319944917"
   var nomorcuy = q.split('|')[0] ? q.split('|')[0] : q
                 var okecuy = q.split('|')[1] ? q.split('|')[1] : ''
                 reply(`Pesan Sukses Terkirim`)
-conn.sendMessage(`${nomorcuy}@s.whatsapp.net`, {text: `*[ DARI OWNER ]*\nPesan Dari Owner : ${okecuy}\nThanks For Using JOJO-BOT! ( ${ownjings} )`, mentions: [sender]})
+conn.sendMessage(`${nomorcuy}@s.whatsapp.net`, {text: `*[ DARI OWNER ]*\nPesan Dari Owner : *${okecuy}*\nThanks For Using JOJO-BOT! ( ${sender} )`, mentions: [sender]})
 break
+case prefix+'lirik':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  lirikLagu(q).then ( data => {
+    var caption = `*[ LIRIK LAGU ]*\n*Lirik :* ${data[0].result}`
+    conn.sendMessage(from, {text: caption}, {quoted: msg})
+    reply(caption)
+    limitAdd(sender, limit)
+  })catch(() => reply(`Lagu ${q} Tidak Di Temukan`))
+  break
 default:
 			if (!isGroup && isCmd) {
 				reply(`Command ${command} Tidak Ada Di Dalam ${prefix}menu`)
