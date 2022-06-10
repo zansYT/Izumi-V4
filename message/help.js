@@ -32,6 +32,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
 	Status : ${isOwner ? 'Owner' : isPremium ? 'Premium' : 'Free'}
 	Limit Harian : ${isOwner ? '-' : isPremium ? 'Unlimited' : getLimit(sender, limitCount, limit)}
 	Limit Game : ${isOwner ? '-' : cekGLimit(sender, gcount, glimit)}
+	Balance : $${toCommas(getBalance(sender, balance))}
   Note : Anggap _<>_ *Tidak Ada*
   
   _Ada Bug? Ketik ${prefix}report Bug mu_
@@ -179,7 +180,12 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}dadu
   
   *( 🏦 )  Payment & Bank*
+  ≻ ${prefix}buylimit <Jumlah>
+  ≻ ${prefix}buyglimit <Jumlah>
+  ≻ ${prefix}transfer @tag <jumlah>
   ≻ ${prefix}limit
+  ≻ ${prefix}balance
+  ≻ ${prefix}topbalance
 
   *( 👥 )  Group Menu*
   ≻ ${prefix}linkgrup

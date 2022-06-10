@@ -45,6 +45,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const xfar = require('xfarr-api');
 const axios = require("axios");
 const hxz = require("hxz-api");
+const ig = require("insta-fetcher");
 const ra = require("ra-api");
 const kotz = require("kotz-api");
 const yts = require("yt-search");
@@ -69,7 +70,7 @@ const ovo = "0813-1994-4917"
 const dana = "0813-1994-4917"
 const pulsa = "0813-1994-4917"
 const pulsa2 = "0882-1329-2687"
-const ig = "arsrfi.jpg"
+const insta = "arsrfi.jpg"
 const github = "GetSya"
 
 // Exif
@@ -396,7 +397,7 @@ var teks = `  │
   ├─ ❏ PULSA2
   ├─ ❏ ${pulsa2}
   ├─ ❏ INSTAGRAM
-  └─ ❏ https://www.instagram.com/${ig}
+  └─ ❏ https://www.instagram.com/${insta}
   
   Donasi Untuk Upgrade Ke Fitur Premium
   Note : Donasi Seikhlasnya`
@@ -483,10 +484,10 @@ break
 		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
 			    break
 case prefix+'igowner':
- reply(`INSTAGRAM OWNER : @${ig}\nLINK : https://instagram.com/${ig}`)
+ reply(`INSTAGRAM OWNER : @${insta}\nLINK : https://instagram.com/${insta}`)
  break
 case prefix+'githubown':
- reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${ig}`)
+ reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${github}`)
  break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
@@ -1459,11 +1460,11 @@ case prefix+'add':
     }
     break
 			// Bank & Payment Menu
-			/*case prefix+'topbalance':{
+			case prefix+'topbalance':{
                 balance.sort((a, b) => (a.balance < b.balance) ? 1 : -1)
                 let top = '*── 「 TOP BALANCE 」 ──*\n\n'
                 let arrTop = []
-				var total = 10
+				var total = 20
 				if (balance.length < 10) total = balance.length
                 for (let i = 0; i < total; i ++){
                     top += `${i + 1}. @${balance[i].id.split("@")[0]}\n=> Balance : $${balance[i].balance}\n\n`
@@ -1471,7 +1472,7 @@ case prefix+'add':
                 }
                 mentions(top, arrTop, true)
             }
-                break*/
+                break
             case prefix+'buylimit':{
                 if (args.length < 2) return reply(`Kirim perintah *${prefix}buylimit* jumlah limit yang ingin dibeli\n\nHarga 1 limit = $150 balance`)
                 if (args[1].includes('-')) return reply(`Jangan menggunakan -`)
@@ -1512,18 +1513,17 @@ case prefix+'add':
                 reply(monospace(`Pembeliaan game limit sebanyak ${args[1]} berhasil\n\nSisa Balance : $${getBalance(sender, balance)}\nSisa Game Limit : ${cekGLimit(sender, gcount, glimit)}/${gcount}`))
             }
                 break
-			case prefix+'limit': 
-			case prefix+'ceklimit':
+			case prefix+'limit': case prefix+'balance':
+			case prefix+'ceklimit': case prefix+'cekbalance':
 			    if (mentioned.length !== 0){
 					var Ystatus = ownerNumber.includes(mentioned[0])
 					var isPrim = Ystatus ? true : _prem.checkPremiumUser(mentioned[0], premium)
 				    var ggcount = isPrim ? gcounti.prem : gcounti.user
                     var limitMen = `${getLimit(mentioned[0], limitCount, limit)}`
-                    textImg(`Limit : ${_prem.checkPremiumUser(mentioned[0], premium) ? 'Unlimited' : limitMen}/${limitCount}\nLimit Game : ${cekGLimit(mentioned[0], ggcount, glimit)}/${ggcount}\n\nNote : Limit & Glimit Akan Di Reset Oleh Owner Sekitar jam 12 malam`)
-                    /*\nBalance : $${getBalance(mentioned[0], balance)}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit*/
+                    textImg(`Limit : ${_prem.checkPremiumUser(mentioned[0], premium) ? 'Unlimited' : limitMen}/${limitCount}\nLimit Game : ${cekGLimit(mentioned[0], ggcount, glimit)}/${ggcount}\nBalance : $${getBalance(mentioned[0], balance)}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit`)
                 } else {
-                    var limitPrib = `${getLimit(mentioned[0], limitCount, limit)}`
-                    textImg(`Limit : ${_prem.checkPremiumUser(mentioned[0], premium) ? 'Unlimited' : limitMen}/${limitCount}\nLimit Game : ${cekGLimit(mentioned[0], ggcount, glimit)}/${ggcount}\n\nNote : Limit & Glimit Akan Di Reset Oleh Owner Sekitar jam 12 malam`)
+                    var limitPrib = `${getLimit(sender, limitCount, limit)}/${limitCount}`
+                    textImg(`Limit : ${isPremium ? 'Unlimited' : limitPrib}\nLimit Game : ${cekGLimit(sender, gcount, glimit)}/${gcount}\nBalance : $${getBalance(sender, balance)}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit`)
                 }
 				break
 //Api Anto
