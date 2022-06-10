@@ -89,9 +89,11 @@ const connectToWhatsApp = async () => {
 	require('./message/help')
 	require('./lib/myfunc')
 	require('./message/msg')
+	require('./index')
 	nocache('./message/help', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	nocache('./lib/myfunc', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	nocache('./message/msg', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
+	nocache('./index', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	
 	conn.multi = true
 	conn.nopref = false
@@ -127,9 +129,11 @@ const connectToWhatsApp = async () => {
 		  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 		}
 		if (data.action == "add") {
-		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Hallo @${i.split("@")[0]} Selamat Datang Di Grup ${metadata.subject}\nSilahkan Memperkenalkan Diri Anda`, mentions: [i] })
+		   var but = [{buttonId: `/`, buttonText: { displayText: "Welcome 🥳" }, type: 1 }]
+				conn.sendMessage(data.id, { caption: `Hallo @${i.split("@")[0]} Selamat Datang Di Grup *${metadata.subject}*\nSilahkan Untuk Memperkenalkan diri anda`, image: {url: pp_user}, buttons: but, footer: `Nama : @${i.split("@")[0]}\nGrup : ${metadata.subject}`, mentions: [i]})
 		} else if (data.action == "remove") {
-		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Goodbye @${i.split("@")[0]}`, mentions: [i] })
+		  var but = [{buttonId: `/`, buttonText: { displayText: "Good Bye 👋" }, type: 1 }]
+				conn.sendMessage(data.id, { caption: `Byeee @${i.split("@")[0]}`, image: {url: pp_user}, buttons: but, footer: `Nama : @${i.split("@")[0]}\nGrup : ${metadata.subject}`, mentions: [i]})
 		}
 	  }
 	} catch (e) {
