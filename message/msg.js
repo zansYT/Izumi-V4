@@ -1042,7 +1042,7 @@ case prefix+'husbu':
 				}).catch(() => reply(mess.error.api))
 			    break
 //report
-case prefix+'report':
+/*case prefix+'report':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
@@ -1050,7 +1050,7 @@ case prefix+'report':
             conn.reply(i, `*[ PANGGILAN USER ]*\nMessage nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
-        break
+        break*/
 case prefix+'join':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} Link Grup Kamu`)
@@ -2079,6 +2079,13 @@ case prefix+'suratto':
                 reply(`Pesan Sukses Terkirim`)
 conn.sendMessage(`${number}@s.whatsapp.net`, {text: `*[ FITUR SURAT ]*\n\n*Dari :* @${sender} (${pushname})\n*Pesan :* ${text}`, mentions: [sender]})
 limitAdd(sender, limit)
+break
+case prefix+'report':
+  case prefix+'lapor':
+    case prefix+'chatown';
+    if (args.length < 2) return reply(`Silahkan Masukan Laporan nya, Contoh : ${command} Ada Bug Di fitur <fitur>`)
+                reply(`Laporan Telah DibKirimkan Oleh ke Owner, Laporan main² atau palsu akan di banned!`)
+conn.sendMessage(`sender`, {text: `*[ PANGGILAN USER ]*\n\n*Dari :* @${sender}\n*Pesan :* ${q}`, mentions: [sender]})
 break
 case prefix+'gombal':
   case prefix+'gombalan':
