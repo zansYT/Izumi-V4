@@ -32,7 +32,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
 	Status : ${isOwner ? 'Owner' : isPremium ? 'Premium' : 'Free'}
 	Limit Harian : ${isOwner ? '-' : isPremium ? 'Unlimited' : getLimit(sender, limitCount, limit)}
 	Limit Game : ${isOwner ? '-' : cekGLimit(sender, gcount, glimit)}
-	Balance : $${toCommas(getBalance(sender, balance))}
   Note : Anggap _<>_ *Tidak Ada*
   
   _Ada Bug? Ketik ${prefix}report Bug mu_
@@ -47,6 +46,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}listprem
   ≻ ${prefix}jo <Text>
   ≻ ${prefix}simi <Text>
+  ≻ ${prefix}infobot
 
   *( ✏️ )  Converter/Tools*
   ≻ ${prefix}stiker <ReplyGambar/Caption>
@@ -117,9 +117,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
-  ≻ ${prefix}ssweb <Link>
-  ≻ ${prefix}ssdesktop <Link>
-  ≻ ${prefix}sshpfull <Link>
   ≻ ${prefix}kbbi <Kata>
   ≻ ${prefix}faktaunik
   ≻ ${prefix}ppcp
@@ -129,7 +126,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}cerpen
   ≻ ${prefix}cersex
   ≻ ${prefix}wiki <Query>
-  ≻ ${prefix}igstalk <Username>
   ≻ ${prefix}say <Text>
   ≻ ${prefix}qr <Text>
   ≻ ${prefix}readmore <Text>|<Text>
@@ -141,18 +137,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}pinterest <Querry>
   ≻ ${prefix}getpp
 
-  *( ☪️ )  Islamic Menu*
-  ≻ ${prefix}quran <nomer>
-  ≻ ${prefix}quranaudio <surah> <ayat>
-  ≻ ${prefix}listquran <nomer>
-  ≻ ${prefix}kisahnabi <Nama Nabi>
-
-  *( ✍️ )  Menu Tulis*
-  ≻ ${prefix}nuliskanan <Text>
-  ≻ ${prefix}nuliskiri <Text>
-  ≻ ${prefix}foliokanan <Text>
-  ≻ ${prefix}foliokiri <Text>
-  
   *( 🅰️ )  Edit Vokal*
   ≻ ${prefix}halah
   ≻ ${prefix}hilih
@@ -178,6 +162,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}bisakah <Query>
   ≻ ${prefix}cekme
   ≻ ${prefix}dadu
+  ≻ ${prefix}truth
+  ≻ ${prefix}dare
   
   *( 🏦 )  Payment & Bank*
   ≻ ${prefix}buylimit <Jumlah>
