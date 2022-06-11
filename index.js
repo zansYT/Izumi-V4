@@ -130,10 +130,10 @@ const connectToWhatsApp = async () => {
 		}
 		if (data.action == "add") {
 		   var but = [{buttonId: `/`, buttonText: { displayText: "Welcome 🥳" }, type: 1 }]
-				conn.sendMessage(data.id, { caption: `Hallo @${i.split("@")[0]} Selamat Datang Di Grup *${metadata.subject}*\nSilahkan Untuk Memperkenalkan diri anda`, image: {url: pp_user}, buttons: but, footer: `Nama : @${i.split("@")[0]}\nGrup : ${metadata.subject}`, mentions: [i]})
+				conn.sendMessage(data.id, { caption: `Hallo @${i.split("@")[0]} Selamat Datang Di Grup *${metadata.subject}*\nSilahkan Untuk Memperkenalkan diri anda`, image: {url: pp_user}, buttons: but, footer: `Deskripsi : ${metadata.desc}`, mentions: [i]})
 		} else if (data.action == "remove") {
 		  var but = [{buttonId: `/`, buttonText: { displayText: "Good Bye 👋" }, type: 1 }]
-				conn.sendMessage(data.id, { caption: `Byeee @${i.split("@")[0]}`, image: {url: pp_user}, buttons: but, footer: `Nama : @${i.split("@")[0]}\nGrup : ${metadata.subject}`, mentions: [i]})
+				conn.sendMessage(data.id, { caption: `Byeee @${i.split("@")[0]}`, image: {url: pp_user}, buttons: but, footer: `${metadata.subject}`, mentions: [i]})
 		}
 	  }
 	} catch (e) {
