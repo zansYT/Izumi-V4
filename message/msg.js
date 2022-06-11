@@ -2082,10 +2082,10 @@ limitAdd(sender, limit)
 break
 case prefix+'report':
   case prefix+'lapor':
-    case prefix+'chatown';
+    case prefix+'chatown':
     if (args.length < 2) return reply(`Silahkan Masukan Laporan nya, Contoh : ${command} Ada Bug Di fitur <fitur>`)
                 reply(`Laporan Telah DibKirimkan Oleh ke Owner, Laporan main² atau palsu akan di banned!`)
-conn.sendMessage(`sender`, {text: `*[ PANGGILAN USER ]*\n\n*Dari :* @${sender}\n*Pesan :* ${q}`, mentions: [sender]})
+conn.sendMessage(sender, {text: `*[ PANGGILAN USER ]*\n\n*Dari :* @${sender}\n*Pesan :* ${q}`, mentions: [sender]})
 break
 case prefix+'gombal':
   case prefix+'gombalan':
