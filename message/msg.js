@@ -1,19 +1,27 @@
 /*HELLO BRO TERIMA KASIH SUDAH AMBIL SCRIPT INI JANGAN LUPA IKUTI DAN SUBSCRIBE MEDIA SOSIAL OWNER DAN BOT
 
-Instagram : @arsrfi.jpg
-Youtube : Channel JOJO
-WhatsApp : 0813-1994-4917
+Sc Ori By Arasya
+Sc Record By Christian ID
+Note : Jangan Perjualkan Sc Ini!!!
+
+Instagram Jojo : @arsrfi.jpg
+Youtube Jojo : Jojo Channel
+
+Instagram : @chris.tianid
+Youtube : Christian ID
+WhatsApp : 0859-2116-5857
 
 THANKS TO
-- Irfan 
+- Irfan Hardianto
 - Amell
 - Hardianto
 - Affis Junianto
 - Rafli Rusdiana
 - Febri
-- Grup Jojoo
+- Jojo
+- Christian ID
 
-Matur Nuwun*/
+Terimakasih*/
 "use strict";
 const {
 	downloadContentFromMessage
@@ -21,7 +29,6 @@ const {
 const { color, bgcolor } = require('../lib/color')
 const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, makeid } = require("../lib/myfunc");
 const { webp2mp4File } = require("../lib/convert")
-const { toAudio, toPTT, toVideo } = require('../lib/converter')
 const { y2mateA, y2mateV } = require('../lib/y2mate')
 const { pinterest } = require("../lib/pinterest")
 const { darkjokes } = require("../lib/darkjokes")
@@ -46,6 +53,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const xfar = require('xfarr-api');
 const axios = require("axios");
 const hxz = require("hxz-api");
+const ig = require("insta-fetcher");
 const ra = require("ra-api");
 const kotz = require("kotz-api");
 const yts = require("yt-search");
@@ -55,23 +63,21 @@ const ms = require("parse-ms");
 
 //Apikey melcanz, Search aja melcanz.com
 //Apikey Anto = hardianto
-//Apikey jojo = Syaa
+//Apikey Jojo = Syaa
 const apikey = "melcantik"
 const keyanto = "hardianto"
 const jojoapi = "Syaa"
 const ikiapi = "FuckBitch"
+const chrisapi = "IzumiBot"
 
 //Setting ke 2
-const nobot = "6288213292687"
+const nobot = "37258266435"
 
 // Setting Donasi
-const gopay = "0882-1329-2687"
-const ovo = "0813-1994-4917"
-const dana = "0813-1994-4917"
-const pulsa = "0813-1994-4917"
-const pulsa2 = "0882-1329-2687"
-const ig = "arsrfi.jpg"
-const github = "GetSya"
+const gopay = "0813-2850-7885"
+const pulsa = "0813-2850-7885"
+const insta = "chris.tianid"
+const github = "TianBot1"
 
 // Exif
 const Exif = require("../lib/exif")
@@ -80,8 +86,6 @@ const exif = new Exif()
 // DB Game
 let tictactoe = [];
 let tebakgambar = []
-let kuiscuy = []
-let tebaktebakan = []
 
 // Database
 let pendaftar = JSON.parse(fs.readFileSync('./database/user.json'))
@@ -211,7 +215,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 	         		{ quickReplyButton: { displayText: `🎵 Audio (${data.size_mp3})`, id: `${prefix}ytmp3 ${url}` } },
 	         		{ quickReplyButton: { displayText: `🎥 Video (${data.size})`, id: `${prefix}ytmp4 ${url}` } },
 		]
-             conn.sendMessage(from, { caption: `*Title :* ${data.title}\n*Quality :* ${data.quality}\n*Url :* https://youtu.be/${data.id}`, image: {url: data.thumb}, templateButtons: button, footer: 'Pilih Salah Satu Button Dibawah', mentions: [sender]} )
+             conn.sendMessage(from, { caption: `*Title :* ${data.title}\n*Quality :* ${data.quality}\n*Url :* https://youtu.be/${data.id}`, location: {url: data.thumb}, templateButtons: button, footer: 'Pilih Salah Satu Button Dibawah', mentions: [sender]} )
            }).catch((e) => {
              conn.sendMessage(from, { text: mess.error.api }, { quoted: msg })
                ownerNumber.map( i => conn.sendMessage(from, { text: `Send Play Error : ${e}` }))
@@ -271,15 +275,28 @@ module.exports = async(conn, msg, m, setting, store) => {
 		}
 		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+${ownerNumber}` } },
 		const buttonsDefault = [
-			{ urlButton: { displayText: `GRUP JOJO-BOT`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
-			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6281319944917?text=Hai+kak+aku+mau+beli+PREMIUM` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6285921165857` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
 			{ quickReplyButton: { displayText: `Script`, id: `${prefix}sc` } },
 		]
 		const button5 = [
-			{ callButton: { displayText: `Number Owner`, phoneNumber: `0813-1994-4917` } },
-			{ urlButton: { displayText: `𝙂𝙧𝙪𝙥 𝙅𝙤𝙟𝙤`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
+			{ callButton: { displayText: `Number Owner`, phoneNumber: `0859-2116-5857` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
 			{ quickReplyButton: { displayText: `Back To Menu 🔙`, id: `${prefix}menu` } },
+		]
+		const buttonsSewa = [
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6285921165857` } },
+			{ quickReplyButton: { displayText: `Donasi`, id: `${prefix}donate` } },
+			{ quickReplyButton: { displayText: `Menu`, id: `${prefix}menu` } },
+		]
+		const buttonsMenu = [
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6285921165857` } },
+			{ quickReplyButton: { displayText: `Donasi`, id: `${prefix}donate` } },
+			{ quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } },
+			{ quickReplyButton: { displayText: `Premium`, id: `${prefix}daftarprem` } },
 		]
         
 		const isImage = (type == 'imageMessage')
@@ -322,42 +339,10 @@ module.exports = async(conn, msg, m, setting, store) => {
 		    tebakgambar.splice(getGamePosi(from, tebakgambar), 1)
 		  }
 		}
-		
-		cekWaktuGame(conn, kuiscuy)
-		if (isPlayGame(from, kuiscuy) && isUser) {
-		  if (chats.toLowerCase() == getJawabanGame(from, kuiscuy)) {
-		    var htgm = randomNomor(500, 550)
-			addBalance(sender, htgm, balance)
-		    var texttg = `*Selamat ${pushname} Jawaban Kamu Benar 🎉*\n\nJawaban : ${getJawabanGame(from, kuiscuy)}\nHadiah : ${htgm} balance\n\nIngin bermain lagi? Pencet Tombol Dibawah`
-			var kus = [
-			{ quickReplyButton: { displayText: `Main Lagi`, id: `${prefix}tebakkata` } },
-		]
-			 conn.sendMessage(from, { text: texttg, templateButtons: kus, footer: 'TEBAK KATA', mentions: [sender]} )  
-		    kuiscuy.splice(getGamePosi(from, kuiscuy), 1)
-		  }
-		}
-		
-		cekWaktuGame(conn, tebaktebakan)
-		if (isPlayGame(from, tebaktebakan) && isUser) {
-		  if (chats.toLowerCase() == getJawabanGame(from, tebaktebakan)) {
-		    var htgm = randomNomor(500, 550)
-			addBalance(sender, htgm, balance)
-		    var texttg = `*Selamat ${pushname} Jawaban Kamu Benar 🎉*\n\nJawaban : ${getJawabanGame(from, tebaktebakan)}\nHadiah : ${htgm} balance\n\nIngin bermain lagi? Pencet Tombol Dibawah`
-			var kus = [
-			{ quickReplyButton: { displayText: `Main Lagi`, id: `${prefix}kuis` } },
-		]
-			 conn.sendMessage(from, { text: texttg, templateButtons: kus, footer: 'KUIS By JOJO-BOT', mentions: [sender]} )  
-		    tebaktebakan.splice(getGamePosi(from, tebaktebakan), 1)
-		  }
-		}
-		
-if (chats.startsWith(`bot`)){
- conn.sendMessage(from, { audio: fs.readFileSync('audio/jokeuwi.mp3'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+if (chats.startsWith("@37258266435")){
+	/*conn.sendMessage(from, { react: { text: `😍`, key: msg.key }})*/
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
-if (chats.startsWith(`Bot`)){
- conn.sendMessage(from, { audio: fs.readFileSync('audio/jokeuwi.mp3'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
-}
-
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
 		  const ev = (sul) => {
@@ -408,61 +393,121 @@ if (chats.startsWith(`Bot`)){
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    
 				/*conn.sendMessage(from, { react: { text: `👋`, key: msg.key }})*/
-conn.sendMessage(from, { caption: teks, image: fs.readFileSync('media/Jojo2.jpg'), templateButtons: buttonsDefault, footer: '© Jojo - Bot', mentions: [sender]} )
+conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/Menu.jpg') }, templateButtons: buttonsMenu, footer: '© Izumi - Bot', mentions: [sender] })
 				break
-case prefix+'delete':
-  case prefix+'d':
-    case prefix+'del':
-  conn.sendMessage(from, { delete: { fromMe: true, id: quotedMsg.id, remoteJid: from }})
-  break
 case prefix+'donasiah':
   reply(`Jika Ingin Donasi Harap Hubungi Owner\n\nhttps://wa.me/${ownerNumber}`)
   break
 case prefix+'donasi':
   case prefix+'donate':
   var donasibut = [
-			{ urlButton: { displayText: `𝙂𝙧𝙪𝙥 𝙅𝙤𝙟𝙤`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
 			{ quickReplyButton: { displayText: `Aku Ingin Donasi`, id: `${prefix}donasiah` } },
 		]
 var teks = `  │
   ├─ ❏ GOPAY
   ├─ ❏ ${gopay}
-  ├─ ❏ OVO
-  ├─ ❏ ${ovo}
-  ├─ ❏ DANA
-  ├─ ❏ ${dana}
   ├─ ❏ PULSA
   ├─ ❏ ${pulsa}
-  ├─ ❏ PULSA2
-  ├─ ❏ ${pulsa2}
   ├─ ❏ INSTAGRAM
-  └─ ❏ https://www.instagram.com/${ig}
+  └─ ❏ https://www.instagram.com/${insta}
   
   Donasi Untuk Upgrade Ke Fitur Premium
   Note : Donasi Seikhlasnya`
- conn.sendMessage(from, { caption: teks, image: {url: `https://i.ibb.co/CPcFJ6c/IMG-20220131-WA0504.jpg`}, templateButtons: donasibut, footer: '© Jojo - Bot', mentions: [sender]} )  
+ conn.sendMessage(from, { caption: teks, image: {url: `https://i.ibb.co/CPcFJ6c/IMG-20220131-WA0504.jpg`}, templateButtons: donasibut, footer: '© Izumi - Bot', mentions: [sender]} )  
 			    break
-case prefix+'sewa':
-  case prefix+'daftarprem':
-  var teks = `*[ LIST HARGA JOJO PREM ]*
+case prefix+'daftarprem':
+  var teks = `*[ LIST HARGA PREM ]*
 
 _Yakin kamu mau daftar ke premium?_
 
 *Keuntungan :*
 - Limit Unlimited
 - Akses Fitur Premium
-- Bot Join Grup WhatsApp Mu
 - Tidak Ada Kata ~Limit Menurun~
 
 *LIST DAFTAR PREMIUM*
-- Rp.5.000 - PERMANENT`
-			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/Jojo2.jpg') }, templateButtons: button5, footer: '© Jojo - Bot', mentions: [sender] })
+- Rp. 2.000 - 7 Hari
+- Rp. 5.000 - 1 Bulan
+- Rp. 8.000 - 1 Tahun`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/premium.jpg') }, templateButtons: button5, footer: '© Izumi - Bot', mentions: [sender] })
+			    break
+case prefix+'sc':
+  var teks = `*── 「 SOURCE CODE 」 ──*
+
+*Script : https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg*
+
+*_Sc Bot Versi 1 Via MediaFire : https://www.mediafire.com/file/zi97farlseupw3z/Christian-ID.zip/file_*
+
+*_Sc Bot Versi 2 Via MediaFire : https://www.mediafire.com/file/l8zoyc38l420wen/ChrisV1.7z/file_*
+
+_Sc Versi 2 Berpassword Syarat : Subscribe https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg Dan Screenshot Kirim Ke Owner_`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/chris.jpg') }, templateButtons: button5, footer: '© Izumi - Bot', mentions: [sender] })
+			    break
+case prefix+'rules':
+  var teks = `*── 「 RULES AND FAQ 」 ──*
+
+1. Jangan spam bot. 🙅
+Sanksi: *❎ WARN/SOFT BLOCK*
+
+2. Jangan telepon bot. ☎️
+Sanksi: *❎ SOFT BLOCK*
+
+3. Jangan mengeksploitasi bot.😖
+Sanksi: *PERMANENT BLOCK*
+
+🗯️ Bot tidak atau lambat merespon ?
+➡️ Mungkin dipengaruhi oleh jaringan, signal, banned oleh Whatsapp dan beberapa asalan. Tetap patuhi rules‼️
+
+🗯️ Dimana saya bisa mendapatkan Script dari bot ini ?
+➡️ Script ini masih private dan tidak pernah diperjual belikan ,bijaklah dalam mengetahui penipu.
+
+🗯️ Prefixnya apa ya?
+➡️ Bot ini menggunakan multi prefix. Berarti anda bisa menggunakan prefix #, . , Dan prefix wajar lainnya.
+
+🗯️ Kak, kok syaa chat owner tidak direspon?
+➡️ Owner hanya merespon pertanyaan seputar bot Dan kendala eror, tidak untuk kenalan ataupun mengemis script.
+
+
+Jika sudah dipahami rules-nya, silakan ketik *${prefix}allmenu* untuk memulai!
+
+⚠️ Segala kebijakan dan ketentuan Izumi Bot di pegang oleh owner dan segala perubahan kebijakan, sewaktu waktu owner berhak mencabut, memblokir user(*﹏*)
+
+Arigatou Gozaimasu! Untuk kalian user ramah dan Beberapa orang yg ikut membantu juga dalam project pembuatan Izumi Bot
+😖🙏`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/rules.jpg') }, templateButtons: button5, footer: '© Izumi - Bot', mentions: [sender] })
+			    break
+case prefix+'sewabot':
+  var teks = `*── 「 SEWA BOT 」 ──*
+
+*Harga Sewa*
+7 Hari = 5.000
+30 Hari = 10.000
+1 Tahun = 20.000
+Permanen = 30.000
+
+*Keuntungan :*
+- Bot Masuk Sesuai Waktu Sewa
+- Gratis Premium 7 Hari
+- Menyapa Member Join Ke Group
+- Dan Lainnya
+
+*_Pembayaran Melalui Qris Link Qris = https://telegra.ph/file/7549e4bff7f7c8124b20d.jpg_*
+
+*_Untuk Konfirmasi Saldo Hubungi Owner Silakan Klick Link Di Bawah_*
+*_wa.me/6285921165857_*`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/sewa.jpg') }, templateButtons: buttonsSewa, footer: '© Sewa Bot Christian ID', mentions: [sender] })
 			    break
 			case prefix+'runtime':
 			    reply(runtime(process.uptime()))
 			    break
-case prefix+'groupjojo':
-  reply("Group 1\n\nhttps://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C\nGroup 2\n\nhttps://chat.whatsapp.com/DqM488U5RvmGpsbTMfDbMv\nCobain Bot Telegram Jojo yuk!\nhttps://t.me/docsjojo_bot?start=help")
+case prefix+'claim':
+  var htgm = randomNomor(500, 550)
+  addBalance(sender, htgm, balance)
+  reply(`Selamat Anda Mendapatkan ${htgm} Balance`)
+  break
+case prefix+'groupizumi':
+  reply("Group 1\n\nhttps://chat.whatsapp.com/F92O1RmRXU2FYx3TudDVFj\nGroup 2\n\nhttps://chat.whatsapp.com/HWDIowVhHcd4EIm88F4X1y")
   break
 			case prefix+'speed':
 			  reply("Testing Speed...")
@@ -473,10 +518,10 @@ case prefix+'groupjojo':
 case prefix+'infobot':
   case prefix+'inforobot':
     case prefix+'info':
-      var caption = `*[ INFO ROBOT JOJO ]*
+      var caption = `*[ INFO IZUMI BOT ]*
 
-*Nama Bot :* Jojo
-*Name Owner :* Arasya
+*Nama Bot :* Izumi - MD
+*Name Owner :* Christian ID
 *Nomor Bot :* wa.me/${nobot}
 *Nomor Owner :* wa.me/${ownerNumber}
 *Engine :* NodeJs
@@ -487,11 +532,12 @@ case prefix+'infobot':
 Thanks To
 - Riyan
 - Arasya
+- Christian ID
 - Amel
 - Hardianto
 - Febri`
 
-conn.sendMessage(from, {caption: caption, image: fs.readFileSync('media/Jojo2.jpg')}, {quoted: msg})
+conn.sendMessage(from, {caption: caption, image: fs.readFileSync('media/chris2.jpg')}, {quoted: msg})
 break
 			/*case prefix+'donate':
 			case prefix+'donasi':
@@ -506,27 +552,27 @@ break
   ├─ ❏ PULSA2
   ├─ ❏ 088213292687
   ├─ ❏ INSTAGRAM
-  └─ ❏ https://www.instagram.com/arsrfi.jpg
+  └─ ❏ https://www.instagram.com/chris.tianid
   
   Donasi Untuk Upgrade Ke Fitur Premium
   Note : Donasi Seikhlasnya`)
 			    break*/
 			case prefix+'owner':
 			    for (let x of ownerNumber) {
-			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Arasya Rafi', msg)
+			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Christian ID', msg)
 			    }
 			    /*conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
 			    var owncuy = [
 			{ quickReplyButton: { displayText: `♨️ Instagram`, id: `${prefix}igowner` } },
 			{ quickReplyButton: { displayText: `🌐 Github`, id: `${prefix}githubown` } },
 		]
-		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Arasya Rafi Putra`, mentions: [sender]} )
+		conn.sendMessage(from, {text: `Ingin bertanya tanya tentang apa?`, templateButtons: owncuy, footer: `My Name : Christian`, mentions: [sender]} )
 			    break
 case prefix+'igowner':
- reply(`INSTAGRAM OWNER : @${ig}\nLINK : https://instagram.com/${ig}`)
+ reply(`INSTAGRAM OWNER : @${insta}\nLINK : https://instagram.com/${insta}`)
  break
 case prefix+'githubown':
- reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${ig}`)
+ reply(`GITHUB OWNER : ${github}\nLINK : https://github.com/${github}`)
  break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
@@ -653,7 +699,7 @@ case prefix+'githubown':
 			case prefix+'tiktoknowm':
 			  case prefix+'tiktok':
 				  case prefix+'tt':
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    const link = `${q}`
@@ -663,13 +709,13 @@ case prefix+'githubown':
 			{ quickReplyButton: { displayText: `Ubah Ke Audio`, id: `${prefix}tiktokaudio ${q}` } },
 				]
 				reply(mess.wait)
-				conn.sendMessage(from, { caption: `Succes Download Video Tiktok, Thanks For Using JOJO-BOT!`, video: {url: data.nowm}, templateButtons: tidtod, footer: '© Jojo - Bot', mentions: [sender]} )
+				conn.sendMessage(from, { caption: `Succes Download Video Tiktok, Thanks For Using Izumi-Bot!`, video: {url: data.nowm}, templateButtons: tidtod, footer: '© Izumi - Bot', mentions: [sender]} )
 			}).catch(() => reply(mess.error.api))
 			limitAdd(sender, limit)
 			    break
 			case prefix+'tiktokaudio':
 				case prefix+'ttaudio':
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('tiktok')) return reply(mess.error.Iv)
@@ -680,12 +726,12 @@ case prefix+'githubown':
 				}).catch(() => reply(mess.error.api))
 		        break
 				case prefix+'mediafire':
-					if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+					if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('mediafire')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-					var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/mediafire?url=${q}`)
+					var data = await fetchJson(`https://docs-Izumi.herokuapp.com/api/mediafire?url=${q}`)
 					conn.sendMessage(from, { document: { url: data.url }, fileName: `${data.filename}`, mimetype: 'zip' }, { quoted: msg })
 					limitAdd(sender, limit)
 					break
@@ -836,12 +882,12 @@ limitAdd(sender, limit)
 			    break
 			case prefix+'masuk':
 			  if (!isPremium)return reply("Khusus Pengguna Premium")
+			    if (!isOwner) return reply(mess.OnlyOwner)
 				if (args.length < 2) return reply(`Kirim perintah ${command} _linkgrup_`)
 				if (!isUrl(args[1])) return reply(mess.error.Iv)
 				var url = args[1]
 			    url = url.split('https://chat.whatsapp.com/')[1]
 				var data = await conn.groupAcceptInvite(url)
-				reply(`Sukses JOIN!`)
 				reply(jsonformat(data))
 				break
 case prefix+'bc': case prefix+'broadcast':
@@ -849,7 +895,7 @@ case prefix+'bc': case prefix+'broadcast':
 		            if (args.length < 2) return reply(`Masukkan isi pesannya`)
                             var data = await store.chats.all()
                             for (let i of data) {
-                               conn.sendMessage(i.id, { text: `*[ JOJO BROADCAST ]*\n\n${q}` })
+                               conn.sendMessage(i.id, { text: `*[ IZUMI BROADCAST ]*\n\n${q}` })
                                await sleep(1000)
                             }
                             break
@@ -947,6 +993,22 @@ case prefix+'kbbi':
 			    const kbbi = args.join(" ")
 				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/kbbi?kata=${args[1]}&apikey=${jojoapi}`)
 			    reply(`Kata : ${kbbi}\nArti : ${data.result.arti}`)
+				limitAdd(sender, limit)
+				break
+case prefix+'artimimpi':
+  if (args.length < 2) return reply(`Kirim perintah ${command} jembatan`)
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    const artimimpi = args.join(" ")
+				var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/primbon/artimimpi?text=${args[1]}&apikey=${chrisapi}`)
+			    reply(`Kata : ${artimimpi}\nArti : ${data.result.hasil}`)
+				limitAdd(sender, limit)
+				break
+case prefix+'artinama':
+  if (args.length < 2) return reply(`Kirim perintah ${command} jembatan`)
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    const artinama = args.join(" ")
+				var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/primbon/artinama?text=${args[1]}&apikey=${chrisapi}`)
+			    reply(`Kata : ${artinama}\nArti : ${data.result.arti}`)
 				limitAdd(sender, limit)
 				break
 			case prefix+'cecan': case prefix+'cewek':
@@ -1077,15 +1139,23 @@ case prefix+'husbu':
 				}).catch(() => reply(mess.error.api))
 			    break
 //report
-/*case prefix+'report':
+case prefix+'report':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
         for (let i of ownerNumber) {
-            conn.reply(i, `*[ PANGGILAN USER ]*\nMessage nya : ${q}`, msg)
+            conn.reply(i, `*[ USER REPORTS ]*\nThe Message : ${q}`, msg)
         }
         limitAdd(sender, limit)
-        break*/
+        break
+case prefix+'request':
+        if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
+        reply(`*Sukses Request Fitur Ke Owner*`)
+        for (let i of ownerNumber) {
+            conn.reply(i, `*[ REQUEST FITUR ]*\nThe Message : ${q}`, msg)
+        }
+        limitAdd(sender, limit)
+        break
 case prefix+'join':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} Link Grup Kamu`)
@@ -1098,9 +1168,9 @@ case prefix+'join':
 //game & fun menu
 //suit menu
 case prefix+'suit':
-  var but = [{buttonId: `/sbatu`, buttonText: { displayText: "Batu ✊" }, type: 1 }, {buttonId: `/sgunting`, buttonText: { displayText: "Gunting ✌️" }, type: 1 }, {buttonId: `/skertas`, buttonText: { displayText: "Kertas ✋" }, type: 1 }]
-  var sutit = `*[ GAME SUIT ]*\n\nNOTE : *KAMU MEMILIKI 3 BUTTON DAN 3 KESEMPATAN UNTUK MEMILIH ANTARA BATU GUNTING KERTAS\nJIKA KAMU MEMENANGKAN 3 KESEMPATAN PERMAINAN BATU GUNTING KERTAS\n*KAMU MENANG!!*`
-conn.sendMessage(from, { text: sutit, buttons: but, footer: "Pilih Button Di Bawah\n\n- _Jika Kamu Pakai WhatsApp Mod Langsung Saja Ketik /sgunting, /sbatu, /skertas_", templateButtons: but }, {quoted: msg})
+  var but = [{buttonId: `#sbatu`, buttonText: { displayText: "Batu ✊" }, type: 1 }, {buttonId: `#sgunting`, buttonText: { displayText: "Gunting ✌️" }, type: 1 }, {buttonId: `#skertas`, buttonText: { displayText: "Kertas ✋" }, type: 1 }]
+  var sutit = `*[ GAME SUIT ]*\n\nNOTE : *KAMU MEMILIKI 3 BUTTON DAN 3 KESEMPATAN UNTUK MEMILIH ANTARA BATU GUNTING KERTAS*\n*JIKA KAMU MEMENANGKAN 3 KESEMPATAN PERMAINAN BATU GUNTING KERTAS*\n*KAMU MENANG!!*`
+conn.sendMessage(from, { text: sutit, buttons: but, footer: "Pilih Button Di Bawah\n\n- _Jika Kamu Pakai WhatsApp Mod Langsung Saja Ketik #sgunting, #sbatu, #skertas_", templateButtons: but }, {quoted: msg})
 break
 case prefix+'sbatu':
   if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
@@ -1202,7 +1272,7 @@ ${kalahnya2}
 Note : Jika Kamu Mendapatkan Item Yang Sama, Kamu Menang!!!
 Contoh : 🔔 : 🔔 : 🔔`
         var but = [{buttonId: `${command}`, buttonText: { displayText: "Kembali Slot" }, type: 1 }]
-conn.sendMessage(from, { text: slotnya, buttons: but, footer: "© Slot By Arasya\n@arsrfi.jpg", templateButtons: but }, {quoted: msg})
+conn.sendMessage(from, { text: slotnya, buttons: but, footer: "© Slot By Christian\n@chris.tianid", templateButtons: but }, {quoted: msg})
 gameAdd(sender, glimit)
         break
 case prefix+'cekme':
@@ -1231,16 +1301,22 @@ Cek Pintar : ${pinter}%
 Menyukai : ${gai}
   `
 
-					 conn.profilePictureUrl(sender, 'image').then( res => conn.sendMessage(from, {caption: cek, image: { url: res }}, {quoted: msg})).catch(() => conn.sendMessage(from, {caption: cek, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}, {quoted: msg}))
+					 conn.profilePictureUrl(from, 'image').then( res => conn.sendMessage(from, {caption: cek, image: { url: res }}, {quoted: msg})).catch(() => conn.sendMessage(from, {caption: cek, image: {url: `https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg`}}, {quoted: msg}))
 				    limitAdd(sender, limit)
 				    break
+case prefix+'y':
+  reply("Yey Prediksi Bot Benar")
+  break
+case prefix+'n':
+  reply("Yah Maaf Ya kak:(")
+  break
 case prefix+'sc':
-  reply("https://github.com/GetSya/JOJO-MD")
+  reply("*Script : https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg* ")
   break
 case prefix+'apakah':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const apa = ['Iyaa', 'Tidak', 'iya kali','engga']
+					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
 conn.sendMessage(from, { text: `Pertanyaan : Apakah ${q}\nJawaban : ${kah}` }, { quoted: msg })
 limitAdd(sender, limit)
@@ -1276,7 +1352,7 @@ limitAdd(sender, limit)
 case prefix+'gantengcek':
   case prefix+'cekganteng':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Arasya`)
+				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Christian`)
 					const gan = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
 conn.sendMessage(from, { text: `Nama : ${q}\nJawaban : *${teng}%*` }, { quoted: msg })
@@ -1285,7 +1361,7 @@ limitAdd(sender, limit)
 case prefix+'cantikcek':
   case prefix+'cekcantik':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Arasya`)
+				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Christian`)
 					const can = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
 conn.sendMessage(from, { text: `Nama : ${q}\nJawaban : *${tik}%*` }, { quoted: msg })
@@ -1308,27 +1384,11 @@ case prefix+'kapankah':
   case prefix+'kapan':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (!q) return reply(`Penggunaan ${command} Pertanyaan\n\nContoh : ${command} Saya Mati`)
-					const kapan = ['Kapan yaa','Jam 11 Malam','Lusa','besok','5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Hari Lagi','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi','35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','Besok','Lusa',`Abis Command Ini Juga Lu ${q}`]
+					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Hari Lagi','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi','35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','Besok','Lusa',`Abis Command Ini Juga Lu ${q}`]
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
 conn.sendMessage(from, { text: `Pertanyaan : ${q}\nJawaban : *${kapankah}*` }, { quoted: msg })
 limitAdd(sender, limit)
 					break
-case prefix+'truth':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  reply(`*_TRUTH_* Jawablah Dengan Jujur`)
-  var truth = ['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?','Pernah gak sih ngeliat dia lagi sama yg lain?']
-  var caption = pickRandom(truth)
-  conn.sendMessage(from, {caption: `[ TRUTH!! ]\n${caption}`, image: fs.readFileSync('media/truthdare.jpg')}, {quoted: msg})
-  limitAdd(sender, limit)
-  break
-case prefix+'dare':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  reply(`*_DARE_* Lakukan Tantangan Yang Diberikan Oleh Bot!`)
-  var dare = ['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
-  var caption = pickRandom(dare)
-  conn.sendMessage(from, {caption: `[ DARE!! ]\n${caption}`, image: fs.readFileSync('media/truthdare.jpg')}, {quoted: msg})
-  limitAdd(sender, limit)
-  break
 			case prefix+'tictactoe': case prefix+'ttt': case prefix+'ttc':
                 if (!isGroup)return reply(mess.OnlyGrup)
 			    if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
@@ -1389,34 +1449,7 @@ case prefix+'dare':
 				  })
 				})
 			    break
-case prefix+'tebakkata':
-		        if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
-			    if (isPlayGame(from, kuiscuy)) return conn.reply(from, `Masih ada game yang belum diselesaikan`, kuiscuy[getGamePosi(from, kuiscuy)].msg)
-				var kuisnya = JSON.parse(fs.readFileSync('./fitur/tebakkata.json'))
-				const kukus = pickRandom(kuisnya)
-				  kukus.jawaban = kukus.jawaban.split('Jawaban ').join('')
-				  var teks = `*TEBAK KATA*\n\n`+monospace(`Soal : ${kukus.soal}\nWaktu : ${gamewaktu}s`)
-				  conn.sendMessage(from, {text: teks}, {quoted: msg})
-				  .then( res => {
-					var jawab = kukus.jawaban.toLowerCase()
-					addPlayGame(from, 'TEBAK KATA', jawab, gamewaktu, res, kuiscuy)
-					gameAdd(sender, glimit)
-				  })
-			    break
-case prefix+'kuis':
-		        if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
-			    if (isPlayGame(from, tebaktebakan)) return conn.reply(from, `Masih ada game yang belum diselesaikan`, tebaktebakan[getGamePosi(from, tebaktebakan)].msg)
-				var tebaknya = JSON.parse(fs.readFileSync('./fitur/tebaktebakan.json'))
-				const hayo = pickRandom(tebaknya)
-				  hayo.jawaban = hayo.jawaban.split('Jawaban ').join('')
-				  var teks = `*KUIS GAME*\n\n`+monospace(`Soal : ${hayo.soal}\nWaktu : ${gamewaktu}s`)
-				  conn.sendMessage(from, {text: teks}, {quoted: msg})
-				  .then( res => {
-					var jawab = hayo.jawaban.toLowerCase()
-					addPlayGame(from, 'KUIS GAME', jawab, gamewaktu, res, tebaktebakan)
-					gameAdd(sender, glimit)
-				  })
-			    break
+             
 			// Group Menu
 			case prefix+'linkgrup': case prefix+'link': case prefix+'linkgc':
 			    if (!isGroup) return reply(mess.OnlyGrup)
@@ -1491,60 +1524,8 @@ case prefix+'kuis':
 		        groupMembers.map( i => mem.push(i.id) )
 				conn.sendMessage(from, { text: q ? q : '', mentions: mem })
 			    break
-case prefix+'tagall':
-      if (!isGroup) return reply(mess.OnlyGrup)
-      if (!isGroupAdmins) return reply(mess.GrupAdmin)
-      if (args.length < 2) return reply(`Kirim perintah ${command} teks`)
-     var mems = []
-      var teks = `*[ TAG ALL ]*\nPesan : ${q}\n\n`
-      for (let i of groupMembers) {
-        teks += `≻ @${i.id.split("@")[0]}\n`
-        mems.push(i.id)
-      }
-      conn.sendMessage(from, { text: teks, mentions: mems}, { quoted: msg })
-      break
-case prefix+'promote':
-  case prefix+'admin':
-    if (!isGroup) return reply(mess.OnlyGrup)
-    if (!isGroupAdmins) return reply(mess.GrupAdmin)
-    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-    var number;
-    if (mentioned.length !== 0) {
-      number = mentioned[0]
-      conn.groupParticipantsUpdate(from, [number], "promote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else if (isQuotedMsg) {
-      number = quotedMsg.sender
-      conn.groupParticipantsUpdate(from, [number], "promote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else {
-      reply(`Tag atau balas pesan member yang ingin dijadikan admin grup`)
-    }
-    break
-case prefix+'demote':
-  case prefix+'unadmin':
-    if (!isGroup) return reply(mess.OnlyGrup)
-    if (!isGroupAdmins) return reply(mess.GrupAdmin)
-    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-    var number;
-    if (mentioned.length !== 0) {
-      number = mentioned[0]
-      conn.groupParticipantsUpdate(from, [number], "demote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else if (isQuotedMsg) {
-      number = quotedMsg.sender
-      conn.groupParticipantsUpdate(from, [number], "demote")
-      .then( res => reply(jsonformat(res)))
-      .catch( err => reply(jsonformat(err)))
-    } else {
-      reply(`Tag atau balas pesan admin yang ingin diturunkan menjadi member`)
-    }
-    break
 case prefix+'kick':
-  if (!isPremium)return reply("_Maaf Fitur Ini Di Nonaktifkan Oleh Owner, Karena menyebabkan nomer bot 3 kali ke banned_")
+  if (!isOwner)return reply("_Maaf Fitur Ini Di Nonaktifkan Oleh Owner, Karena menyebabkan nomer bot 3 kali ke banned_")
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -1593,7 +1574,7 @@ case prefix+'add':
                 balance.sort((a, b) => (a.balance < b.balance) ? 1 : -1)
                 let top = '*── 「 TOP BALANCE 」 ──*\n\n'
                 let arrTop = []
-				var total = 10
+				var total = 20
 				if (balance.length < 10) total = balance.length
                 for (let i = 0; i < total; i ++){
                     top += `${i + 1}. @${balance[i].id.split("@")[0]}\n=> Balance : $${balance[i].balance}\n\n`
@@ -1635,33 +1616,101 @@ case prefix+'add':
                 if (args[1].includes('-')) return reply(`Jangan menggunakan -`)
                 if (isNaN(args[1])) return reply(`Harus berupa angka`)
                 if (args[1].toLowerCase() === 'infinity') return reply(`Yahaha saya ndak bisa di tipu`)
-                let ane = Number(parseInt(args[1]) * 150)
+                let ane = Number(parseInt(args[1]) * 100)
                 if (getBalance(sender, balance) < ane) return reply(`Balance kamu tidak mencukupi untuk pembelian ini`)
                 kurangBalance(sender, ane, balance)
                 givegame(sender, parseInt(args[1]), glimit)
-                reply(monospace(`Pembeliaan game limit sebanyak ${args[1]} berhasil\n\nSisa Balance : $${getBalance(sender, balance)}\nSisa Game Limit : ${cekGLimit(sender, gcount, glimit)}/${gcount}`))
+                reply(monospace(`Pembeliaan game limit sebanyak ${args[1]} berhasil\n\nSisa Balance : $${toCommas(getBalance(sender, balance))}\nSisa Game Limit : ${cekGLimit(sender, gcount, glimit)}/${gcount}`))
             }
                 break
-			case prefix+'limit': 
-			case prefix+'ceklimit':
-			  case prefix+'balance':
-			    case prefix+'celbalance':
+			case prefix+'limit': case prefix+'balance':
+			case prefix+'ceklimit': case prefix+'cekbalance':
 			    if (mentioned.length !== 0){
 					var Ystatus = ownerNumber.includes(mentioned[0])
 					var isPrim = Ystatus ? true : _prem.checkPremiumUser(mentioned[0], premium)
 				    var ggcount = isPrim ? gcounti.prem : gcounti.user
                     var limitMen = `${getLimit(mentioned[0], limitCount, limit)}`
                     textImg(`Limit : ${_prem.checkPremiumUser(mentioned[0], premium) ? 'Unlimited' : limitMen}/${limitCount}\nLimit Game : ${cekGLimit(mentioned[0], ggcount, glimit)}/${ggcount}\nBalance : $${getBalance(mentioned[0], balance)}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit`)
-                    
                 } else {
-                    var limitPrib = `${getLimit(mentioned[0], limitCount, limit)}`
-                    textImg(`Limit : ${_prem.checkPremiumUser(mentioned[0], premium) ? 'Unlimited' : limitMen}/${limitCount}\nLimit Game : ${cekGLimit(mentioned[0], ggcount, glimit)}/${ggcount}\nBalance : $${getBalance(mentioned[0], balance)}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit`)
+                    var limitPrib = `${getLimit(sender, limitCount, limit)}/${limitCount}`
+                    textImg(`Limit : ${isPremium ? 'Unlimited' : limitPrib}\nLimit Game : ${cekGLimit(sender, gcount, glimit)}/${gcount}\nBalance : $${toCommas(getBalance(sender, balance))}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit`)
                 }
 				break
 //Api Anto
+case prefix+'ssweb':
+  if (!isUrl(args[1])) return reply(mess.error.Iv)
+  var seweb = chats.slice(7)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} link Mu\nContoh ${command} https://github.com/GetSya`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/tools/ssweb?url=${seweb}&apikey=${keyanto}`}})
+  limitAdd(sender, limit)
+  break
+  case prefix+'sshpfull':
+  if (!isUrl(args[1])) return reply(mess.error.Iv)
+  var seweb = chats.slice(7)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} link Mu\nContoh ${command} https://github.com/GetSya`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hadi-api.herokuapp.com/api/ssweb?url=${q}&device=phone&full=on`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'ssdesktop':
+  if (!isUrl(args[1])) return reply(mess.error.Iv)
+  var seweb = chats.slice(7)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} link Mu\nContoh ${command} https://github.com/GetSya`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hadi-api.herokuapp.com/api/ssweb?url=${q}&device=desktop&full=on`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'nuliskanan':
+  var kanan = chats.slice(11)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} Tulisan Mu\nContoh ${command} Izumi Ganteng\n\n⚠️ *NOTE : GAK BOLEH DI TAMBAHIN EMOJI/TEXT TEXT GAK JELAS*`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/nuliskanan?text=${kanan}&apikey=${keyanto}`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'nuliskiri':
+  var kiri = chats.slice(10)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} Tulisan Mu\nContoh ${command} Izumi Ganteng\n\n⚠️ *NOTE : GAK BOLEH DI TAMBAHIN EMOJI/TEXT TEXT GAK JELAS*`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/nuliskanan?text=${kiri}&apikey=${keyanto}`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'foliokiri':
+  var fkiri = chats.slice(10)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} Tulisan Mu\nContoh ${command} Izumi Ganteng\n\n⚠️ *NOTE : GAK BOLEH DI TAMBAHIN EMOJI/TEXT TEXT GAK JELAS*`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/foliokiri?text=${fkanan}&apikey=${keyanto}`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'foliokanan':
+  var fkiri = chats.slice(11)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} Tulisan Mu\nContoh ${command} Izumi Ganteng\n\n⚠️ *NOTE : GAK BOLEH DI TAMBAHIN EMOJI/TEXT TEXT GAK JELAS*`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/foliokanan?text=${fkiri}&apikey=${keyanto}`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'nulis':
+  case prefix+'tulis':
+    case prefix+'menulis':
+reply(`*[ COMMAND NOT FOUND ]*
+Command Salah ❌
+Silahkan Pilih Type Buku/Folio Berikut
 
-  
+- ${prefix}foliokanan <Text>
+- ${prefix}foliokiri <Text>
+- ${prefix}nuliskanan <Text>
+- ${prefix}nuliskiri <Text>
 
+Note : Anggap "<" dan ">" Tidak Ada
+ `)
+ break
 //nsfw
 case prefix+'pussy':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
@@ -1720,82 +1769,237 @@ var ahegao = JSON.parse(fs.readFileSync('./fitur/nsfw/ahegao.json'))
 var hasil = pickRandom(ahegao)
 conn.sendMessage(from, {caption: `Sange kok sama gambar`, image: {url: hasil}}, {quoted: msg})
 break 
-///MAKER BY HADII APII!!!!
+///MAKER MENU BY JOJO AND CHRISTIAN ID!!!
 case prefix+'glitch':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1> <Text2>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/tiktok-effect?text=${args[1]}&text2=${args[2]}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/tiktok-effect?text=${args[1]}&text2=${args[2]}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'flaming':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/flaming-fire?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/flaming-fire?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'shadow':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/shadow-sky?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/shadow-sky?text=${q}`}}, {quoted: msg})
+limitAdd(sender, limit)
+break
+case prefix+'goldenroses': // By Christian ID
+  if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/golden-roses?text=${q}`}}, {quoted: msg})
+limitAdd(sender, limit)
+break
+case prefix+'youtubegold': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/maker/goldbutton?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'youtubesilver': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/maker/silverbutton?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'thunder': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/thunder2?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'neonlight': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/neon-light?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'neondevil': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/neon-devil?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'hallowen': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/hallowen-text?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'skytext': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/sky-text?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'holografic': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/holograpic?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'grafity': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/grafity-text?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'christmas': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/christmas?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'luxury': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/luxury?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'harrypotter': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/harry-potter?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'brokenglass': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/broken-glass?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'artpapper': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/art-papper?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'watercolor': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/water-color?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'glossymaker': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/glossy?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'multicolor': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/multi-color?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'gluetext': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/glue-text?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'jokerlogo': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/joker-logo?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'ninjalogo': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var text1 = q.split('|')[0] ? q.split('|')[0] : q
+
+var text2 = q.split('|')[1] ? q.split('|')[1] : ''
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/ninja-logo?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'avengers': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var text1 = q.split('|')[0] ? q.split('|')[0] : q
+
+var text2 = q.split('|')[1] ? q.split('|')[1] : ''
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/avengers-logo?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'pornhub': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var text1 = q.split('|')[0] ? q.split('|')[0] : q
+
+var text2 = q.split('|')[1] ? q.split('|')[1] : ''
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/pornhub?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'mascotbear': 
+  if (args.length < 2) return reply(`Kirim perintah ${command} <Text1> <Text2>`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/textpro/black-white-bear-mascot?teks=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'wolftext':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/wolf-metal?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/wolf-metal?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'cup':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/teks-cup?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/teks-cup?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'romantic':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/romantic-messages?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/romantic-messages?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'writetext':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/burn-paper?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/burn-paper?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'cup2':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/funny-cup?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/funny-cup?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'lovetext':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/love-messages?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/love-messages?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'lovetext2':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/romantic-double?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/romantic-double?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'undergrass':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/under-grass?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/under-grass?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'tahta': case prefix+'hartatahta':
@@ -1803,21 +2007,47 @@ case prefix+'tahta': case prefix+'hartatahta':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
   reply(`Harta Tahta *${q}* Sedang Di Buat`)
+conn.sendMessage(from, {caption: `*HARTA*\n*TAHTA*\n*${q}*`, image: { url: `https://hardianto.xyz/api/maker/harta-tahta?apikey=${keyanto}&text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'coffecup':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/coffee-cup?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/coffee-cup?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
 case prefix+'woodheart':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   
-conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/wood-hearth?text=${q}`}}, {quoted: msg})
+conn.sendMessage(from, {caption: "© Izumi Bot", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/wood-hearth?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
+break
+//PHOTO OXY BY CHRISTIAN ID//
+case prefix+'army': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/photooxy/army?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'matrix': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/maker/matrix?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'butterfly': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/photooxy/butterfly?text={q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'burnpapper': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/photooxy/burn-papper?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'say': case prefix+'tts':
   if (args.length < 2) return reply(`Kirim perintah ${command} Text`)
@@ -1825,7 +2055,32 @@ case prefix+'say': case prefix+'tts':
    conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 limitAdd(sender, limit)
    break
-/*case prefix+'listquran':
+case prefix+'nabi': case prefix+'kisahnabi':
+  if (args.length < 2) return reply(`Kirim perintah ${command} Nama Nabi\nContoh : ${command} Muhammad`)
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				var data = await fetchJson(`https://hardianto.xyz/api/muslim/kisahnabi?nabi=${q}&apikey=${keyanto}`)
+				var kisahnya = `*Nama Nabi :* ${data.result.name}\n*Kelahiran :* ${data.result.wafat_usia}\n*Tempat Tinggal :* ${data.result.singgah}\n*Kisah Nabi :* ${data.result.kisah}`
+			    reply(kisahnya)
+				limitAdd(sender, limit)
+				break
+case prefix+'quranaudio': case prefix+'quranvn':
+  if (args.length < 2) return reply(`Kirim perintah ${command} surah ayat\nContoh : ${command} 1 2`)
+  if (isNaN(args[1])) return reply(`Harus berupa angka`)
+  if (isNaN(args[2])) return reply(`Harus berupa angka`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://hardianto.xyz/api/muslim/quran?surah=${args[1]}&ayat=${args[2]}&apikey=${keyanto}`)
+
+conn.sendMessage(from, { audio: {url : pickRandom(data.result.data.audio.secondary)}, mimetype: 'audio/mp4', ptt: true})
+limirAdd(sender, limit)
+break
+case prefix+'quran':
+  if (args.length < 2) return reply(`Kirim perintah ${command} Nomer`)
+  if (isNaN(args[1])) return reply(`Harus berupa angka`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://hadi-api.herokuapp.com/api/quran?no=${q}`)
+			    reply(`*Surah :* ${data.result.surah}\n*Ayat :* \n${data.result.ayat}\n*Arti :* \n${data.result.terjemahan}`)
+			    break
+case prefix+'listquran':
   var listquran = `*[ LIST QURAN ]*
 
 1. Al Fatihah (Pembuka)
@@ -1955,7 +2210,7 @@ limitAdd(sender, limit)
 112. Al-Ikhlas (Ikhlas)
 113. Al-Falaq (Waktu Subuh)
 114. An-Nas (Umat Manusia)`
-  textImg(listquran)*/
+  textImg(listquran)
   break
 case prefix+'darkjokes': case prefix+'dark': case prefix+'darkjoke': case prefix+'meme': case prefix+'memeindo':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1972,31 +2227,64 @@ case prefix+'readmore':
     var retmor = `${read}${readmore}${morr}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
-case prefix+'jo':
+case prefix+'izumi':
   case prefix+'simi':
  var text = `${q}`
 var cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${text}&lc=id`)
   conn.sendMessage(from, { text: cimcimi.success}, {quoted: msg})
   break
+case prefix+'igstalk':
+  case prefix+'stalkig':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Username\nContoh : ${command} chris.tianid`)
+    var data = await fetchJson(`https://hardianto.xyz/api/igstalk?username=${q}&apikey=hardianto`)
+    var caption = `*[ INSTAGRAM STALK ]*\n\n👤Username : ${data.username}\n📛 Full Name : ${data.fullname}\n✔️ Verified : ${data.verified}\n👥 Followers : ${data.followers}\n🫂 Following : ${data.follow}\n🗣️ Kategori ${data.category}\n\n${readmore} *© IzumiBOT*`
+    conn.sendMessage(from, {caption: caption, image: {url: data.thumbnail}}, {quoted: msg})
+    limitAdd(sender, limit)
+    break
+case prefix+'guramaker':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Izumi`)
+   conn.sendMessage(from, {caption: `Premium Feature For User Free`, image: {url: `https://hardianto.xyz/api/bot/gura?apikey=hardianto&nama=${q}`}}, {quoted: msg})
+   limitAdd(sender, limit)
+   break
+   case prefix+'kanekimaker':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Izumi`)
+   conn.sendMessage(from, {caption: `Premium Feature For User Free`, image: {url: `https://hardianto.xyz/api/bot/gfx1?apikey=hardianto&nama=${q}`}}, {quoted: msg})
+   limitAdd(sender, limit)
+   break
+case prefix+'lolimaker':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Izumi`)
+   conn.sendMessage(from, {caption: `Premium Feature For User Free`, image: {url: `https://hardianto.xyz/api/bot/gfx2?apikey=hardianto&nama=${q}`}}, {quoted: msg})
+   limitAdd(sender, limit)
+   break
+case prefix+'waifumaker':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Izumi bot`)
+   conn.sendMessage(from, {caption: `Premium Feature For User Free`, image: {url: `https://hardianto.xyz/api/bot/gfx4?apikey=hardianto&text1=${args[1]}&text2=${args[2]}`}}, {quoted: msg})
+   limitAdd(sender, limit)
+   break
 case prefix+'qrcode':
   case prefix+'qr':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Jojo bot`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Izumi bot`)
     reply(`Membuat Qr Code`)
-    conn.sendMessage(from, {caption: `*QR CODE*`, image: {url: `https://docs-jojo.herokuapp.com/api/qrcode?text=${q}`}}, {quoted: msg})
+    conn.sendMessage(from, {caption: `*QR CODE*`, image: {url: `https://docs-Izumi.herokuapp.com/api/qrcode?text=${q}`}}, {quoted: msg})
     limitAdd(sender, limit)
     break
 case prefix+'cersex':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/cersex`)
-  var caption = `*[ CERSEX ]*\n\n*Judul* : ${data.result.judul}\n*Cerita* : ${data.result.cersex}\n${readmore} *JOJOBOT*`
+  var data = await fetchJson(`https://docs-Izumi.herokuapp.com/api/cersex`)
+  var caption = `*[ CERSEX ]*\n\n*Judul* : ${data.result.judul}\n*Cerita* : ${data.result.cersex}\n${readmore} *IzumiBOT*`
   conn.sendMessage(from, {caption: caption, image: {url: data.result.img}}, {quoted: msg})
   limitAdd(sender, limit)
   break
 case prefix+'cerpen':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/cerpen`)
+  var data = await fetchJson(`https://docs-Izumi.herokuapp.com/api/cerpen`)
   var text = `*[ CERPEN ]*\n\n*Judul* : ${data.result.title}\n*Kategori* : ${data.result.kategori}\n*Cerritanya* : ${data.result.cerpen}`
   conn.sendMessage(from, {text: text}, {quoted: msg})
   limitAdd(sender, limit)
@@ -2004,45 +2292,45 @@ case prefix+'cerpen':
 case prefix+'faktaunik':
   case prefix+'faktamenarik':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-     var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fakta-unik`)
+     var data = await fetchJson(`https://docs-Izumi.herokuapp.com/api/fakta-unik`)
 var caption = `Tahukah kamu?
 ${data.result}`
 var but = [{buttonId: `${command}`, buttonText: { displayText: "Fakta Unik" }, type: 1 }]
-conn.sendMessage(from, { text: caption, buttons: but, footer: "© Jojo Bot", templateButtons: but }, {quoted: msg})
+conn.sendMessage(from, { text: caption, buttons: but, footer: "© Izumi Bot", templateButtons: but }, {quoted: msg})
 limitAdd(sender, limit)
 break
 //maker arasya
 case prefix+'leaves':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/natural-leaves?apikey=Joo&text=${q}`)
+  var data = await fetchJson(`https://Izumi-docsapi.herokuapp.com/api/textpro/natural-leaves?apikey=Joo&text=${q}`)
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
 case prefix+'pornhub':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/porn-hub?apikey=Joo&text1=${args[1]}&text2=${args[2]}`)
+  var data = await fetchJson(`https://Izumi-docsapi.herokuapp.com/api/textpro/porn-hub?apikey=Joo&text1=${args[1]}&text2=${args[2]}`)
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
 case prefix+'3d':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/3d-gradient?apikey=Joo&text=${q}`)
+  var data = await fetchJson(`https://Izumi-docsapi.herokuapp.com/api/textpro/3d-gradient?apikey=Joo&text=${q}`)
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
 case prefix+'christmas':
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/christmas?apikey=Joo&text=${q}`)
+  var data = await fetchJson(`https://Izumi-docsapi.herokuapp.com/api/textpro/christmas?apikey=Joo&text=${q}`)
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
 case prefix+'logowolf':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/logo-wolf2?apikey=Joo&text=${args[1]}&text2=${args[2]}`)
+  var data = await fetchJson(`https://Izumi-docsapi.herokuapp.com/api/textpro/logo-wolf2?apikey=Joo&text=${args[1]}&text2=${args[2]}`)
 
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
@@ -2050,7 +2338,7 @@ reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
 case prefix+'logowolf2':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/logo-wolf ?apikey=Joo&text=${args[1]}&text2=${args[2]}`)
+  var data = await fetchJson(`https://Izumi-docsapi.herokuapp.com/api/textpro/logo-wolf ?apikey=Joo&text=${args[1]}&text2=${args[2]}`)
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
@@ -2122,7 +2410,7 @@ reply(textnya.replace(/[a|i|u|e|o|A|I|U|E|O]/gi, 'o'))
 	if (!args[1]) return reply(`Dari bahasa apa?`)
 	if (!args[2]) return reply(`Mau Di translate ke bahasa apa?`)
 	 var quoted = quotedMsg.chats
-var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/translate?text=${quoted}&from=${args[1]}&to=${args[2]}`)
+var data = await fetchJson(`https://docs-Izumi.herokuapp.com/api/translate?text=${quoted}&from=${args[1]}&to=${args[2]}`)
 conn.sendMessage(from, {text: data.translated_text}, {quoted: msg})
 limitAdd(sender, limit)
 break
@@ -2187,20 +2475,13 @@ limitAdd(sender, limit)
 break
 case prefix+'suratto':
   case prefix+'surat':
-    if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Suratnya\nContoh ${command} 62813199449171|Anjing\n\nAWALI DENGAN 62!`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Suratnya\nContoh ${command} 6285921165857|Anjing\n\nAWALI DENGAN 62!`)
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   var number = q.split('|')[0] ? q.split('|')[0] : q
                 var text = q.split('|')[1] ? q.split('|')[1] : ''
                 reply(`Pesan Sukses Terkirim`)
 conn.sendMessage(`${number}@s.whatsapp.net`, {text: `*[ FITUR SURAT ]*\n\n*Dari :* @${sender} (${pushname})\n*Pesan :* ${text}`, mentions: [sender]})
 limitAdd(sender, limit)
-break
-case prefix+'report':
-  case prefix+'lapor':
-    case prefix+'chatown':
-    if (args.length < 2) return reply(`Silahkan Masukan Laporan nya, Contoh : ${command} Ada Bug Di fitur <fitur>`)
-                reply(`Laporan Telah DibKirimkan Oleh ke Owner, Laporan main² atau palsu akan di banned!`)
-conn.sendMessage(ownerNumber, {text: `*[ PANGGILAN USER ]*\n\n*Dari :* @${sender}\n*Pesan :* ${q}`, mentions: [sender]})
 break
 case prefix+'gombal':
   case prefix+'gombalan':
@@ -2210,16 +2491,16 @@ var hasil = pickRandom(gombal)
 var gom = [
 			{ quickReplyButton: { displayText: `Next Gombalan ➡️`, id: `${command}` } },
 		]
-		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @arsrfi.jpg`, mentions: [sender]} )
+		conn.sendMessage(from, {text: hasil, templateButtons: gom, footer: `Cie Di Gombal Robot\n~ Instagram : @chris.tianid`, mentions: [sender]} )
 limitAdd(sender, limit)
 break
 case prefix+'textchat':
   if (!isOwner) return reply(mess.OnlyOwner)
-  if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Laporan nya\nContoh ${command} 62813199449171|Anjing\n\nAWALI DENGAN 62!`)
+  if (args.length < 2) return reply(`Kirim perintah ${command} nomer|Laporan nya\nContoh ${command} 6285921165857|Anjing\n\nAWALI DENGAN 62!`)
   var nomorcuy = q.split('|')[0] ? q.split('|')[0] : q
                 var okecuy = q.split('|')[1] ? q.split('|')[1] : ''
                 reply(`Pesan Sukses Terkirim`)
-conn.sendMessage(`${nomorcuy}@s.whatsapp.net`, {text: `*[ DARI OWNER ]*\nPesan Dari Owner : *${okecuy}*\nThanks For Using JOJO-BOT! ( ${sender} )`, mentions: [sender]})
+conn.sendMessage(`${nomorcuy}@s.whatsapp.net`, {text: `*[ DARI OWNER ]*\nPesan Dari Owner : *${okecuy}*\nThanks For Using Izumi-BOT! ( ${sender} )`, mentions: [sender]})
 break
 case prefix+'lirik':
   if (args.length < 2) return reply(`kirim Perintah ${command} Judul Lagu`)
@@ -2230,22 +2511,6 @@ case prefix+'lirik':
     conn.sendMessage(from, {text: caption}, {quoted: msg})
     limitAdd(sender, limit)
   }).catch(() => reply(`Lagu ${q} Tidak Di Temukan`))
-  break
-case prefix+'sendvirus':
-  case prefix+'sendvirtex':
-  case prefix+'sv':
-  if (!isOwner)return reply(mess.OnlyOwner)
-  if (!args[1].includes('62')) return reply(`Masukan Nomer mulai dari 62`)
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/1.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/2.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/3.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/4.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/virtex.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/1.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/2.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/3.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/4.txt')})
-  conn.sendMessage(`${q}@s.whatsapp.net`, {text: fs.readFileSync('fitur/virtex/virtex.txt')})
   break
 default:
 			if (!isGroup && isCmd) {
