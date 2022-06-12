@@ -1498,7 +1498,7 @@ case prefix+'tagall':
      var mems = []
       var teks = `*[ TAG ALL ]*\nPesan : ${q}\n\n`
       for (let i of groupMembers) {
-        teks += `≻ @${i.id.split("@")[0]}`
+        teks += `≻ @${i.id.split("@")[0]}\n`
         mems.push(i.id)
       }
       conn.sendMessage(from, { text: teks, mentions: mems}, { quoted: msg })
