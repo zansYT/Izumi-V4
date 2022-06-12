@@ -1491,8 +1491,60 @@ case prefix+'kuis':
 		        groupMembers.map( i => mem.push(i.id) )
 				conn.sendMessage(from, { text: q ? q : '', mentions: mem })
 			    break
+case prefix+'tagall':
+      if (!isGroup) return reply(mess.OnlyGrup)
+      if (!isGroupAdmins) return reply(mess.GrupAdmin)
+      if (args.length < 2) return reply(`Kirim perintah ${command} teks`)
+      var mentions = []
+      var teks = `${q}\n\n`
+      for (let i of groupMembers) {
+        teks += `@${i.id.split("@")[0]}\n`
+        mem.push(i.id)
+      }
+      conn.sendMessage(from, { text: teks, mentions }, { quoted: msg })
+      break
+case prefix+'promote':
+  case prefix+'admin':
+    if (!isGroup) return reply(mess.OnlyGrup)
+    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+    var number;
+    if (mentioned.length !== 0) {
+      number = mentioned[0]
+      conn.groupParticipantsUpdate(from, [number], "promote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else if (isQuotedMsg) {
+      number = quotedMsg.sender
+      conn.groupParticipantsUpdate(from, [number], "promote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else {
+      reply(`Tag atau balas pesan member yang ingin dijadikan admin grup`)
+    }
+    break
+case prefix+'demote':
+  case prefix+'unadmin':
+    if (!isGroup) return reply(mess.OnlyGrup)
+    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+    if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+    var number;
+    if (mentioned.length !== 0) {
+      number = mentioned[0]
+      conn.groupParticipantsUpdate(from, [number], "demote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else if (isQuotedMsg) {
+      number = quotedMsg.sender
+      conn.groupParticipantsUpdate(from, [number], "demote")
+      .then( res => reply(jsonformat(res)))
+      .catch( err => reply(jsonformat(err)))
+    } else {
+      reply(`Tag atau balas pesan admin yang ingin diturunkan menjadi member`)
+    }
+    break
 case prefix+'kick':
-  if (!isOwner)return reply("_Maaf Fitur Ini Di Nonaktifkan Oleh Owner, Karena menyebabkan nomer bot 3 kali ke banned_")
+  if (!isPremium)return reply("_Maaf Fitur Ini Di Nonaktifkan Oleh Owner, Karena menyebabkan nomer bot 3 kali ke banned_")
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -2148,7 +2200,7 @@ case prefix+'report':
     case prefix+'chatown':
     if (args.length < 2) return reply(`Silahkan Masukan Laporan nya, Contoh : ${command} Ada Bug Di fitur <fitur>`)
                 reply(`Laporan Telah DibKirimkan Oleh ke Owner, Laporan main² atau palsu akan di banned!`)
-conn.sendMessage(sender, {text: `*[ PANGGILAN USER ]*\n\n*Dari :* @${sender}\n*Pesan :* ${q}`, mentions: [sender]})
+conn.sendMessage(ownerNumber, {text: `*[ PANGGILAN USER ]*\n\n*Dari :* @${sender}\n*Pesan :* ${q}`, mentions: [sender]})
 break
 case prefix+'gombal':
   case prefix+'gombalan':

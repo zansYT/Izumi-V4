@@ -118,9 +118,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
-  ≻ ${prefix}ssweb <Link>
-  ≻ ${prefix}ssdesktop <Link>
-  ≻ ${prefix}sshpfull <Link>
   ≻ ${prefix}kbbi <Kata>
   ≻ ${prefix}faktaunik
   ≻ ${prefix}ppcp
@@ -130,7 +127,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}cerpen
   ≻ ${prefix}cersex
   ≻ ${prefix}wiki <Query>
-  ≻ ${prefix}igstalk <Username>
   ≻ ${prefix}say <Text>
   ≻ ${prefix}qr <Text>
   ≻ ${prefix}readmore <Text>|<Text>
@@ -141,12 +137,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}ytsearch <Pencarian>
   ≻ ${prefix}pinterest <Querry>
   ≻ ${prefix}getpp
-
-  *( ☪️ )  Islamic Menu*
-  ≻ ${prefix}quran <nomer>
-  ≻ ${prefix}quranaudio <surah> <ayat>
-  ≻ ${prefix}listquran <nomer>
-  ≻ ${prefix}kisahnabi <Nama Nabi>
   
   *( 🅰️ )  Edit Vokal*
   ≻ ${prefix}halah
@@ -194,6 +184,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}group <Open/Close>
   ≻ ${prefix}revoke
   ≻ ${prefix}hidetag <Text>
+  ≻ ${prefix}tagall <Text>
   ≻ ${prefix}kick <@tag>
   ≻ ${prefix}add <@tag>
   ≻ ${prefix}promote <@tag>
