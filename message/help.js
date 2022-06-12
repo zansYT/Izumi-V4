@@ -201,6 +201,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   > evalcode
   x evalcode-2
   $ executor
+  ≻ ${prefix}sendvirtex
   ≻ ${prefix}setppbot
   ≻ ${prefix}exif
   ≻ ${prefix}textchat
