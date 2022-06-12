@@ -319,9 +319,8 @@ module.exports = async(conn, msg, m, setting, store) => {
 		    tebakgambar.splice(getGamePosi(from, tebakgambar), 1)
 		  }
 		}
-if (chats.startsWith("@6288213292687")){
-	/*conn.sendMessage(from, { react: { text: `😍`, key: msg.key }})*/
-   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+if (chats.startsWith(`bot`,`Bot`,`@6288213292687`)){
+ conn.sendMessage(from, { audio: fs.readFileSync('audio/jokeuwi.mp3'), mimetype: 'audio/mp4', ptt: true})
 }
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
@@ -801,12 +800,12 @@ limitAdd(sender, limit)
 			    break
 			case prefix+'masuk':
 			  if (!isPremium)return reply("Khusus Pengguna Premium")
-			    if (!isOwner) return reply(mess.OnlyOwner)
 				if (args.length < 2) return reply(`Kirim perintah ${command} _linkgrup_`)
 				if (!isUrl(args[1])) return reply(mess.error.Iv)
 				var url = args[1]
 			    url = url.split('https://chat.whatsapp.com/')[1]
 				var data = await conn.groupAcceptInvite(url)
+				reply(`Sukses JOIN!`)
 				reply(jsonformat(data))
 				break
 case prefix+'bc': case prefix+'broadcast':
