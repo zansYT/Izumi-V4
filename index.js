@@ -1,10 +1,27 @@
-/**
-  * Edit features in './message/msg.js'
-  * Contact me on WhatsApp wa.me/6281319944917
-  * Follow : https://github.com/rtwone
-  * Follow : https://github.com/GetSya
-*/
+/*HELLO BRO TERIMA KASIH SUDAH AMBIL SCRIPT INI JANGAN LUPA IKUTI DAN SUBSCRIBE MEDIA SOSIAL OWNER DAN BOT
 
+Sc Ori By Arasya
+Sc Record By Christian ID
+Note : Jangan Perjualkan Sc Ini!!!
+
+Instagram Jojo : @arsrfi.jpg
+Youtube : Jojo Channel
+
+Instagram : @chris.tianid
+Youtube : Christian ID
+WhatsApp : 0859-2116-5857
+
+THANKS TO
+- Irfan Hardianto
+- Amell
+- Hardianto
+- Affis Junianto
+- Rafli Rusdiana
+- Febri
+- Jojo
+- Christian ID
+
+Terimakasih*/
 "use strict";
 const {
 	default: makeWASocket,
@@ -32,14 +49,14 @@ const { state, saveState } = useSingleFileAuthState(session)
 
 function title() {
       console.clear()
-	  console.log(chalk.bold.green(figlet.textSync('Jojo-Bot', {
+	  console.log(chalk.bold.green(figlet.textSync('Izumi-Bot', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		verticalLayout: 'default',
 		width: 80,
 		whitespaceBreak: false
 	})))
-	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Powered By Iyan & Arasya ]')}\n\n${chalk.red('Jojo-Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Dev')} : ${chalk.white('@sofunsyabi.jpg')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 813-1994-4917')}\n${chalk.red('Donate')} : ${chalk.white('088213292687 ( Gopay/Pulsa )')}\n`))
+	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Powered By Christian ]')}\n\n${chalk.red('Izumi-Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Christian')} : ${chalk.white('@chris.tianid')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 859-2116-5857')}\n${chalk.red('Rest Api')} : ${chalk.white('https://christian-id-api.herokuapp.com/docs')}\n`))
 }
 
 /**
@@ -80,7 +97,7 @@ const connectToWhatsApp = async () => {
             printQRInTerminal: true,
             logger: logg({ level: 'fatal' }),
             auth: state,
-            browser: ["Jojo-Bot", "Safari", "3.0"]
+            browser: ["Izumi-Bot", "Safari", "3.0"]
         })
 	title()
         store.bind(conn.ev)
@@ -89,11 +106,9 @@ const connectToWhatsApp = async () => {
 	require('./message/help')
 	require('./lib/myfunc')
 	require('./message/msg')
-	require('./index')
 	nocache('./message/help', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	nocache('./lib/myfunc', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	nocache('./message/msg', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
-	nocache('./index', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	
 	conn.multi = true
 	conn.nopref = false
@@ -129,11 +144,9 @@ const connectToWhatsApp = async () => {
 		  var pp_user = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 		}
 		if (data.action == "add") {
-		   var but = [{buttonId: `/`, buttonText: { displayText: "Welcome 🥳" }, type: 1 }]
-				conn.sendMessage(data.id, { caption: `Hallo @${i.split("@")[0]} Selamat Datang Di Grup *${metadata.subject}*\nSilahkan Untuk Memperkenalkan diri anda`, image: {url: pp_user}, buttons: but, footer: `Deskripsi : ${metadata.desc}`, mentions: [i]})
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Hallo @${i.split("@")[0]}\nSelamat Datang Di Grup ${metadata.subject}\n\nIntro Dulu Yuk Kak\n\n\n📛 Nama : \n🔞 Umur :\n🏙️ Askot :\n👫 Gender :\n\nSemoga Kamu Senang Berada Disini Serta Jangan Lupa Untuk Membaca Dan Mematuhi Rules Yang Ada`, mentions: [i] })
 		} else if (data.action == "remove") {
-		  var but = [{buttonId: `/`, buttonText: { displayText: "Good Bye 👋" }, type: 1 }]
-				conn.sendMessage(data.id, { caption: `Byeee @${i.split("@")[0]}`, image: {url: pp_user}, buttons: but, footer: `${metadata.subject}`, mentions: [i]})
+		  conn.sendMessage(data.id, { image: { url: pp_user }, caption: `Goodbye @${i.split("@")[0]}\n\nTetap Putus Asa Jangan Semangat Dan Jadilah Beban Keluarga 🤙🗿`, mentions: [i] })
 		}
 	  }
 	} catch (e) {
