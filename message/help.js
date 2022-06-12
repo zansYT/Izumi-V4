@@ -161,6 +161,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}suit
   ≻ ${prefix}slot
   ≻ ${prefix}tebakgambar
+  ≻ ${prefix}kuis
+  ≻ ${prefix}tebakkata
   ≻ ${prefix}apakah <Query>
   ≻ ${prefix}kapankah <Query>
   ≻ ${prefix}rate <Query>
