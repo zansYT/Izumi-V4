@@ -1495,13 +1495,13 @@ case prefix+'tagall':
       if (!isGroup) return reply(mess.OnlyGrup)
       if (!isGroupAdmins) return reply(mess.GrupAdmin)
       if (args.length < 2) return reply(`Kirim perintah ${command} teks`)
-      var menti = []
-      var teks = `${q}\n\n`
+     var mems = []
+      var teks = `*[ TAG ALL ]*\nPesan : ${q}\n\n`
       for (let i of groupMembers) {
-        teks += `@${i.id.split("@")[0]}\n`
-        mem.push(i.id)
+        teks += `≻ @${i.id.split("@")[0]}`
+        mems.push(i.id)
       }
-      conn.sendMessage(from, { text: teks, menti }, { quoted: msg })
+      conn.sendMessage(from, { text: teks, mentions: mems}, { quoted: msg })
       break
 case prefix+'promote':
   case prefix+'admin':
