@@ -2514,7 +2514,7 @@ case prefix+'lirik':
   break
 default:
 			if (!isGroup && isCmd) {
-				reply(`Command ${command} Tidak Ada Di Dalam ${prefix}menu`)
+				reply(`*Maaf Command ${command} Tidak Ada Di Dalam ${prefix}menu*`)
 			}
 		}
 	} catch (err) {
