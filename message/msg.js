@@ -79,6 +79,14 @@ const pulsa = "0813-2850-7885"
 const insta = "chris.tianid"
 const github = "TianBot1"
 
+// Setting SewaBot
+const qris = "https://i.ibb.co/YTZT9SS/Qris.jpg"
+const nomor = "wa.me/6285921165857"
+const tujuhhari = "5.000"
+const tigapuluhhari = "10.000"
+const setahun = "20.000"
+const permanen = "30.000"
+
 // Exif
 const Exif = require("../lib/exif")
 const exif = new Exif()
@@ -389,7 +397,7 @@ if (chats.startsWith("@37258266435")){
 			// Main Menu
 			case prefix+'menu':
 			case prefix+'help':
-			  /*conn.sendMessage(from, { audio: fs.readFileSync('audio/Assalamualaika.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
+			  /*conn.sendMessage(from, { audio: fs.readFileSync('audio/Menu.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    
 				/*conn.sendMessage(from, { react: { text: `👋`, key: msg.key }})*/
@@ -481,10 +489,10 @@ case prefix+'sewabot':
   var teks = `*── 「 SEWA BOT 」 ──*
 
 *Harga Sewa*
-7 Hari = 5.000
-30 Hari = 10.000
-1 Tahun = 20.000
-Permanen = 30.000
+7 Hari = ${tujuhhari}
+30 Hari = ${tigapuluhhari}
+1 Tahun = ${setahun}
+Permanen = ${permanen}
 
 *Keuntungan :*
 - Bot Masuk Sesuai Waktu Sewa
@@ -492,14 +500,20 @@ Permanen = 30.000
 - Menyapa Member Join Ke Group
 - Dan Lainnya
 
-*_Pembayaran Melalui Qris Link Qris = https://telegra.ph/file/7549e4bff7f7c8124b20d.jpg_*
+*_Pembayaran Melalui Qris Link Qris = ${qris}_*
 
 *_Untuk Konfirmasi Saldo Hubungi Owner Silakan Klick Link Di Bawah_*
-*_wa.me/6285921165857_*`
+*_${nomor}_*`
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/sewa.jpg') }, templateButtons: buttonsSewa, footer: '© Sewa Bot Christian ID', mentions: [sender] })
 			    break
-			case prefix+'runtime':
-			    reply(runtime(process.uptime()))
+case prefix+'runtime':
+case prefix+'tes':
+  var teks = `*── 「 TES STATUS BOT 」 ──*
+
+
+*[ STATUS BOT ONLINE ]*
+*_Runtime : ${runtime(process.uptime())}_*`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/tes.jpg') }, templateButtons: buttonsSewa, footer: '© Bot By Christian ID', mentions: [sender] })
 			    break
 case prefix+'claim':
   var htgm = randomNomor(500, 550)
@@ -1802,115 +1816,121 @@ case prefix+'youtubegold': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/maker/goldbutton?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'youtubesilver': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/maker/silverbutton?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*",  image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'thunder': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/thunder2?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'neonlight': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/neon-light?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'neondevil': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/neon-devil?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'hallowen': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/hallowen-text?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'skytext': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/sky-text?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'holografic': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/holograpic?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'grafity': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/grafity-text?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'christmas': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/christmas?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'luxury': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/luxury?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'harrypotter': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/harry-potter?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'brokenglass': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/broken-glass?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'artpapper': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/art-papper?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'watercolor': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/water-color?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'glossymaker': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/glossy?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'multicolor': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/multi-color?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'deluxesilver': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/deluxe-silver?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'gluetext': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/glue-text?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'jokerlogo': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/joker-logo?text=${q}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'ninjalogo': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1919,7 +1939,16 @@ var text1 = q.split('|')[0] ? q.split('|')[0] : q
 var text2 = q.split('|')[1] ? q.split('|')[1] : ''
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/ninja-logo?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'lionlogo': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var text1 = q.split('|')[0] ? q.split('|')[0] : q
+
+var text2 = q.split('|')[1] ? q.split('|')[1] : ''
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/lion-logo?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'avengers': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1928,7 +1957,7 @@ var text1 = q.split('|')[0] ? q.split('|')[0] : q
 var text2 = q.split('|')[1] ? q.split('|')[1] : ''
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/avengers-logo?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'pornhub': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1937,7 +1966,7 @@ var text1 = q.split('|')[0] ? q.split('|')[0] : q
 var text2 = q.split('|')[1] ? q.split('|')[1] : ''
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/textpro/pornhub?text=${text1}&text2=${text2}&apikey=${chrisapi}`)
 reply(mess.wait)
-conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+conn.sendMessage(from, {caption: "*© Izumi Bot MD*", image: {url: data.result}}, {quoted: msg})
 break
 case prefix+'mascotbear': 
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1> <Text2>`)
@@ -2046,6 +2075,12 @@ break
 case prefix+'burnpapper': // By Christian ID
 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/photooxy/burn-papper?text=${q}&apikey=${chrisapi}`)
+reply(mess.wait)
+conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
+break
+case prefix+'glitcheffect': // By Christian ID
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/photooxy/message-under-grass?text={q}&apikey=${chrisapi}`)
 reply(mess.wait)
 conn.sendMessage(from, {image: {url: data.result}}, {quoted: msg})
 break
