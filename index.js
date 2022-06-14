@@ -56,7 +56,7 @@ function title() {
 		width: 80,
 		whitespaceBreak: false
 	})))
-	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Powered By Christian ]')}\n\n${chalk.red('Izumi-Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Christian')} : ${chalk.white('@chris.tianid')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 859-2116-5857')}\n${chalk.red('Rest Api')} : ${chalk.white('https://christian-id-api.herokuapp.com/docs')}\n`))
+	console.log(chalk.yellow(`\n                        ${chalk.yellow('[ Powered By Christian ]')}\n\n${chalk.red('Izumi-Bot')} : ${chalk.white('WhatsApp Bot Multi Device')}\n${chalk.red('Follow Insta Christian')} : ${chalk.white('@chris.tianid')}\n${chalk.red('Message Me On WhatsApp')} : ${chalk.white('+62 859-2116-5857')}\n${chalk.red('Rest Api')} : ${chalk.white('https://christian-id-api.herokuapp.com/docs')}\n${chalk.red('Youtube')} : ${chalk.white('https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg')}\n`))
 }
 
 /**
@@ -111,7 +111,7 @@ const connectToWhatsApp = async () => {
 	nocache('./message/msg', module => console.log(chalk.greenBright('[ WHATSAPP BOT ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	
 	conn.multi = true
-	conn.nopref = false
+	conn.nopref = true
 	conn.prefa = ''
 	conn.ev.on('messages.upsert', async m => {
 		if (!m.messages) return;
