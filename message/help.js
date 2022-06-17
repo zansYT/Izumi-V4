@@ -81,6 +81,9 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}husbu
   ✾ ${prefix}yaoi
 
+  *❒ Store Menu*
+  ✾ ${prefix}listff
+
   *❒ Primbon Menu*
   ✾ ${prefix}artimimpi *mimpi*
   ✾ ${prefix}artinama *nama*
@@ -100,6 +103,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}thunder (Text)
   ✾ ${prefix}jokerlogo (Text)
   ✾ ${prefix}ninjalogo (Text1) | (Text2)
+  ✾ ${prefix}lionlogo (Text1) | (Text2)
   ✾ ${prefix}skytext (Text)
   ✾ ${prefix}pornhub (Text1) | (Text2)
   ✾ ${prefix}avengers (Text) | (Text2)
@@ -118,6 +122,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}watercolor (Text)
   ✾ ${prefix}glossymaker (Text)
   ✾ ${prefix}multicolor (Text)
+  ✾ ${prefix}deluxesilver (Text)
   ✾ ${prefix}gluetext (Text)
   ✾ ${prefix}neonlight (Text)
   ✾ ${prefix}neondevil (Text)
@@ -179,6 +184,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}translate <from> <to>
   ✾ ${prefix}lirik <Judul>
   ✾ ${prefix}grupwa <Pencarian>
+  ✾ ${prefix}wame (Nomor)
   ✾ ${prefix}ytsearch <Pencarian>
   ✾ ${prefix}pinterest <Querry>
   ✾ ${prefix}getpp
@@ -248,6 +254,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}exif
   ✾ ${prefix}textchat
   ✾ ${prefix}leave
+  ✾ ${prefix}masuk
   ✾ ${prefix}addprem
   ✾ ${prefix}delprem
   ✾ ${prefix}broadcast

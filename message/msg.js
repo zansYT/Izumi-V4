@@ -71,7 +71,7 @@ const ikiapi = "FuckBitch"
 const chrisapi = "IzumiBot"
 
 //Setting ke 2
-const nobot = "37258266435"
+const nobot = "37259886749"
 
 // Setting Donasi
 const gopay = "0813-2850-7885"
@@ -86,6 +86,16 @@ const tujuhhari = "5.000"
 const tigapuluhhari = "10.000"
 const setahun = "20.000"
 const permanen = "30.000"
+
+//Setting Diamond FF | Ubah Harga Diamond Sesuai Kemauan mu//
+const diamondsatu = "50 💎 = 8.000"
+const diamonddua = "70 💎 = 10.000"
+const diamondtiga = "100 💎 = 15.000"
+const diamondempat = "140 💎 = 20.000"
+const diamondlima = "355 💎 = 50.000"
+
+// Setting Payment
+const via = "ShoopePay , Qris, Gopay"
 
 // Exif
 const Exif = require("../lib/exif")
@@ -306,6 +316,10 @@ module.exports = async(conn, msg, m, setting, store) => {
 			{ quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } },
 			{ quickReplyButton: { displayText: `Premium`, id: `${prefix}daftarprem` } },
 		]
+		const buttonsDiamond = [
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ quickReplyButton: { displayText: `Format ID`, id: `${prefix}formatid` } },
+		]
         
 		const isImage = (type == 'imageMessage')
 		const isVideo = (type == 'videoMessage')
@@ -440,7 +454,25 @@ _Yakin kamu mau daftar ke premium?_
 - Rp. 8.000 - 1 Tahun`
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/premium.jpg') }, templateButtons: button5, footer: '© Izumi - Bot', mentions: [sender] })
 			    break
-case prefix+'sc':
+//Store Menu By Christian ID
+case prefix+'listff': //By Christian ID
+  var teks = `*[ LIST DIAMOND FREE FIRE ]*
+
+✾ ${diamondsatu}
+✾ ${diamonddua}
+✾ ${diamondtiga}
+✾ ${diamondempat}
+✾ ${diamondlima}
+
+*_Pembayaran Via : ${via}_*
+
+*Jika Ingin Order Klick Button Dibawah Atau Ketik ${prefix}formatid*`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/ff.jpg') }, templateButtons: buttonsDiamond, footer: '© Diamond FF', mentions: [sender] })
+			    break
+case prefix+'formatid': // By Christian ID
+  reply("*[ FORMAT FF ]*\n\nID Game = \nNick Game = \nJumlah Diamond = \nPembayaran Via = \n\n*Kirim Formulir Ini Ke wa.me/6285921165857*")
+  break
+case prefix+'sc': //By Christian ID
   var teks = `*── 「 SOURCE CODE 」 ──*
 
 *Script : https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg*
@@ -452,7 +484,7 @@ case prefix+'sc':
 _Sc Versi 2 Berpassword Syarat : Subscribe https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg Dan Screenshot Kirim Ke Owner_`
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/chris.jpg') }, templateButtons: button5, footer: '© Izumi - Bot', mentions: [sender] })
 			    break
-case prefix+'rules':
+case prefix+'rules': //By Christian ID
   var teks = `*── 「 RULES AND FAQ 」 ──*
 
 1. Jangan spam bot. 🙅
@@ -485,7 +517,7 @@ Arigatou Gozaimasu! Untuk kalian user ramah dan Beberapa orang yg ikut membantu 
 😖🙏`
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/rules.jpg') }, templateButtons: button5, footer: '© Izumi - Bot', mentions: [sender] })
 			    break
-case prefix+'sewabot':
+case prefix+'sewabot': //By Christian ID
   var teks = `*── 「 SEWA BOT 」 ──*
 
 *Harga Sewa*
@@ -515,7 +547,7 @@ case prefix+'tes':
 *_Runtime : ${runtime(process.uptime())}_*`
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/tes.jpg') }, templateButtons: buttonsSewa, footer: '© Bot By Christian ID', mentions: [sender] })
 			    break
-case prefix+'claim':
+case prefix+'claim': //By Christian ID
   var htgm = randomNomor(500, 550)
   addBalance(sender, htgm, balance)
   reply(`Selamat Anda Mendapatkan ${htgm} Balance`)
@@ -551,7 +583,7 @@ Thanks To
 - Hardianto
 - Febri`
 
-conn.sendMessage(from, {caption: caption, image: fs.readFileSync('media/chris2.jpg')}, {quoted: msg})
+conn.sendMessage(from, {caption: caption, location: fs.readFileSync('media/chris2.jpg')}, {quoted: msg})
 break
 			/*case prefix+'donate':
 			case prefix+'donasi':
@@ -1179,6 +1211,13 @@ case prefix+'join':
         }
         limitAdd(sender, limit)
         break
+//Wa Me By Christian ID
+case prefix+'wame':
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+if (args.length < 2) return reply(`Kirim perintah ${command} 62899xxxxxxxx`)
+reply(`*[ WAME ]*\n*_Link : https://wa.me/${q}_*`)
+limitAdd(sender, limit)
+break
 //game & fun menu
 //suit menu
 case prefix+'suit':
@@ -1323,9 +1362,6 @@ case prefix+'y':
   break
 case prefix+'n':
   reply("Yah Maaf Ya kak:(")
-  break
-case prefix+'sc':
-  reply("*Script : https://youtube.com/channel/UCbetUssizXWLgZdDVEFp8Sg* ")
   break
 case prefix+'apakah':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
