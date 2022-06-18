@@ -48,26 +48,26 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}daftarprem
   ✾ ${prefix}rules
   ✾ ${prefix}sewabot
-  ✾ ${prefix}izumi (Text)
-  ✾ ${prefix}simi (Text)
+  ✾ ${prefix}izumi *text*
+  ✾ ${prefix}simi *text*
 
   *❒ Converter/Tools*
-  ✾ ${prefix}stiker <ReplyGambar/Caption>
-  ✾ ${prefix}toimg <ReplyStiker>
-  ✾ ${prefix}tovid <ReplyStiker>
+  ✾ ${prefix}stiker *ReplyGambar/Caption*
+  ✾ ${prefix}toimg *ReplyStiker*
+  ✾ ${prefix}tovid *ReplyStiker*
 
   *❒ Downloader*
-  ✾ ${prefix}play <Querry>
-  ✾ ${prefix}youtube <LinkYt>
-  ✾ ${prefix}ytmp4 <LinkYt>
-  ✾ ${prefix}ytmp3 <LinkYt>
-  ✾ ${prefix}ytmp3vn <LinkYt>
+  ✾ ${prefix}play *Query*
+  ✾ ${prefix}youtube *LinkYT*
+  ✾ ${prefix}ytmp4 *LinkYT*
+  ✾ ${prefix}ytmp3 *LinkYT*
+  ✾ ${prefix}ytmp3vn *LinkYT*
   ✾ ${prefix}getvideo
   ✾ ${prefix}getmusic
-  ✾ ${prefix}igv <Instagram Video/Reels>
-  ✾ ${prefix}igf <Instagram Image>
-  ✾ ${prefix}facebook <LinkFb>
-  ✾ ${prefix}mediafire <LinkMediaFire>
+  ✾ ${prefix}igv *Instagram Video/Reels*
+  ✾ ${prefix}igf *Instagram Image*
+  ✾ ${prefix}facebook *LinkFb*
+  ✾ ${prefix}mediafire *LinkMediaFire*
   
   *❒ Random Menu ❒*
   ✾ ${prefix}quotes
@@ -96,78 +96,87 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}hentai
   ✾ ${prefix}masturbation
   ✾ ${prefix}pussy
-  ✾ ${prefix}tiktok (Link Tiktok)
-  ✾ ${prefix}tiktokaudio (Link Tiktok)
+  ✾ ${prefix}tiktok *Link Tiktok*
+  ✾ ${prefix}tiktokaudio *Link Tiktok*
   
   *❒ Textpro Menu ❒*
-  ✾ ${prefix}thunder (Text)
-  ✾ ${prefix}jokerlogo (Text)
-  ✾ ${prefix}ninjalogo (Text1) | (Text2)
-  ✾ ${prefix}lionlogo (Text1) | (Text2)
-  ✾ ${prefix}skytext (Text)
-  ✾ ${prefix}pornhub (Text1) | (Text2)
-  ✾ ${prefix}avengers (Text) | (Text2)
-  ✾ ${prefix}youtubegold (Text)
-  ✾ ${prefix}youtubesilver (Text)
-  ✾ ${prefix}mascotbear (Text)
-  ✾ ${prefix}goldenroses (Text)
-  ✾ ${prefix}hallowen (Text)
-  ✾ ${prefix}grafity (Text)
-  ✾ ${prefix}holografic (Text)
-  ✾ ${prefix}christmas (Text)
-  ✾ ${prefix}luxury (Text)
-  ✾ ${prefix}harrypotter (Text)
-  ✾ ${prefix}brokenglass (Text)
-  ✾ ${prefix}artpapper (Text)
-  ✾ ${prefix}watercolor (Text)
-  ✾ ${prefix}glossymaker (Text)
-  ✾ ${prefix}multicolor (Text)
-  ✾ ${prefix}deluxesilver (Text)
-  ✾ ${prefix}gluetext (Text)
-  ✾ ${prefix}neonlight (Text)
-  ✾ ${prefix}neondevil (Text)
-  ✾ ${prefix}flaming (Text)
-  ✾ ${prefix}shadow (Text)
-  ✾ ${prefix}wolftext (Text)
-  ✾ ${prefix}cup (Text)
-  ✾ ${prefix}cup2 (Text)
-  ✾ ${prefix}romantic (Text)
-  ✾ ${prefix}writetext (Text)
-  ✾ ${prefix}woodheart (Text)
-  ✾ ${prefix}tahta (Text)
-  ✾ ${prefix}waifumaker (Text)
-  ✾ ${prefix}lolimaker (Text)
-  ✾ ${prefix}kanekimaker (Text)
-  ✾ ${prefix}guramaker (Text)
-  ✾ ${prefix}leaves (Text)
-  ✾ ${prefix}pornhub (Text)
-  ✾ ${prefix}3d (Text)
-  ✾ ${prefix}christmas (Text)
-  ✾ ${prefix}logowolf (Text)
-  ✾ ${prefix}logowolf2 (Text)
+  ✾ ${prefix}thunder *text*
+  ✾ ${prefix}jokerlogo *text*
+  ✾ ${prefix}ninjalogo *text1* | *text2*
+  ✾ ${prefix}lionlogo *text1* | *text2*
+  ✾ ${prefix}vintage *text1* | *text2*
+  ✾ ${prefix}skytext *text*
+  ✾ ${prefix}pornhub *text1* | *text2*
+  ✾ ${prefix}avengers *text* | *text2*
+  ✾ ${prefix}youtubegold *text*
+  ✾ ${prefix}youtubesilver *text*
+  ✾ ${prefix}mascotbear *text*
+  ✾ ${prefix}goldenroses *text*
+  ✾ ${prefix}hallowen *text*
+  ✾ ${prefix}grafity *text*
+  ✾ ${prefix}holografic *text*
+  ✾ ${prefix}christmas *text*
+  ✾ ${prefix}luxury *text*
+  ✾ ${prefix}harrypotter *text*
+  ✾ ${prefix}brokenglass *text*
+  ✾ ${prefix}artpapper *text*
+  ✾ ${prefix}watercolor *text*
+  ✾ ${prefix}glossymaker *text*
+  ✾ ${prefix}multicolor *text*
+  ✾ ${prefix}deluxesilver *text*
+  ✾ ${prefix}gluetext *text*
+  ✾ ${prefix}fabric *text*
+  ✾ ${prefix}engraved *text*
+  ✾ ${prefix}writing *text*
+  ✾ ${prefix}wicker *text*
+  ✾ ${prefix}larva *text*
+  ✾ ${prefix}toxic *text*
+  ✾ ${prefix}koipish *text*
+  ✾ ${prefix}strobery *text*
+  ✾ ${prefix}neonlight *text*
+  ✾ ${prefix}neondevil *text*
+  ✾ ${prefix}flaming *text*
+  ✾ ${prefix}shadow *text*
+  ✾ ${prefix}wolftext *text*
+  ✾ ${prefix}cup *text*
+  ✾ ${prefix}cup2 *text*
+  ✾ ${prefix}romantic *text*
+  ✾ ${prefix}writetext *text*
+  ✾ ${prefix}woodheart *text*
+  ✾ ${prefix}tahta *text*
+  ✾ ${prefix}waifumaker *text*
+  ✾ ${prefix}lolimaker *text*
+  ✾ ${prefix}kanekimaker *text*
+  ✾ ${prefix}guramaker *text*
+  ✾ ${prefix}leaves *text*
+  ✾ ${prefix}pornhub *text*
+  ✾ ${prefix}3d *text*
+  ✾ ${prefix}christmas *text*
+  ✾ ${prefix}logowolf *text*
+  ✾ ${prefix}logowolf2 *text*
   
   *❒ Photo Oxy Menu ❒ (Eror)*
-  ✾ ${prefix}coffecup (Text)
-  ✾ ${prefix}glitch (Text1) | (Text2)
-  ✾ ${prefix}undergrass (Text)
-  ✾ ${prefix}lovetext (Text)
-  ✾ ${prefix}lovetext2 (Text)
-  ✾ ${prefix}army (Text)
-  ✾ ${prefix}matrix (Text)
-  ✾ ${prefix}pubg (Text)
-  ✾ ${prefix}breakwall (Text)
-  ✾ ${prefix}butterfly (Text)
-  ✾ ${prefix}narutotext (Text)
-  ✾ ${prefix}smoke (Text)
-  ✾ ${prefix}burnpapper (Text)
-  ✾ ${prefix}doubleheart (Text)
+  ✾ ${prefix}coffecup *text*
+  ✾ ${prefix}glitch *text1* | *text2*
+  ✾ ${prefix}undergrass *text*
+  ✾ ${prefix}lovetext *text*
+  ✾ ${prefix}lovetext2 *text*
+  ✾ ${prefix}army *text*
+  ✾ ${prefix}matrix *text*
+  ✾ ${prefix}pubg *text*
+  ✾ ${prefix}breakwall *text*
+  ✾ ${prefix}butterfly *text*
+  ✾ ${prefix}narutotext *text*
+  ✾ ${prefix}smoke *text*
+  ✾ ${prefix}burnpapper *text*
+  ✾ ${prefix}doubleheart *text*
   
   *❒ Other Menu ❒*
-  ✾ ${prefix}shortlink <Link>
-  ✾ ${prefix}ssweb <Link>
-  ✾ ${prefix}ssdesktop <Link>
-  ✾ ${prefix}sshpfull <Link>
-  ✾ ${prefix}kbbi <Kata>
+  ✾ ${prefix}shortlink *Link*
+  ✾ ${prefix}ssweb *Link*
+  ✾ ${prefix}ssdesktop *Link*
+  ✾ ${prefix}sshpfull *Link*
+  ✾ ${prefix}kbbi *Kata*
   ✾ ${prefix}faktaunik
   ✾ ${prefix}ppcp
   ✾ ${prefix}darkjokes
@@ -175,31 +184,31 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}covid19
   ✾ ${prefix}cerpen
   ✾ ${prefix}cersex
-  ✾ ${prefix}wiki <Query>
-  ✾ ${prefix}igstalk <Username>
-  ✾ ${prefix}say (Text)
-  ✾ ${prefix}qr (Text)
-  ✾ ${prefix}readmore (Text)|(Text)
+  ✾ ${prefix}wiki *Query*
+  ✾ ${prefix}igstalk *Username*
+  ✾ ${prefix}say *text*
+  ✾ ${prefix}qr *text*
+  ✾ ${prefix}readmore *text*|*text*
   ✾ ${prefix}hitungmundur 12 10 2022
-  ✾ ${prefix}translate <from> <to>
-  ✾ ${prefix}lirik <Judul>
-  ✾ ${prefix}grupwa <Pencarian>
-  ✾ ${prefix}wame (Nomor)
-  ✾ ${prefix}ytsearch <Pencarian>
-  ✾ ${prefix}pinterest <Querry>
+  ✾ ${prefix}translate *from* *to*
+  ✾ ${prefix}lirik *Judul*
+  ✾ ${prefix}grupwa *Pencarian*
+  ✾ ${prefix}wame *Nomor*
+  ✾ ${prefix}ytsearch *Pencarian*
+  ✾ ${prefix}pinterest *Querry*
   ✾ ${prefix}getpp
 
   *❒ Islamic Menu ❒*
-  ✾ ${prefix}quran <nomer>
-  ✾ ${prefix}quranaudio <surah> <ayat>
-  ✾ ${prefix}listquran <nomer>
-  ✾ ${prefix}kisahnabi <Nama Nabi>
+  ✾ ${prefix}quran *nomer*
+  ✾ ${prefix}quranaudio *surah* *ayat*
+  ✾ ${prefix}listquran *nomer*
+  ✾ ${prefix}kisahnabi *Nama Nabi*
 
   *❒ Nulis Menu ❒*
-  ✾ ${prefix}nuliskanan (Text)
-  ✾ ${prefix}nuliskiri (Text)
-  ✾ ${prefix}foliokanan (Text)
-  ✾ ${prefix}foliokiri (Text)
+  ✾ ${prefix}nuliskanan *text*
+  ✾ ${prefix}nuliskiri *text*
+  ✾ ${prefix}foliokanan *text*
+  ✾ ${prefix}foliokiri *text*
   
   *❒ Vokal Menu ❒*
   ✾ ${prefix}halah
@@ -214,23 +223,23 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}suit
   ✾ ${prefix}slot
   ✾ ${prefix}tebakgambar
-  ✾ ${prefix}apakah <Query>
-  ✾ ${prefix}kapankah <Query>
-  ✾ ${prefix}rate <Query>
-  ✾ ${prefix}gantecek <Nama>
-  ✾ ${prefix}cantikcek <Nama>
-  ✾ ${prefix}sangecek <Nama>
-  ✾ ${prefix}gaycek <Nama>
-  ✾ ${prefix}lesbicek <Nama>
-  ✾ ${prefix}gimana <Query>
-  ✾ ${prefix}bisakah <Query>
+  ✾ ${prefix}apakah *Query*
+  ✾ ${prefix}kapankah *Query*
+  ✾ ${prefix}rate *Query*
+  ✾ ${prefix}gantecek *Nama*
+  ✾ ${prefix}cantikcek *Nama*
+  ✾ ${prefix}sangecek *Nama*
+  ✾ ${prefix}gaycek *Nama*
+  ✾ ${prefix}lesbicek *Nama*
+  ✾ ${prefix}gimana *Query*
+  ✾ ${prefix}bisakah *Query*
   ✾ ${prefix}cekme
   ✾ ${prefix}dadu
   
   *❒ Payment & Bank ❒*
-  ✾ ${prefix}buylimit <Jumlah>
-  ✾ ${prefix}buyglimit <Jumlah>
-  ✾ ${prefix}transfer @tag <jumlah>
+  ✾ ${prefix}buylimit *Jumlah*
+  ✾ ${prefix}buyglimit *Jumlah*
+  ✾ ${prefix}transfer @tag *jumlah*
   ✾ ${prefix}limit
   ✾ ${prefix}balance
   ✾ ${prefix}topbalance
@@ -240,11 +249,11 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}setppgrup
   ✾ ${prefix}setnamegc
   ✾ ${prefix}setdesc
-  ✾ ${prefix}group <Open/Close>
+  ✾ ${prefix}group *Open/Close*
   ✾ ${prefix}revoke
-  ✾ ${prefix}hidetag (Text)
-  ✾ ${prefix}kick <@tag>
-  ✾ ${prefix}add <@tag>
+  ✾ ${prefix}hidetag *text*
+  ✾ ${prefix}kick *@tag*
+  ✾ ${prefix}add *@tag*
   
   *❒ Owner Menu ❒*
   > evalcode
