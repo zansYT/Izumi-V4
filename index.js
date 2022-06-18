@@ -49,7 +49,7 @@ const { state, saveState } = useSingleFileAuthState(session)
 
 function title() {
       console.clear()
-	  console.log(chalk.bold.blue(figlet.textSync('Izumi-Bot', {
+	  console.log(chalk.bold.red(figlet.textSync('Izumi-Bot', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		verticalLayout: 'default',
@@ -97,7 +97,7 @@ const connectToWhatsApp = async () => {
             printQRInTerminal: true,
             logger: logg({ level: 'fatal' }),
             auth: state,
-            browser: ["Izumi-Bot", "Safari", "3.0"]
+            browser: ["Izumi-Multi-Device", "Safari", "3.0"]
         })
 	title()
         store.bind(conn.ev)
