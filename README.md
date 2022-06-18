@@ -15,8 +15,8 @@ apt install git -y
 apt install nodejs -y
 apt install ffmpeg -y
 apt install imagemagick -y
-git clone https://github.com/GetSya/JOJO-MD
-cd wabot-aq
+git clone https://github.com/TianBot1/IZUMI-MULTI-DEVICE
+cd IZUMI-MULTI-DEVICE
 npm install
 npm update
 ```
