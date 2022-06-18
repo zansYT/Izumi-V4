@@ -1,12 +1,11 @@
-# JOJO-MD
-Jojo Bot Multi Device
+# IZUMI-MD
+Izumi Bot Multi Device
 
 ## DEPLOY TO HEROKU
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GetSya/JOJO-MD)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TianBot1/IZUMI-MULTI-DEVICE)
 
 ## Module Untuk Multi Device
 Download Module [CLICK HERE](https://www.mediafire.com/file/l8b3te4g1p8z354/module.zip/file) NO PASSWORD <br>
-Download File SCRIPT Via Zip [CLICK HERE](https://www.mediafire.com/file/djgc093s2l9xxmk/JOJO-MD.zip/file) NO PASSWORD
 
 ## FOR TERMUX/UBUNTU/SSH USER
 
