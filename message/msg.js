@@ -695,18 +695,6 @@ case prefix+'githubown':
 			       reply(`Kirim gambar/vidio dengan caption ${command} atau balas gambar/vidio yang sudah dikirim\nNote : Maximal vidio 10 detik!`)
 			    }
                 break
-case prefix+'attp':
-                if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-                if (args.length < 2) return reply(`Kirim perintah *${prefix}attp* teks`)
-                let ane = await getBuffer(`https://hadi-api.herokuapp.com/api/canvas/attp?text=text=Hello%20bang`)
-                fs.writeFileSync('./sticker/attp.webp', ane)
-                exec(`webpmux -set exif ./sticker/data.exif ./sticker/attp.webp -o ./sticker/attp.webp`, async (error) => {
-                    if (error) return reply(mess.error.api)
-                    conn.sendMessage(from, fs.readFileSync(`./sticker/attp.webp`), sticker, {quoted: msg})
-                    limitAdd(sender, limit)
-                    fs.unlinkSync(`./sticker/attp.webp`)	
-                })
-                break
 			case prefix+'toimg': case prefix+'toimage':
 			case prefix+'tovid': case prefix+'tovideo':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -790,7 +778,7 @@ case prefix+'attp':
 			    if (!args[1].includes('mediafire')) return reply(mess.error.Iv)
 			    reply(mess.wait)
 					var data = await fetchJson(`https://christian-id-api.herokuapp.com/api/download/mediafire?url=${q}/textprome.js/file&apikey=${chrisapi}`)
-					conn.sendMessage(from, { document: { url: data.url }, fileName: `${data.filename}`, mimetype: 'zip' }, { quoted: msg })
+					conn.sendMessage(from, { document: { url: data.result.link }, fileName: `${data.result.nama}`, mimetype: 'zip' }, { quoted: msg })
 					limitAdd(sender, limit)
 					break
             case prefix+'play':
