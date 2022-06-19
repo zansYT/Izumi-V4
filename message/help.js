@@ -47,7 +47,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}listprem
   ✾ ${prefix}daftarprem
   ✾ ${prefix}rules
-  ✾ ${prefix}sewabot
   ✾ ${prefix}izumi *text*
   ✾ ${prefix}simi *text*
 
@@ -83,12 +82,14 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
 
   *❒ Store Menu*
   ✾ ${prefix}listff
+  ✾ ${prefix}rekber
+  ✾ ${prefix}sewabot
 
   *❒ Primbon Menu*
   ✾ ${prefix}artimimpi *mimpi*
   ✾ ${prefix}artinama *nama*
   
-  *❒ Stalker Menu (Ig Stalk Dalam Perbaikan)*
+  *❒ Stalker Menu (Ig Stalk Eror)*
   ✾ ${prefix}igstalk *username*
   ✾ ${prefix}ghstalk *username*
   
@@ -198,7 +199,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}igstalk *Username*
   ✾ ${prefix}say *text*
   ✾ ${prefix}qr *text*
-  ✾ ${prefix}readmore *text*|*text*
+  ✾ ${prefix}readmore *text|text*
   ✾ ${prefix}hitungmundur 12 10 2022
   ✾ ${prefix}translate *from* *to*
   ✾ ${prefix}lirik *Judul*
@@ -253,6 +254,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}topbalance
 
   *❒ Group Menu ❒*
+  ✾ ${prefix}antilink *enable/disable*
+  ✾ ${prefix}antiwame *enable/disable*
   ✾ ${prefix}linkgrup
   ✾ ${prefix}setppgrup
   ✾ ${prefix}setnamegc

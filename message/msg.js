@@ -72,6 +72,7 @@ const chrisapi = "IzumiBot"
 
 //Setting ke 2
 const nobot = "37259886749"
+const namabot = "Izumi MD"
 
 // Setting Donasi
 const gopay = "0813-2850-7885"
@@ -94,6 +95,16 @@ const diamondtiga = "100 💎 = 15.000"
 const diamondempat = "140 💎 = 20.000"
 const diamondlima = "355 💎 = 50.000"
 
+//Setting Rekber // Lu Ubah Aja Soalnya Gw Bukan Anak JB:v //
+const rekbera = "0-49K : 5K"
+const rekberb = "50-110K : 10K"
+const rekberc = "111-199K : 15K"
+const rekberd = "200-299K : 20K"
+const rekbere = "300-399K : 25K"
+const rekberf = "400-499K : 30K"
+const rekberg = "500-699K : 40K"
+const rekberh = "700-1JT : 50K"
+
 // Setting Payment
 const via = "ShoopePay , Qris, Gopay"
 
@@ -112,6 +123,8 @@ let premium = JSON.parse(fs.readFileSync('./database/premium.json'));
 let balance = JSON.parse(fs.readFileSync('./database/balance.json'));
 let limit = JSON.parse(fs.readFileSync('./database/limit.json'));
 let glimit = JSON.parse(fs.readFileSync('./database/glimit.json'));
+let antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
+let antiwame = JSON.parse(fs.readFileSync('./database/antiwame.json'));
 
 moment.tz.setDefault("Asia/Jakarta").locale("id");
 
@@ -144,7 +157,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const isCmd = command.startsWith(prefix)
 		const isGroup = msg.key.remoteJid.endsWith('@g.us')
 		const sender = isGroup ? (msg.key.participant ? msg.key.participant : msg.participant) : msg.key.remoteJid
-		const isOwner = ownerNumber == sender ? true : [`${ownerNumber}@s.whatsapp.net`, "6281319944917@s.whatsapp.net"].includes(sender) ? true : false
+		const isOwner = ownerNumber == sender ? true : [`${ownerNumber}@s.whatsapp.net`, "6285921165857@s.whatsapp.net"].includes(sender) ? true : false
 		const pushname = msg.pushName
 		const q = chats.slice(command.length + 1, chats.length)
 		const body = chats.startsWith(prefix) ? chats : ''
@@ -158,6 +171,8 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const isGroupAdmins = groupAdmins.includes(sender)
 		const isUser = pendaftar.includes(sender)
 		const isPremium = isOwner ? true : _prem.checkPremiumUser(sender, premium)
+		const isAntiLink = isGroup ? antilink.includes(from) : false
+        const isAntiWame = isGroup ? antiwame.includes(from) : false
 
 		const gcounti = setting.gcount
 		const gcount = isPremium ? gcounti.prem : gcounti.user
@@ -293,32 +308,40 @@ module.exports = async(conn, msg, m, setting, store) => {
 		}
 		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+${ownerNumber}` } },
 		const buttonsDefault = [
-			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
 			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6285921165857` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
 			{ quickReplyButton: { displayText: `Script`, id: `${prefix}sc` } },
 		]
 		const button5 = [
 			{ callButton: { displayText: `Number Owner`, phoneNumber: `0859-2116-5857` } },
-			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
 			{ quickReplyButton: { displayText: `Back To Menu 🔙`, id: `${prefix}menu` } },
 		]
 		const buttonsSewa = [
-			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
 			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6285921165857` } },
 			{ quickReplyButton: { displayText: `Donasi`, id: `${prefix}donate` } },
 			{ quickReplyButton: { displayText: `Menu`, id: `${prefix}menu` } },
 		]
 		const buttonsMenu = [
-			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
 			{ urlButton: { displayText: `Nomer Owner`, url : `https://wa.me/6285921165857` } },
 			{ quickReplyButton: { displayText: `Donasi`, id: `${prefix}donate` } },
 			{ quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } },
 			{ quickReplyButton: { displayText: `Premium`, id: `${prefix}daftarprem` } },
 		]
-		const buttonsDiamond = [
-			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+		const buttonsDiamondFF = [
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
 			{ quickReplyButton: { displayText: `Format ID`, id: `${prefix}formatid` } },
+		]
+		const buttonsAllmenu = [
+		    { urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
+			{ quickReplyButton: { displayText: `All Menu`, id: `${prefix}allmenu` } },
+			{ quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } },
+		]
+		const buttonsRekber = [
+			{ urlButton: { displayText: `Chat Owner`, url : `https://wa.me/6285921165857` } },
 		]
         
 		const isImage = (type == 'imageMessage')
@@ -330,6 +353,23 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const isQuotedDocument = isQuotedMsg ? content.includes('documentMessage') ? true : false : false
 		const isQuotedVideo = isQuotedMsg ? content.includes('videoMessage') ? true : false : false
 		const isQuotedSticker = isQuotedMsg ? content.includes('stickerMessage') ? true : false : false
+
+         // Anti link
+        if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
+            if (chats.match(`://chat.whatsapp.com`)) {
+                reply(`*[ GROUP LINK DETECTOR ]*\n\nSepertinya kamu mengirimkan link grup, maaf kamu akan di kick`)
+                number = sender
+      conn.groupParticipantsUpdate(from, [number], "remove")
+            }
+        }
+         // Anti wame
+        if (isGroup && isAntiWame && !isOwner && !isGroupAdmins && isBotGroupAdmins){
+            if (chats.match(/(wa.me\/)/gi)) {
+                reply(`*[ NOMOR LINK DETECTOR ]*\n\nSepertinya kamu mengirimkan link nomor, maaf kamu akan di kick`)
+                number = sender
+      conn.groupParticipantsUpdate(from, [number], "remove")
+            }
+        }
 
 		// Auto Read & Presence Online
 		conn.sendReadReceipt(from, sender, [msg.key.id])
@@ -343,7 +383,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 
 		// Premium
 		_prem.expiredCheck(conn, premium)
-
+		
 		// Tictactoe
 		if (isTicTacToe(from, tictactoe)) tictac(chats, prefix, tictactoe, from, sender, reply, mentions, addBalance, balance)
 
@@ -409,21 +449,27 @@ if (chats.startsWith("@37258266435")){
 
 		switch(command) {
 			// Main Menu
-			case prefix+'menu':
-			case prefix+'help':
+			case prefix+'allmenu':
 			  /*conn.sendMessage(from, { audio: fs.readFileSync('audio/Menu.m4a'), mimetype: 'audio/mp4', ptt: true}, {quoted: msg})*/
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    
 				/*conn.sendMessage(from, { react: { text: `👋`, key: msg.key }})*/
 conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/Menu.jpg') }, templateButtons: buttonsMenu, footer: '© Izumi - Bot', mentions: [sender] })
 				break
+case prefix+'menu':
+  var teks = `Hai kak ${pushname}
+saya ${namabot}, bot ini adalah Beta Multi-Device Whatsapp
+
+Note : *_Bot Ini Masih Dalam Pengembangan Jika Ada Fitur Yang Eror Silakan Hubungi Owner!!!_*`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/Menu.jpg') }, templateButtons: buttonsAllmenu, footer: 'Izumi Bot Multi Device', mentions: [sender] })
+			    break
 case prefix+'donasiah':
   reply(`Jika Ingin Donasi Harap Hubungi Owner\n\nhttps://wa.me/${ownerNumber}`)
   break
 case prefix+'donasi':
   case prefix+'donate':
   var donasibut = [
-			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/I8tfqFi2dXi6pxNJTVrAb2` } },
+			{ urlButton: { displayText: `Group Izumi Bot`, url : `https://chat.whatsapp.com/LsNzi7PDERyB9xIlW0F8Eq2` } },
 			{ quickReplyButton: { displayText: `Aku Ingin Donasi`, id: `${prefix}donasiah` } },
 		]
 var teks = `  │
@@ -467,7 +513,20 @@ case prefix+'listff': //By Christian ID
 *_Pembayaran Via : ${via}_*
 
 *Jika Ingin Order Klick Button Dibawah Atau Ketik ${prefix}formatid*`
-			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/ff.jpg') }, templateButtons: buttonsDiamond, footer: '© Diamond FF', mentions: [sender] })
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/ff.jpg') }, templateButtons: buttonsDiamondFF, footer: '© Diamond FF', mentions: [sender] })
+			    break
+case prefix+'rekber': //By Christian ID
+  var teks = `*[ LIST HARGA REKBER ]*
+
+ ${rekbera}
+ ${rekberb}
+ ${rekberc}
+ ${rekberd}
+ ${rekbere}
+ ${rekberf}
+ ${rekberg}
+ ${rekberh}`
+			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync('media/rekber.jpg') }, templateButtons: buttonsRekber, footer: 'List Rekber', mentions: [sender] })
 			    break
 case prefix+'formatid': // By Christian ID
   reply("*[ FORMAT FF ]*\n\nID Game = \nNick Game = \nJumlah Diamond = \nPembayaran Via = \n\n*Kirim Formulir Ini Ke wa.me/6285921165857*")
@@ -1544,9 +1603,6 @@ case prefix+'cekbapak': // By Christian ID
 			    url = 'https://chat.whatsapp.com/'+url
 				reply(url)
 				break
-            case prefix+'tagme':
-                mentions(`@${sender.split("@")[0]}`, [sender], true)
-                break
 			case prefix+'setppgrup': case prefix+'setppgc':
 			    if (!isGroup) return reply(mess.OnlyGrup)
 				if (!isGroupAdmins) return reply(mess.GrupAdmin)
@@ -1658,6 +1714,44 @@ case prefix+'add':
       reply(`Kirim perintah ${command} nomer atau balas pesan orang yang ingin dimasukkan kedalam grup`)
     }
     break
+case prefix+'antilink':
+                if (!isGroup) return reply(mess.OnlyGrup)
+                if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
+                if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+                if (args.length === 1) return reply(`Pilih enable atau disable\nContoh : ${prefix}antilink enable`)
+                if (args[1].toLowerCase() === 'enable'){
+                    if (isAntiLink) return reply(`Udah aktif`)
+                    antilink.push(from)
+					fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+					reply('*Antilink Grup Aktif*')
+                } else if (args[1].toLowerCase() === 'disable'){
+                    let anu = antilink.indexOf(from)
+                    antilink.splice(anu, 1)
+                    fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+                    reply('*Antilink Grup Nonaktif*')
+                } else {
+                    reply(`Pilih enable atau disable\nContoh : ${prefix}antilink enable`)
+                }
+                break
+case prefix+'antiwame':
+                if (!isGroup) return reply(mess.OnlyGrup)
+                if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
+                if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+                if (args.length === 1) return reply(`Pilih enable atau disable\nContoh : ${prefix}antiwame enable`)
+                if (args[1].toLowerCase() === 'enable'){
+                    if (isAntiWame) return reply(`Udah aktif`)
+                    antiwame.push(from)
+					fs.writeFileSync('./database/antiwame.json', JSON.stringify(antiwame))
+					reply('*Antiwame Grup Aktif*')
+                } else if (args[1].toLowerCase() === 'disable'){
+                    let anu = antiwame.indexOf(from)
+                    antiwame.splice(anu, 1)
+                    fs.writeFileSync('./database/antiwame.json', JSON.stringify(antiwame))
+                    reply('*Antiwame Grup Nonaktif*')
+                } else {
+                    reply(`Pilih enable atau disable\nContoh : ${prefix}antiwame enable`)
+                }
+                break
 			// Bank & Payment Menu
 			case prefix+'topbalance':{
                 balance.sort((a, b) => (a.balance < b.balance) ? 1 : -1)
