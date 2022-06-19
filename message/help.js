@@ -56,7 +56,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}toimg *ReplyStiker*
   ✾ ${prefix}tovid *ReplyStiker*
 
-  *❒ Downloader*
+  *❒ Downloader (MediaFire Dalam Perbaikan)*
   ✾ ${prefix}play *Query*
   ✾ ${prefix}youtube *LinkYT*
   ✾ ${prefix}ytmp4 *LinkYT*
@@ -87,6 +87,16 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   *❒ Primbon Menu*
   ✾ ${prefix}artimimpi *mimpi*
   ✾ ${prefix}artinama *nama*
+  
+  *❒ Stalker Menu (Ig Stalk Dalam Perbaikan)*
+  ✾ ${prefix}igstalk *username*
+  ✾ ${prefix}ghstalk *username*
+  
+  *❒ Shorlink Menu*
+  ✾ ${prefix}shortlink *link*
+  ✾ ${prefix}cuttly *link*
+  ✾ ${prefix}bitly *link*
+  ✾ ${prefix}tinyurl *link*
   
   *❒ Premium User*
   ✾ ${prefix}asupan
@@ -206,8 +216,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
 
   *❒ Nulis Menu ❒*
   ✾ ${prefix}nuliskanan *text*
-  ✾ ${prefix}nuliskiri *text*
-  ✾ ${prefix}foliokanan *text*
   ✾ ${prefix}foliokiri *text*
   
   *❒ Vokal Menu ❒*

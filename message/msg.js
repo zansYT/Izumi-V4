@@ -1016,12 +1016,37 @@ case prefix+'covid': case prefix+'covid19': case prefix+'kopit':
    conn.sendMessage(from, {caption: captnya, image: { url: `https://telegra.ph/file/86b3b90581f9d31353b62.jpg`}}, {quoted: msg})
    limitAdd(sender, limit)
    break
+//Persingkat Url By Christian ID
 case prefix+'shortlink':
   if (args.length < 2) return reply(`Kirim perintah ${command} link`)
   if (!isUrl(args[1])) return reply("Masukan Link")
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/short/tiny?url=${args[1]}&apikey=${jojoapi}`)
-			    reply(`Link : ${data.result.link}`)
+				var data = await fetchJson(`https://hadi-api.herokuapp.com/api/shorturl?url=${args[1]}2`)
+			    reply(`*Hasil : ${data.result}*`)
+				limitAdd(sender, limit)
+				break
+case prefix+'cuttly':
+  if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+  if (!isUrl(args[1])) return reply("Masukan Link")
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				var data = await fetchJson(`https://hadi-api.herokuapp.com/api/cuttly?url=${args[1]}`)
+			    reply(`*Hasil : ${data.result}*`)
+				limitAdd(sender, limit)
+				break
+case prefix+'bitly':
+  if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+  if (!isUrl(args[1])) return reply("Masukan Link")
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				var data = await fetchJson(`https://hadi-api.herokuapp.com/api/bitly?url=${args[1]}`)
+			    reply(`*Link : ${data.result}*`)
+				limitAdd(sender, limit)
+				break
+case prefix+'tinyurl':
+  if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+  if (!isUrl(args[1])) return reply("Masukan Link")
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				var data = await fetchJson(`https://hadi-api.herokuapp.com/api/tinyurl?url=${args[1]}`)
+			    reply(`*Hasil : ${data.result}*`)
 				limitAdd(sender, limit)
 				break
 case prefix+'hitungmundur':
@@ -1040,6 +1065,7 @@ case prefix+'kbbi':
 			    reply(`Kata : ${kbbi}\nArti : ${data.result.arti}`)
 				limitAdd(sender, limit)
 				break
+//Primbon Menu By Christian ID
 case prefix+'artimimpi':
   if (args.length < 2) return reply(`Kirim perintah ${command} jembatan`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -2365,13 +2391,13 @@ case prefix+'igstalk':
     conn.sendMessage(from, {caption: caption, image: {url: data.thumbnail}}, {quoted: msg})
     limitAdd(sender, limit)
     break
-case prefix+'ghstalk':
+case prefix+'ghstalk': //By Christian ID
   case prefix+'stalkgh':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
     if (args.length < 2) return reply(`Kirim perintah ${command} Username\nContoh : ${command} chris.tianid`)
     var data = await fetchJson(`https://hadi-api.herokuapp.com/api/githubstalk?username=${q}`)
-    var caption = `*[ GITHUB STALK ]*\n\n Bio : ${data.result.bio}\n Company : ${data.result.company}\n Email : ${data.result.email}\n Twiter Username : ${data.result.twiter_username}\n Public Repo : ${data.result.public_repo}\n Public Gists : ${data.result.public_gists}\n Followers : ${data.result.follower}\n Following : ${data.result.following}\n Location : ${data.result.location}\n Type : ${data.result.Type}\n\n${readmore} *© Izumi Bot*`
-    conn.sendMessage(from, {caption: caption, location: {url: data.result.avatar}}, {quoted: msg})
+    var caption = `*[ GITHUB STALK ]*\n\n Bio : ${data.result.bio}\n Company : ${data.result.company}\n Email : ${data.result.email}\n Twiter Username : ${data.result.twiter_username}\n Public Repo : ${data.result.public_repo}\n Public Gists : ${data.result.public_gists}\n Followers : ${data.result.follower}\n Following : ${data.result.following}\n Location : ${data.result.location}\n Type : ${data.result.Type}\n\n${readmore} *By Izumi Bot*`
+    conn.sendMessage(from, {caption: caption, image: {url: data.result.avatar}}, {quoted: msg})
     limitAdd(sender, limit)
     break
 case prefix+'guramaker':
