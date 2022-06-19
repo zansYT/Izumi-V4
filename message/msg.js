@@ -2361,8 +2361,17 @@ case prefix+'igstalk':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
     if (args.length < 2) return reply(`Kirim perintah ${command} Username\nContoh : ${command} chris.tianid`)
     var data = await fetchJson(`https://hardianto.xyz/api/igstalk?username=${q}&apikey=hardianto`)
-    var caption = `*[ INSTAGRAM STALK ]*\n\n👤Username : ${data.username}\n📛 Full Name : ${data.fullname}\n✔️ Verified : ${data.verified}\n👥 Followers : ${data.followers}\n🫂 Following : ${data.follow}\n🗣️ Kategori ${data.category}\n\n${readmore} *© IzumiBOT*`
+    var caption = `*[ INSTAGRAM STALK ]*\n\n👤Username : ${data.username}\n📛 Full Name : ${data.fullname}\n✔️ Verified : ${data.verified}\n👥 Followers : ${data.followers}\n🫂 Following : ${data.follow}\n🗣️ Kategori ${data.category}\n\n${readmore} *� Izumi Bot*`
     conn.sendMessage(from, {caption: caption, image: {url: data.thumbnail}}, {quoted: msg})
+    limitAdd(sender, limit)
+    break
+case prefix+'ghstalk':
+  case prefix+'stalkgh':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Username\nContoh : ${command} chris.tianid`)
+    var data = await fetchJson(`https://hadi-api.herokuapp.com/api/githubstalk?username=${q}`)
+    var caption = `*[ GITHUB STALK ]*\n\n Bio : ${data.result.bio}\n Company : ${data.result.company}\n Email : ${data.result.email}\n Twiter Username : ${data.result.twiter_username}\n Public Repo : ${data.result.public_repo}\n Public Gists : ${data.result.public_gists}\n Followers : ${data.result.follower}\n Following : ${data.result.following}\n Location : ${data.result.location}\n Type : ${data.result.Type}\n\n${readmore} *� Izumi Bot*`
+    conn.sendMessage(from, {caption: caption, location: {url: data.result.avatar}}, {quoted: msg})
     limitAdd(sender, limit)
     break
 case prefix+'guramaker':
