@@ -248,7 +248,7 @@ module.exports = async(conn, msg, m, setting, store) => {
 	         		{ quickReplyButton: { displayText: `🎵 Audio (${data.size_mp3})`, id: `${prefix}ytmp3 ${url}` } },
 	         		{ quickReplyButton: { displayText: `🎥 Video (${data.size})`, id: `${prefix}ytmp4 ${url}` } },
 		]
-             conn.sendMessage(from, { caption: `*Title :* ${data.title}\n*Quality :* ${data.quality}\n*Url :* https://youtu.be/${data.id}`, location: {url: data.thumb}, templateButtons: button, footer: 'Pilih Salah Satu Button Dibawah', mentions: [sender]} )
+             conn.sendMessage(from, { caption: `*Title :* ${data.title}\n*Quality :* ${data.quality}\n*Url :* https://youtu.be/${data.id}`, location: { jpegThumbnail: await getBuffer(data.thumb) }, templateButtons: button, footer: 'Pilih Salah Satu Button Dibawah', mentions: [sender]} )
            }).catch((e) => {
              conn.sendMessage(from, { text: mess.error.api }, { quoted: msg })
                ownerNumber.map( i => conn.sendMessage(from, { text: `Send Play Error : ${e}` }))
@@ -354,20 +354,29 @@ module.exports = async(conn, msg, m, setting, store) => {
 		const isQuotedVideo = isQuotedMsg ? content.includes('videoMessage') ? true : false : false
 		const isQuotedSticker = isQuotedMsg ? content.includes('stickerMessage') ? true : false : false
 
-         // Anti link
-        if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
-            if (chats.match(`://chat.whatsapp.com`)) {
-                reply(`*[ GROUP LINK DETECTOR ]*\n\nSepertinya kamu mengirimkan link grup, maaf kamu akan di kick`)
-                number = sender
-      conn.groupParticipantsUpdate(from, [number], "remove")
-            }
+         // Anti link
+
+        if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
+
+            if (chats.match(`://chat.whatsapp.com`)) {
+
+                reply(`*[ GROUP LINK DETECTOR ]*\n\nSepertinya kamu mengirimkan link grup, maaf kamu akan di kick`)
+
+                number = sender
+
+      conn.groupParticipantsUpdate(from, [number], "remove")
+
+            }
+
         }
          // Anti wame
         if (isGroup && isAntiWame && !isOwner && !isGroupAdmins && isBotGroupAdmins){
             if (chats.match(/(wa.me\/)/gi)) {
                 reply(`*[ NOMOR LINK DETECTOR ]*\n\nSepertinya kamu mengirimkan link nomor, maaf kamu akan di kick`)
-                number = sender
-      conn.groupParticipantsUpdate(from, [number], "remove")
+                number = sender
+
+      conn.groupParticipantsUpdate(from, [number], "remove")
+
             }
         }
 
@@ -1714,24 +1723,42 @@ case prefix+'add':
       reply(`Kirim perintah ${command} nomer atau balas pesan orang yang ingin dimasukkan kedalam grup`)
     }
     break
-case prefix+'antilink':
-                if (!isGroup) return reply(mess.OnlyGrup)
-                if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
-                if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-                if (args.length === 1) return reply(`Pilih enable atau disable\nContoh : ${prefix}antilink enable`)
-                if (args[1].toLowerCase() === 'enable'){
-                    if (isAntiLink) return reply(`Udah aktif`)
-                    antilink.push(from)
-					fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-					reply('*Antilink Grup Aktif*')
-                } else if (args[1].toLowerCase() === 'disable'){
-                    let anu = antilink.indexOf(from)
-                    antilink.splice(anu, 1)
-                    fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-                    reply('*Antilink Grup Nonaktif*')
-                } else {
-                    reply(`Pilih enable atau disable\nContoh : ${prefix}antilink enable`)
-                }
+case prefix+'antilink':
+
+                if (!isGroup) return reply(mess.OnlyGrup)
+
+                if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
+
+                if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+
+                if (args.length === 1) return reply(`Pilih enable atau disable\nContoh : ${prefix}antilink enable`)
+
+                if (args[1].toLowerCase() === 'enable'){
+
+                    if (isAntiLink) return reply(`Udah aktif`)
+
+                    antilink.push(from)
+
+					fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+
+					reply('*Antilink Grup Aktif*')
+
+                } else if (args[1].toLowerCase() === 'disable'){
+
+                    let anu = antilink.indexOf(from)
+
+                    antilink.splice(anu, 1)
+
+                    fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+
+                    reply('*Antilink Grup Nonaktif*')
+
+                } else {
+
+                    reply(`Pilih enable atau disable\nContoh : ${prefix}antilink enable`)
+
+                }
+
                 break
 case prefix+'antiwame':
                 if (!isGroup) return reply(mess.OnlyGrup)
@@ -2558,24 +2585,10 @@ case prefix+'leaves':
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
-case prefix+'pornhub':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/porn-hub?apikey=Joo&text1=${args[1]}&text2=${args[2]}`)
-  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
-  limitAdd(sender, limit)
-  break
 case prefix+'3d':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
   var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/3d-gradient?apikey=Joo&text=${q}`)
-  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
-  limitAdd(sender, limit)
-  break
-case prefix+'christmas':
-if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
-  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/christmas?apikey=Joo&text=${q}`)
   conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
@@ -2765,8 +2778,8 @@ case prefix+'lirik':
   }).catch(() => reply(`Lagu ${q} Tidak Di Temukan`))
   break
 default:
-			if (!isGroup && isCmd) {
-				reply(`*Maaf Command ${command} Tidak Ada Di Dalam ${prefix}menu*`)
+			if (isGroup && isCmd) {
+				reply(`*Hallo Kak ${pushname}*\n*Maaf Command ${command} Tidak Ada Di Dalam ${prefix}menu*`)
 			}
 		}
 	} catch (err) {

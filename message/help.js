@@ -160,9 +160,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}kanekimaker *text*
   ✾ ${prefix}guramaker *text*
   ✾ ${prefix}leaves *text*
-  ✾ ${prefix}pornhub *text*
   ✾ ${prefix}3d *text*
-  ✾ ${prefix}christmas *text*
   ✾ ${prefix}logowolf *text*
   ✾ ${prefix}logowolf2 *text*
   
