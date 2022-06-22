@@ -49,11 +49,19 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}rules
   ✾ ${prefix}izumi *text*
   ✾ ${prefix}simi *text*
+  ✾ ${prefix}delete
 
   *❒ Converter/Tools*
   ✾ ${prefix}stiker *ReplyGambar/Caption*
   ✾ ${prefix}toimg *ReplyStiker*
   ✾ ${prefix}tovid *ReplyStiker*
+
+  *❒ Sound Menu*
+  ✾ ${prefix}sound1
+  ✾ ${prefix}sound2
+  ✾ ${prefix}sound3
+  ✾ ${prefix}sound4
+  ✾ ${prefix}sound5
 
   *❒ Downloader (MediaFire Dalam Perbaikan)*
   ✾ ${prefix}play *Query*
@@ -181,7 +189,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}doubleheart *text*
   
   *❒ Other Menu ❒*
-  ✾ ${prefix}shortlink *Link*
   ✾ ${prefix}ssweb *Link*
   ✾ ${prefix}ssdesktop *Link*
   ✾ ${prefix}sshpfull *Link*
@@ -203,6 +210,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}lirik *Judul*
   ✾ ${prefix}grupwa *Pencarian*
   ✾ ${prefix}wame *Nomor*
+  ✾ ${prefix}linkig
+  ✾ ${prefix}github
   ✾ ${prefix}ytsearch *Pencarian*
   ✾ ${prefix}pinterest *Querry*
   ✾ ${prefix}getpp
@@ -230,6 +239,10 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}suit
   ✾ ${prefix}slot
   ✾ ${prefix}tebakgambar
+  ✾ ${prefix}kuis
+  ✾ ${prefix}tebakkimia
+  ✾ ${prefix}tekateki
+  ✾ ${prefix}tebakkata
   ✾ ${prefix}apakah *Query*
   ✾ ${prefix}kapankah *Query*
   ✾ ${prefix}rate *Query*
@@ -252,17 +265,19 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ✾ ${prefix}topbalance
 
   *❒ Group Menu ❒*
-  ✾ ${prefix}antilink *enable/disable*
-  ✾ ${prefix}antiwame *enable/disable*
+  ✾ ${prefix}antilink
+  ✾ ${prefix}antiwame
   ✾ ${prefix}linkgrup
   ✾ ${prefix}setppgrup
   ✾ ${prefix}setnamegc
   ✾ ${prefix}setdesc
-  ✾ ${prefix}group *Open/Close*
+  ✾ ${prefix}group
   ✾ ${prefix}revoke
   ✾ ${prefix}hidetag *text*
   ✾ ${prefix}kick *@tag*
   ✾ ${prefix}add *@tag*
+  ✾ ${prefix}promote *@tag*
+  ✾ ${prefix}demote *@tag*
   
   *❒ Owner Menu ❒*
   > evalcode
@@ -284,6 +299,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   - @arsrfi.jpg (Arasya)
   - M Hadi Firmansya (Hadi Api)
   - @melcanz_ (Amel)
+  - @${setting.Instagram} (Owner)
   - @chris.tianid (Christian ID)
   - @hardianto.xyz (Anto)`
 }
