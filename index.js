@@ -97,7 +97,7 @@ const connectToWhatsApp = async () => {
             printQRInTerminal: true,
             logger: logg({ level: 'fatal' }),
             auth: state,
-            browser: ["Izumi-Multi-Device", "Safari", "3.0"]
+            browser: ["ZANSB0T-MD", "Safari", "3.0"]
         })
 	title()
         store.bind(conn.ev)
